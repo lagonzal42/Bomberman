@@ -1,20 +1,58 @@
 package eredua;
 
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Observable;
 import java.util.Random;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+
 public class Matrizea extends Observable{
 	
-	private static Matrizea nMatrizea = new Matrizea();
+	private static Matrizea nMatrizea = null;
 	private Objektu[][] zerrenda; //objektu klasea aldatu behar da.
 	
 	private Matrizea() {
-		//TODO
+		matrizeaSortu();
+	}
+	
+	public static Matrizea getMatrizea() {
+		if(nMatrizea == null) {
+			nMatrizea = new Matrizea();
+		}
+		return nMatrizea;
 	}
 	
 	private void matrizeaSortu() {
 		Random r = new Random();
-		zerrenda = new Objektu[17][11];
-		for(zerrenda[1].length)
+		zerrenda = new Objektu[11][17];
+		for(int i = 0; i < 11; i++) {
+			for(int j = 0; j < 17; j++) {
+				if(j == 0 && i == 0) {
+					//jokalaria
+					zerrenda[i][j] = new Jokalaria();
+				}
+				else if((j == 0 && i == 1) || (j == 1 && i == 0)) {
+					//hutsik
+					zerrenda[i][j] = null;
+				}
+				else if((j % 2 != 0 && i % 2 != 0)) {
+					//bloke gogorra
+					zerrenda[i][j] = new BlokeGogorra();
+				}
+				else if(r.nextDouble() > 0.4){
+					//bloke biguna
+					zerrenda[i][j] = new BlokeBiguna();
+				}
+				else {
+					//hutsik
+					zerrenda[i][j] = null;
+				}
+			}
+		}
+		setChanged();
+		notifyObservers();
 	}
 }
