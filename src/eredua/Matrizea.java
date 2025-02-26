@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 public class Matrizea extends Observable{
 	
 	private static Matrizea nMatrizea = null;
-	private Objektu[][] zerrenda; //objektu klasea aldatu behar da.
+	private Gelaxka[][] zerrenda; //objektu klasea aldatu behar da.
 	
 	private Matrizea() {
 		matrizeaSortu();
@@ -27,7 +27,7 @@ public class Matrizea extends Observable{
 	
 	private void matrizeaSortu() {
 		Dadoa dado = Dadoa.getNireDadoa();
-		zerrenda = new Objektu[11][17];
+		zerrenda = new Gelaxka[11][17];
 		for(int i = 0; i < 11; i++) {
 			for(int j = 0; j < 17; j++) {
 				if(j == 0 && i == 0) {
@@ -40,11 +40,11 @@ public class Matrizea extends Observable{
 				}
 				else if((j % 2 != 0 && i % 2 != 0)) {
 					//bloke gogorra
-					zerrenda[i][j] = new BlokeGogorra();
+					zerrenda[i][j] = new Gogorra();
 				}
 				else if(dado.gainditzenDu(0.4)){
 					//bloke biguna
-					zerrenda[i][j] = new BlokeBiguna();
+					zerrenda[i][j] = new Biguna();
 				}
 				else {
 					//hutsik
