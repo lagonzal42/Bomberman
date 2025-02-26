@@ -26,7 +26,7 @@ public class Matrizea extends Observable{
 	}
 	
 	private void matrizeaSortu() {
-		Random r = new Random();
+		Dadoa dado = Dadoa.getNireDadoa();
 		zerrenda = new Objektu[11][17];
 		for(int i = 0; i < 11; i++) {
 			for(int j = 0; j < 17; j++) {
@@ -42,7 +42,7 @@ public class Matrizea extends Observable{
 					//bloke gogorra
 					zerrenda[i][j] = new BlokeGogorra();
 				}
-				else if(r.nextDouble() > 0.4){
+				else if(dado.gainditzenDu(0.4)){
 					//bloke biguna
 					zerrenda[i][j] = new BlokeBiguna();
 				}
