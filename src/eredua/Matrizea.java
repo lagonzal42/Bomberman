@@ -12,7 +12,9 @@ import javax.swing.JLabel;
 public class Matrizea extends Observable{
 	
 	private static Matrizea nMatrizea = null;
-	private Gelaxka[][] zerrenda; //objektu klasea aldatu behar da.
+	private Gelaxka[][] zerrenda;
+	private int lerroak = 11;
+	private int zutabeak = 17;
 	
 	private Matrizea() {
 		matrizeaSortu();
@@ -25,18 +27,18 @@ public class Matrizea extends Observable{
 		return nMatrizea;
 	}
 	
-	private void matrizeaSortu() {
+	public void matrizeaSortu() {
 		Dadoa dado = Dadoa.getNireDadoa();
 		zerrenda = new Gelaxka[11][17];
-		for(int i = 0; i < 11; i++) {
-			for(int j = 0; j < 17; j++) {
+		for(int i = 0; i < lerroak; i++) {
+			for(int j = 0; j < zutabeak; j++) {
 				if(j == 0 && i == 0) {
 					//jokalaria
 					zerrenda[i][j] = new Jokalaria();
 				}
 				else if((j == 0 && i == 1) || (j == 1 && i == 0)) {
 					//hutsik
-					zerrenda[i][j] = null;
+					zerrenda[i][j] = new Hutsik();
 				}
 				else if((j % 2 != 0 && i % 2 != 0)) {
 					//bloke gogorra
@@ -48,7 +50,7 @@ public class Matrizea extends Observable{
 				}
 				else {
 					//hutsik
-					zerrenda[i][j] = null;
+					zerrenda[i][j] = new Hutsik();
 				}
 			}
 		}
@@ -59,4 +61,10 @@ public class Matrizea extends Observable{
 	public Gelaxka getGelaxka(int i, int j){
 		return this.zerrenda[i][j];
 	}
+	
+	public void ezabatu(int i, int j) {
+		this.zerrenda[i][j] = new Hutsik();
+	}
+	
+	
 }
