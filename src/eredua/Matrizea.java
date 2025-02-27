@@ -55,4 +55,8 @@ public class Matrizea extends Observable{
 		setChanged();
 		notifyObservers();
 	}
+	
+	public Gelaxka getGelaxka(int i, int j){
+		return this.zerrenda[i][j];
+	}
 }
