@@ -1,5 +1,5 @@
 package eredua;
 
-public class Jokalari {
+public abstract class Jokalari extends Gelaxka{
 
 }
