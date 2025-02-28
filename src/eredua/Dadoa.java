@@ -23,4 +23,9 @@ public class Dadoa {
 	{
 		return (ran.nextDouble() > gainditzeko);
 	}
+	
+	public int zenbakiaAukeratu(int z1, int z2) 
+	{
+		return(ran.nextInt(z1,z2));
+	}
 }
