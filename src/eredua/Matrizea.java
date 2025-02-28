@@ -17,7 +17,9 @@ public class Matrizea extends Observable{
 	private int zutabeak = 17;
 	
 	private Matrizea() {
-		matrizeaSortu();
+		this.zerrenda = matrizeaSortu();
+		setChanged();
+		notifyObservers();
 	}
 	
 	public static Matrizea getMatrizea() {
@@ -28,9 +30,9 @@ public class Matrizea extends Observable{
 	}
 	
 	//private izan behar du.
-	public void matrizeaSortu() {
+	private Gelaxka[][] matrizeaSortu() {
 		Dadoa dado = Dadoa.getNireDadoa();
-		zerrenda = new Gelaxka[11][17];
+		Gelaxka[][] zerrenda = new Gelaxka[11][17];
 		for(int i = 0; i < lerroak; i++) {
 			for(int j = 0; j < zutabeak; j++) {
 				if(j == 0 && i == 0) {
@@ -55,8 +57,7 @@ public class Matrizea extends Observable{
 				}
 			}
 		}
-		setChanged();
-		notifyObservers();
+		return zerrenda;
 	}
 	
 	public Gelaxka getGelaxka(int i, int j){

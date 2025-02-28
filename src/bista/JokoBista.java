@@ -56,7 +56,9 @@ public class JokoBista extends JFrame implements Observer{
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		getContentPane().add(getPanel_1(), BorderLayout.CENTER);
 		setVisible(true);
-		Matrizea.getMatrizea().addObserver(this);
+		Matrizea mat = Matrizea.getMatrizea();
+		mat.addObserver(this);
+		update(mat, null);
 	}
 	
 	private JPanel getPanel_1() {
