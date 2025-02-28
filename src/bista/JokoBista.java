@@ -6,6 +6,10 @@ import java.awt.EventQueue;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -113,6 +117,43 @@ public class JokoBista extends JFrame implements Observer{
 				}
 			}
 		}
+	}
+	
+	private class Controler implements KeyListener{
+
+		@Override
+		public void keyTyped(KeyEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void keyPressed(KeyEvent e) {
+			// TODO Auto-generated method stub
+			if(e.getKeyCode() == KeyEvent.VK_UP) {
+				//jokalaria.mugituGora()
+			}
+			if(e.getKeyCode() == KeyEvent.VK_DOWN) {
+				//jokalaria.mugituBehera()
+			}
+			if(e.getKeyCode() == KeyEvent.VK_LEFT) {
+				//jokalaria.mugituEzkerra()
+			}
+			if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
+				//jokalaria.mugituEskuma()
+			}
+			if(e.getKeyCode() == KeyEvent.VK_B) {
+				//bonba ipini
+			}
+		}
+
+		@Override
+		public void keyReleased(KeyEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		
 	}
 	
 }
