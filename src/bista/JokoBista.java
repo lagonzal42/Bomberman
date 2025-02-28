@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import eredua.Biguna;
+import eredua.Dadoa;
 import eredua.Gelaxka;
 import eredua.Gogorra;
 import eredua.Jokalari;
@@ -99,11 +100,11 @@ public class JokoBista extends JFrame implements Observer{
 				}
 				else if(gel instanceof Gogorra) {
 					//TODO
-					lbl.setIcon(new ImageIcon(this.getClass().getResource("/bista/Sprites/hard1.png")));
+					lbl.setIcon(new ImageIcon(this.getClass().getResource("/bista/Sprites/hard5.png")));
 				}
 				else if(gel instanceof Biguna) {
 					//TODO
-					lbl.setIcon(new ImageIcon(this.getClass().getResource("/bista/Sprites/soft1.png")));
+					lbl.setIcon(new ImageIcon(this.getClass().getResource("/bista/Sprites/soft4" + Dadoa.getNireDadoa().zenbakiaAukeratu(1, 6) +".png")));
 				}
 				else {
 					//TODO
