@@ -3,7 +3,9 @@ package bista;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -49,9 +51,8 @@ public class JokoBista extends JFrame implements Observer{
 	public JokoBista() {
 		setTitle("BOMBERMAN");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 700, 500);
 		getContentPane().setLayout(new BorderLayout(0, 0));
-		
 		getContentPane().add(getPanel_1(), BorderLayout.CENTER);
 		setVisible(true);
 		Matrizea.getMatrizea().addObserver(this);
@@ -59,7 +60,13 @@ public class JokoBista extends JFrame implements Observer{
 	
 	private JPanel getPanel_1() {
 		if (panel == null) {
-			panel = new JPanel();
+			panel = new JPanel() {
+				private Image back = new ImageIcon(this.getClass().getResource("/bista/Sprites/stageBack1.png")).getImage();
+				protected void paintComponent(Graphics g) {
+					super.paintComponent(g);
+					g.drawImage(back, 0, 0, getWidth(), getHeight(), this);
+				}
+			};
 			panel.setLayout(new GridLayout(11, 17, 0, 0));
 			initialice();
 		}
@@ -70,9 +77,10 @@ public class JokoBista extends JFrame implements Observer{
 		for(int i = 0; i < 11; i++) {
 			for(int j = 0; j < 17; j++) {
 				mapa[i][j] = new JPanel();
+				mapa[i][j].setOpaque(false);
 				mapa[i][j].setLayout(new BorderLayout()); // Para centrar la imagen
 	            JLabel label = new JLabel();
-	            label.setOpaque(true);
+	            label.setOpaque(false);
 	            mapa[i][j].add(label);
 	            panel.add(mapa[i][j]);
 			}

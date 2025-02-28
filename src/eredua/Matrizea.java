@@ -27,6 +27,7 @@ public class Matrizea extends Observable{
 		return nMatrizea;
 	}
 	
+	//private izan behar du.
 	public void matrizeaSortu() {
 		Dadoa dado = Dadoa.getNireDadoa();
 		zerrenda = new Gelaxka[11][17];
