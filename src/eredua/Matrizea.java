@@ -37,7 +37,7 @@ public class Matrizea extends Observable{
 			for(int j = 0; j < zutabeak; j++) {
 				if(j == 0 && i == 0) {
 					//jokalaria
-					zerrenda[i][j] = new Jokalaria();
+					zerrenda[i][j] = new Zuria();
 				}
 				else if((j == 0 && i == 1) || (j == 1 && i == 0)) {
 					//hutsik

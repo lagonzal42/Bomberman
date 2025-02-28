@@ -20,7 +20,6 @@ import eredua.Biguna;
 import eredua.Dadoa;
 import eredua.Gelaxka;
 import eredua.Gogorra;
-import eredua.Jokalari;
 import eredua.Jokalaria;
 import eredua.Matrizea;
 

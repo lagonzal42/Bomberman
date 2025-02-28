@@ -8,7 +8,5 @@ public class aaaa {
 		
 		Matrizea mat = Matrizea.getMatrizea();
 		
-		mat.matrizeaSortu();
-		
 	}
 }
