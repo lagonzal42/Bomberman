@@ -61,6 +61,9 @@ public class Matrizea extends Observable{
 	}
 	
 	public Gelaxka getGelaxka(int i, int j){
+		if(i < 0 || j < 0) {
+			return null;
+		}
 		return this.zerrenda[i][j];
 	}
 	
@@ -68,5 +71,34 @@ public class Matrizea extends Observable{
 		this.zerrenda[i][j] = new Hutsik();
 	}
 	
+	public int[] getJokalariPos(){
+		int[] pos = new int[2];
+		for(int i = 0; i < 11; i++) {
+			for(int j = 0; j < 17; j++) {
+				if(this.zerrenda[i][j] instanceof Jokalaria) {
+					pos[0] = i;
+					pos[1] = j;
+					return pos;
+				}
+			}
+		}
+		return pos;
+	}
+	public Jokalaria getJokalaria() {
+		for(int i = 0; i < 11; i++) {
+			for(int j = 0; j < 17; j++) {
+				if(this.zerrenda[i][j] instanceof Jokalaria) {
+					return (Jokalaria) this.zerrenda[i][j];
+				}
+			}
+		}
+		return null;
+	}
+	public void aldatuPos(int j1, int i1, int j2, int i2) {
+		this.zerrenda[i2][j2] = this.zerrenda[i1][j1];
+		this.ezabatu(i1, j1);
+		setChanged();
+		notifyObservers();
+	}
 	
 }

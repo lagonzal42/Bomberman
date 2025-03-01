@@ -32,6 +32,7 @@ public class JokoBista extends JFrame implements Observer{
 	private static final long serialVersionUID = 1L;
 	private JPanel panel;
 	private JPanel[][] mapa;
+	private Controler controler = null;
 
 	/**
 	 * Launch the application.
@@ -62,6 +63,8 @@ public class JokoBista extends JFrame implements Observer{
 		Matrizea mat = Matrizea.getMatrizea();
 		mat.addObserver(this);
 		update(mat, null);
+		
+		this.addKeyListener(getControler());
 	}
 	
 	private JPanel getPanel_1() {
@@ -119,6 +122,14 @@ public class JokoBista extends JFrame implements Observer{
 		}
 	}
 	
+	//Kontroladorea
+	private Controler getControler() {
+		if(controler == null) {
+			controler = new Controler();
+		}
+		return controler;
+	}
+	
 	private class Controler implements KeyListener{
 
 		@Override
@@ -129,17 +140,31 @@ public class JokoBista extends JFrame implements Observer{
 
 		@Override
 		public void keyPressed(KeyEvent e) {
+			int[] pos = Matrizea.getMatrizea().getJokalariPos();
+			Jokalaria jok = Matrizea.getMatrizea().getJokalaria();
 			// TODO Auto-generated method stub
 			if(e.getKeyCode() == KeyEvent.VK_UP) {
+				JLabel lbl = (JLabel) mapa[pos[0]][pos[1]].getComponent(0);
+				lbl.setIcon(new ImageIcon(this.getClass().getResource("/bista/Sprites/whiteup1.png")));
+				jok.mugituGora();
 				//jokalaria.mugituGora()
 			}
 			if(e.getKeyCode() == KeyEvent.VK_DOWN) {
+				JLabel lbl = (JLabel) mapa[pos[0]][pos[1]].getComponent(0);
+				lbl.setIcon(new ImageIcon(this.getClass().getResource("/bista/Sprites/whitedown1.png")));
+				jok.mugituBehera();
 				//jokalaria.mugituBehera()
 			}
 			if(e.getKeyCode() == KeyEvent.VK_LEFT) {
+				JLabel lbl = (JLabel) mapa[pos[0]][pos[1]].getComponent(0);
+				lbl.setIcon(new ImageIcon(this.getClass().getResource("/bista/Sprites/whiteleft1.png")));
+				jok.mugituEzkerra();
 				//jokalaria.mugituEzkerra()
 			}
 			if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
+				JLabel lbl = (JLabel) mapa[pos[0]][pos[1]].getComponent(0);
+				lbl.setIcon(new ImageIcon(this.getClass().getResource("/bista/Sprites/whiteright1.png")));
+				jok.mugituEskuma();
 				//jokalaria.mugituEskuma()
 			}
 			if(e.getKeyCode() == KeyEvent.VK_B) {
