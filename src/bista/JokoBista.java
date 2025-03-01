@@ -200,9 +200,11 @@ public class JokoBista extends JFrame implements Observer{
 		}
 		
 		public void blokeaEzabatu(int errenkada, int zutabea) {
-			Matrizea.getMatrizea().ezabatu(errenkada, zutabea);
-			JLabel lbl= (JLabel) mapa[errenkada][zutabea].getComponent(0);
-			lbl.setIcon(null);
+			if(errenkada >= 0 && errenkada <= 11 && zutabea >= 0 && zutabea <= 17) {
+				Matrizea.getMatrizea().ezabatu(errenkada, zutabea);
+				JLabel lbl= (JLabel) mapa[errenkada][zutabea].getComponent(0);
+				lbl.setIcon(null);
+			}
 		}
 
 		@Override

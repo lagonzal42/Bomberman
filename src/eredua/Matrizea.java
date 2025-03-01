@@ -61,7 +61,7 @@ public class Matrizea extends Observable{
 	}
 	
 	public Gelaxka getGelaxka(int i, int j){
-		if(i < 0 || j < 0) {
+		if(i < 0 || j < 0 || i > 10 || j > 16) {
 			return null;
 		}
 		return this.zerrenda[i][j];
