@@ -179,8 +179,8 @@ public class JokoBista extends JFrame implements Observer{
 				mapa[pos[0]][pos[1]].add(bonbaLabel);
 				//timerra hasi
 				bonbaLabel.setIcon(new ImageIcon(this.getClass().getResource("/bista/Sprites/kaBomb0.png")));
-				blokeBigunakApurtu(pos[0],pos[1]);
 				//timerra amaitu
+				blokeBigunakApurtu(pos[0],pos[1]);
 				mapa[pos[0]][pos[1]].remove(bonbaLabel);	
 			}
 		}
@@ -201,6 +201,7 @@ public class JokoBista extends JFrame implements Observer{
 		}
 		
 		public void blokeaEzabatu(int errenkada, int zutabea) {
+			Matrizea.getMatrizea().ezabatu(errenkada, zutabea);
 			JLabel lbl= (JLabel) mapa[errenkada][zutabea].getComponent(0);
 			lbl.setIcon(null);
 		}
