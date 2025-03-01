@@ -168,6 +168,9 @@ public class JokoBista extends JFrame implements Observer{
 				//jokalaria.mugituEskuma()
 			}
 			if(e.getKeyCode() == KeyEvent.VK_B) {
+				JLabel lbl = (JLabel) mapa[pos[0]][pos[1]].getComponent(0);
+				JLabel bonbaLabel = new JLabel(new ImageIcon(this.getClass().getResource("/bista/Sprites/bomb1.png")));
+				mapa[pos[0]][pos[1]].add(bonbaLabel);
 				//bonba ipini
 			}
 		}
