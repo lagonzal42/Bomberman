@@ -95,6 +95,7 @@ public class JokoBista extends JFrame implements Observer{
 			}
 		}
 	}
+	
 
 	@Override
 	public void update(Observable o, Object arg) {
@@ -120,6 +121,10 @@ public class JokoBista extends JFrame implements Observer{
 				}
 			}
 		}
+	}
+	
+	private boolean bigunaDa(int errenkada, int zutabea) {
+		return Matrizea.getMatrizea().getGelaxka(errenkada, zutabea) instanceof Biguna;
 	}
 	
 	//Kontroladorea
@@ -168,11 +173,36 @@ public class JokoBista extends JFrame implements Observer{
 				//jokalaria.mugituEskuma()
 			}
 			if(e.getKeyCode() == KeyEvent.VK_B) {
+				//bonba ipini
 				JLabel lbl = (JLabel) mapa[pos[0]][pos[1]].getComponent(0);
 				JLabel bonbaLabel = new JLabel(new ImageIcon(this.getClass().getResource("/bista/Sprites/bomb1.png")));
 				mapa[pos[0]][pos[1]].add(bonbaLabel);
-				//bonba ipini
+				//timerra hasi
+				bonbaLabel.setIcon(new ImageIcon(this.getClass().getResource("/bista/Sprites/kaBomb0.png")));
+				blokeBigunakApurtu(pos[0],pos[1]);
+				//timerra amaitu
+				mapa[pos[0]][pos[1]].remove(bonbaLabel);	
 			}
+		}
+		
+		public void blokeBigunakApurtu(int errenkada, int zutabea) {
+			if (bigunaDa(errenkada,zutabea+1)){
+				blokeaEzabatu(errenkada,zutabea+1);
+			}
+			if (bigunaDa(errenkada,zutabea-1)){
+				blokeaEzabatu(errenkada,zutabea-1);
+			}
+			if (bigunaDa(errenkada+1,zutabea)){
+				blokeaEzabatu(errenkada+1,zutabea);
+			}
+			if (bigunaDa(errenkada-1,zutabea)){
+				blokeaEzabatu(errenkada-1,zutabea);
+			}
+		}
+		
+		public void blokeaEzabatu(int errenkada, int zutabea) {
+			JLabel lbl= (JLabel) mapa[errenkada][zutabea].getComponent(0);
+			lbl.setIcon(null);
 		}
 
 		@Override
