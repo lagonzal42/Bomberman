@@ -37,23 +37,23 @@ public class Matrizea extends Observable{
 			for(int j = 0; j < zutabeak; j++) {
 				if(j == 0 && i == 0) {
 					//jokalaria
-					zerrenda[i][j] = new Zuria();
+					zerrenda[i][j] = new Zuria("whitedown1.png");
 				}
 				else if((j == 0 && i == 1) || (j == 1 && i == 0)) {
 					//hutsik
-					zerrenda[i][j] = new Hutsik();
+					zerrenda[i][j] = new Hutsik("");
 				}
 				else if((j % 2 != 0 && i % 2 != 0)) {
 					//bloke gogorra
-					zerrenda[i][j] = new Gogorra();
+					zerrenda[i][j] = new Gogorra("hard5.png");
 				}
 				else if(dado.gainditzenDu(0.4)){
 					//bloke biguna
-					zerrenda[i][j] = new Biguna();
+					zerrenda[i][j] = new Biguna("soft4" + Dadoa.getNireDadoa().zenbakiaAukeratu(1, 6) + ".png");
 				}
 				else {
 					//hutsik
-					zerrenda[i][j] = new Hutsik();
+					zerrenda[i][j] = new Hutsik("");
 				}
 			}
 		}
@@ -68,7 +68,7 @@ public class Matrizea extends Observable{
 	}
 	
 	public void ezabatu(int i, int j) {
-		this.zerrenda[i][j] = new Hutsik();
+		this.zerrenda[i][j] = new Hutsik("");
 	}
 	
 	public int[] getJokalariPos(){
