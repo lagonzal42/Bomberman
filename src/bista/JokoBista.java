@@ -105,15 +105,15 @@ public class JokoBista extends JFrame implements Observer{
 				JLabel lbl = (JLabel) mapa[i][j].getComponent(0);
 				
 				if(gel instanceof Jokalaria) {
-					lbl.setIcon(new ImageIcon(this.getClass().getResource("/bista/Sprites/whitedown1.png")));
+					lbl.setIcon(new ImageIcon(this.getClass().getResource(gel.getIrudia())));
 				}
 				else if(gel instanceof Gogorra) {
 					//TODO
-					lbl.setIcon(new ImageIcon(this.getClass().getResource("/bista/Sprites/hard5.png")));
+					lbl.setIcon(new ImageIcon(this.getClass().getResource(gel.getIrudia())));
 				}
 				else if(gel instanceof Biguna) {
 					//TODO
-					lbl.setIcon(new ImageIcon(this.getClass().getResource("/bista/Sprites/soft4" + Dadoa.getNireDadoa().zenbakiaAukeratu(1, 6) +".png")));
+					lbl.setIcon(new ImageIcon(this.getClass().getResource(gel.getIrudia())));
 				}
 				else {
 					//TODO
@@ -149,26 +149,18 @@ public class JokoBista extends JFrame implements Observer{
 			Jokalaria jok = Matrizea.getMatrizea().getJokalaria();
 			// TODO Auto-generated method stub
 			if(e.getKeyCode() == KeyEvent.VK_UP) {
-				JLabel lbl = (JLabel) mapa[pos[0]][pos[1]].getComponent(0);
-				lbl.setIcon(new ImageIcon(this.getClass().getResource("/bista/Sprites/whiteup1.png")));
 				jok.mugituGora();
 				//jokalaria.mugituGora()
 			}
 			if(e.getKeyCode() == KeyEvent.VK_DOWN) {
-				JLabel lbl = (JLabel) mapa[pos[0]][pos[1]].getComponent(0);
-				lbl.setIcon(new ImageIcon(this.getClass().getResource("/bista/Sprites/whitedown1.png")));
 				jok.mugituBehera();
 				//jokalaria.mugituBehera()
 			}
 			if(e.getKeyCode() == KeyEvent.VK_LEFT) {
-				JLabel lbl = (JLabel) mapa[pos[0]][pos[1]].getComponent(0);
-				lbl.setIcon(new ImageIcon(this.getClass().getResource("/bista/Sprites/whiteleft1.png")));
 				jok.mugituEzkerra();
 				//jokalaria.mugituEzkerra()
 			}
 			if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
-				JLabel lbl = (JLabel) mapa[pos[0]][pos[1]].getComponent(0);
-				lbl.setIcon(new ImageIcon(this.getClass().getResource("/bista/Sprites/whiteright1.png")));
 				jok.mugituEskuma();
 				//jokalaria.mugituEskuma()
 			}
