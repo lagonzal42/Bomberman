@@ -1,5 +1,7 @@
 package bista;
 
+import common.Mugimendu;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -31,7 +33,7 @@ public class JokoBista extends JFrame implements Observer{
 
 	private static final long serialVersionUID = 1L;
 	private JPanel panel;
-	private JPanel[][] mapa;
+	private Mapa mapa;
 	private Controler controler = null;
 
 	/**
@@ -62,7 +64,7 @@ public class JokoBista extends JFrame implements Observer{
 		setVisible(true);
 		Matrizea mat = Matrizea.getMatrizea();
 		mat.addObserver(this);
-		update(mat, null);
+		mapa.eguneratu();
 		
 		this.addKeyListener(getControler());
 	}
@@ -77,12 +79,12 @@ public class JokoBista extends JFrame implements Observer{
 				}
 			};
 			panel.setLayout(new GridLayout(11, 17, 0, 0));
-			initialice();
+			mapa = new Mapa(panel);
 		}
 		return panel;
 	}
 	private void initialice() {
-		mapa = new JPanel[11][17];
+		/*mapa = new JPanel[11][17];
 		for(int i = 0; i < 11; i++) {
 			for(int j = 0; j < 17; j++) {
 				mapa[i][j] = new JPanel();
@@ -93,13 +95,13 @@ public class JokoBista extends JFrame implements Observer{
 	            mapa[i][j].add(label);
 	            panel.add(mapa[i][j]);
 			}
-		}
+		}*/
 	}
 	
 
 	@Override
 	public void update(Observable o, Object arg) {
-		for(int i = 0; i < 11; i++) {
+		/*for(int i = 0; i < 11; i++) {
 			for(int j = 0; j < 17; j++) {
 				Gelaxka gel = Matrizea.getMatrizea().getGelaxka(i, j);
 				JLabel lbl = (JLabel) mapa[i][j].getComponent(0);
@@ -120,7 +122,8 @@ public class JokoBista extends JFrame implements Observer{
 					lbl.setIcon(null);
 				}
 			}
-		}
+		}*/
+		mapa.eguneratu();
 	}
 	
 	private boolean bigunaDa(int errenkada, int zutabea) {
@@ -145,34 +148,39 @@ public class JokoBista extends JFrame implements Observer{
 
 		@Override
 		public void keyPressed(KeyEvent e) {
-			int[] pos = Matrizea.getMatrizea().getJokalariPos();
-			Jokalaria jok = Matrizea.getMatrizea().getJokalaria();
+			//int[] pos = Matrizea.getMatrizea().getJokalariPos();
+			Matrizea mat = Matrizea.getMatrizea();
+			
 			// TODO Auto-generated method stub
 			if(e.getKeyCode() == KeyEvent.VK_UP) {
-				jok.mugituGora();
+				mat.mugituJokalaria(Mugimendu.GORA);
+				//jok.mugituGora();
 				//jokalaria.mugituGora()
 			}
 			if(e.getKeyCode() == KeyEvent.VK_DOWN) {
-				jok.mugituBehera();
+				mat.mugituJokalaria(Mugimendu.BEHERA);
+				//jok.mugituBehera();
 				//jokalaria.mugituBehera()
 			}
 			if(e.getKeyCode() == KeyEvent.VK_LEFT) {
-				jok.mugituEzkerra();
+				mat.mugituJokalaria(Mugimendu.EZKER);
+				//jok.mugituEzkerra();
 				//jokalaria.mugituEzkerra()
 			}
 			if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
-				jok.mugituEskuma();
+				mat.mugituJokalaria(Mugimendu.ESKUIN);
+				//jok.mugituEskuma();
 				//jokalaria.mugituEskuma()
 			}
 			if(e.getKeyCode() == KeyEvent.VK_B) {
 				//bonba ipini
-				JLabel bonbaLabel = new JLabel(new ImageIcon(this.getClass().getResource("/bista/Sprites/bomb1.png")));
-				mapa[pos[0]][pos[1]].add(bonbaLabel);
+				//JLabel bonbaLabel = new JLabel(new ImageIcon(this.getClass().getResource("/bista/Sprites/bomb1.png")));
+				//mapa[pos[0]][pos[1]].add(bonbaLabel);
 				//timerra hasi
-				bonbaLabel.setIcon(new ImageIcon(this.getClass().getResource("/bista/Sprites/kaBomb0.png")));
+				//bonbaLabel.setIcon(new ImageIcon(this.getClass().getResource("/bista/Sprites/kaBomb0.png")));
 				//timerra amaitu
-				blokeBigunakApurtu(pos[0],pos[1]);
-				mapa[pos[0]][pos[1]].remove(bonbaLabel);	
+				//blokeBigunakApurtu(pos[0],pos[1]);
+				//mapa[pos[0]][pos[1]].remove(bonbaLabel);	
 			}
 		}
 		
@@ -194,7 +202,7 @@ public class JokoBista extends JFrame implements Observer{
 		public void blokeaEzabatu(int errenkada, int zutabea) {
 			if(errenkada >= 0 && errenkada <= 11 && zutabea >= 0 && zutabea <= 17) {
 				Matrizea.getMatrizea().ezabatu(errenkada, zutabea);
-				JLabel lbl= (JLabel) mapa[errenkada][zutabea].getComponent(0);
+				JLabel lbl= mapa.get(errenkada, zutabea);
 				lbl.setIcon(null);
 			}
 		}

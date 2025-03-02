@@ -2,8 +2,8 @@ package eredua;
 
 public class Gogorra extends Bloke{
 
-	public Gogorra(String pIrudia) {
-		super(pIrudia);
+	public Gogorra() {
+		super();
 		// TODO Auto-generated constructor stub
 	}
 
