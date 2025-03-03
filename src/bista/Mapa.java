@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import eredua.Biguna;
+import eredua.Dadoa;
 import eredua.Gelaxka;
 import eredua.Gogorra;
 import eredua.Jokalaria;
@@ -16,22 +17,22 @@ import common.Mugimendu;
 
 public class Mapa{
 	
-	private JLabel [][] mapa;
+	private GelaxkaBista [][] mapa;
 	private Image back;
 	
 	public Mapa(JPanel panel)
 	{
-		mapa = new JLabel[11][17];
+		mapa = new GelaxkaBista[11][17];
 		
 		for (int i = 0; i < 11; i++)
 		{
 			for (int j = 0; j < 17; j++)
 			{
-				JLabel jl = new JLabel();
-				jl.setOpaque(false);
-				jl.setIcon(null);
-				mapa[i][j] = jl;
-				panel.add(jl);
+				GelaxkaBista gel = new GelaxkaBista();
+				gel.setOpaque(false);
+				gel.setIcon(null);
+				mapa[i][j] = gel;
+				panel.add(gel);
 			}
 		}
 		
@@ -46,40 +47,50 @@ public class Mapa{
 			for (int j = 0; j < 17; j++)
 			{
 				Gelaxka g = m.getGelaxka(i, j);
-				JLabel lbl = (JLabel) mapa[i][j];
+				GelaxkaBista gel = (GelaxkaBista) mapa[i][j];
 				
 				if(g.getJokalaria())
 				{
 					switch (m.getJokalaria().getAzkenMugi())
 					{
 						case GORA:
-							path = "/bista/Sprites/whiteup1.png";
+							gel.setIrudia("/bista/Sprites/whiteup1.png");
+							//path = "/bista/Sprites/whiteup1.png";
 							break;
 						case EZKER:
-							path = "/bista/Sprites/whiteleft1.png";
+							gel.setIrudia("/bista/Sprites/whiteleft1.png");
+							//path = "/bista/Sprites/whiteleft1.png";
 							break;
 						case ESKUIN:
-							path = "/bista/Sprites/whiteright1.png";
+							gel.setIrudia("/bista/Sprites/whiteright1.png");
+							//path = "/bista/Sprites/whiteright1.png";
 							break;
 						default:
-							path = "/bista/Sprites/whitedown1.png";
+							gel.setIrudia("/bista/Sprites/whitedown1.png");
+							//path = "/bista/Sprites/whitedown1.png";
 							break;
 					}
-					lbl.setIcon(new ImageIcon(this.getClass().getResource(path)));
+					gel.setIcon(new ImageIcon(this.getClass().getResource(gel.getIrudia())));
 				}
 				else if(g instanceof Gogorra) {
 					//TODO
-					path = "/bista/Sprites/hard1.png";
-					lbl.setIcon(new ImageIcon(this.getClass().getResource(path)));
+					if(gel.getIrudia() == null) {
+						gel.setIrudia("/bista/Sprites/hard1.png");
+					}
+					//path = "/bista/Sprites/hard1.png";
+					gel.setIcon(new ImageIcon(this.getClass().getResource(gel.getIrudia())));
 				}
 				else if(g instanceof Biguna) {
 					//TODO
-					path = "/bista/Sprites/soft1.png";
-					lbl.setIcon(new ImageIcon(this.getClass().getResource(path)));
+					if(gel.getIrudia() == null) {
+						gel.setIrudia("/bista/Sprites/soft4" + Dadoa.getNireDadoa().zenbakiaAukeratu(1, 6) + ".png");
+					}
+					//path = "/bista/Sprites/soft1.png";
+					gel.setIcon(new ImageIcon(this.getClass().getResource(gel.getIrudia())));
 				}
 				else {
 					//TODO
-					lbl.setIcon(null);
+					gel.setIcon(null);
 				}
 			}
 		}	
