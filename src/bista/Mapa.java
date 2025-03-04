@@ -78,6 +78,7 @@ public class Mapa{
 						gel.setIrudia("/bista/Sprites/hard1.png");
 					}
 					//path = "/bista/Sprites/hard1.png";
+					gel.setSize(gel.getWidth(), gel.getHeight());
 					gel.setIcon(new ImageIcon(this.getClass().getResource(gel.getIrudia())));
 				}
 				else if(g instanceof Biguna) {

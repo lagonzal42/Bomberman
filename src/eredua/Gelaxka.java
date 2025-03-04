@@ -1,6 +1,8 @@
 package eredua;
 
-public abstract class Gelaxka {
+import java.util.Observable;
+
+public abstract class Gelaxka extends Observable{
 	
 	private boolean jok;
 	private boolean bonba;

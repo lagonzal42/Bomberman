@@ -1,8 +1,11 @@
 package bista;
 
+import java.util.Observable;
+import java.util.Observer;
+
 import javax.swing.JLabel;
 
-public class GelaxkaBista extends JLabel{
+public class GelaxkaBista extends JLabel implements Observer{
 	
 	private String irudia = null;
 	public GelaxkaBista() {
@@ -15,5 +18,11 @@ public class GelaxkaBista extends JLabel{
 	
 	public String getIrudia() {
 		return this.irudia;
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		// TODO Auto-generated method stub
+		
 	}
 }

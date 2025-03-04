@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 
 import common.Mugimendu;
 
-public class Matrizea extends Observable{
+public class Matrizea{
 	
 	private static Matrizea nMatrizea = null;
 	private Gelaxka[][] zerrenda;
@@ -22,8 +22,6 @@ public class Matrizea extends Observable{
 	private Matrizea() {
 		this.zerrenda = matrizeaSortu();
 		this.jok = new Zuria();
-		setChanged();
-		notifyObservers();
 	}
 	
 	public static Matrizea getMatrizea() {
@@ -90,8 +88,6 @@ public class Matrizea extends Observable{
 	public void aldatuPos(int j1, int i1, int j2, int i2) {
 		this.zerrenda[i2][j2] = this.zerrenda[i1][j1];
 		this.ezabatu(i1, j1);
-		setChanged();
-		notifyObservers();
 	}
 	
 	public void mugituJokalaria(Mugimendu mugimendu)
@@ -112,8 +108,6 @@ public class Matrizea extends Observable{
 				break;
 		}
 		jok.printPosizio();
-		setChanged();
-		notifyObservers();
 	}
 	
 }
