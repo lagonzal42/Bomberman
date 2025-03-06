@@ -3,9 +3,15 @@ package bista;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import eredua.Biguna;
+import eredua.Dadoa;
+import eredua.Gelaxka;
+import eredua.Gogorra;
 import eredua.Matrizea;
+import common.GelaxkaMota;
 
 public class GelaxkaBista extends JLabel implements Observer{
 	
@@ -27,40 +33,37 @@ public class GelaxkaBista extends JLabel implements Observer{
 		// TODO Auto-generated method stub
 		
 	}
-	public void eguneratu() {
-		//String	path;
-		//Matrizea	m = Matrizea.getMatrizea();
-		//TODO for eta if-ak
-		//switch (m.getJokalaria().getAzkenMugi()??) {
-		//	case JOKALARIA:
-		//		gel.setIrudia("/bista/Sprites/whiteup1.png");
-		//		//path = "/bista/Sprites/whiteup1.png";
-		//		break;
-		//	case HUTSIK:
-		//		gel.setIrudia("/bista/Sprites/whiteleft1.png");
-		//		//path = "/bista/Sprites/whiteleft1.png";
-		//		break;
-		//	case BONBA:
-		//		gel.setIrudia("/bista/Sprites/whiteright1.png");
-		//		//path = "/bista/Sprites/whiteright1.png";
-		//		break;
-		//	case SUA:
-		//		gel.setIrudia("/bista/Sprites/whiteright1.png");
-		//		//path = "/bista/Sprites/whiteright1.png";
-		//		break;
-		//	case BIGUNA:
-		//		gel.setIrudia("/bista/Sprites/whiteright1.png");
-		//		//path = "/bista/Sprites/whiteright1.png";
-		//		break;
-		//	case GOGORRA:
-		//		gel.setIrudia("/bista/Sprites/whiteright1.png");
-		//		//path = "/bista/Sprites/whiteright1.png";
-		//		break;
-		//	default:
-		//		gel.setIrudia("/bista/Sprites/whitedown1.png");
-		//		//path = "/bista/Sprites/whitedown1.png";
-		//		break;
-		//}
-		//TODO 
+	public void eguneratu(GelaxkaMota gelMota)
+	{
+		switch (gelMota)
+		{
+		case BIGUNA:
+			this.setIrudia("/bista/Sprites/soft1.png");
+			//path = "/bista/Sprites/whiteup1.png";
+			break;
+		case GOGORRA:
+			this.setIrudia("/bista/Sprites/hard1.png");
+			//path = "/bista/Sprites/whiteleft1.png";
+			break;
+		case JOKALARIA:
+			this.setIrudia("/bista/Sprites/whitedown1.png");
+			//path = "/bista/Sprites/whiteright1.png";
+			break;
+		case BONBA:
+			this.setIrudia("/bista/Sprites/bomb1.png");
+			//path = "/bista/Sprites/whiteright1.png";
+			break;
+		case JOKALARIBONBAREKIN:
+			this.setIrudia("/bista/Sprites/whitewithbomb1.png");
+			//path = "/bista/Sprites/whiteright1.png";
+		case SUA:
+			this.setIrudia("/bista/Sprites/blast.png");
+			//path = "/bista/Sprites/whiteright1.png";
+			break;
+		default:
+			this.setIrudia("/bista/Sprites/whitedown1.png");
+			//path = "/bista/Sprites/whitedown1.png";
+			break;
+		}
 	}
 }

@@ -2,9 +2,10 @@ package common;
 
 public enum GelaxkaMota {
 	JOKALARIA,
-	HUTSIK,
+	JOKALARIBONBAREKIN,
 	BONBA,
 	SUA,
 	BIGUNA,
-	GOGORRA;
+	GOGORRA,
+	BONBAESTANDA;
 }
