@@ -31,11 +31,19 @@ public abstract class Gelaxka extends Observable{
 	public void setBonba(boolean pDago)
 	{
 		bonba = pDago;
+		setChanged();
+		notifyObservers();
 	}
 	
 	public boolean getBonba()
 	{
 		return (bonba);
+	}
+	
+	public void bonbaApurtu(){
+		this.bonba=false;
+		setChanged();
+		notifyObservers();
 	}
 	
 	public boolean getJokalaria()

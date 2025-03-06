@@ -171,6 +171,7 @@ public class JokoBista extends JFrame implements Observer{
 			}
 			if(e.getKeyCode() == KeyEvent.VK_B) {
 				//bonba ipini
+				mat.bonbaJarri();
 				//JLabel bonbaLabel = new JLabel(new ImageIcon(this.getClass().getResource("/bista/Sprites/bomb1.png")));
 				//mapa[pos[0]][pos[1]].add(bonbaLabel);
 				//timerra hasi

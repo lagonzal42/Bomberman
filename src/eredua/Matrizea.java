@@ -110,4 +110,19 @@ public class Matrizea{
 		jok.printPosizio();
 	}
 	
+	public void bonbaJarri() {
+		int [] pos=getJokalariPos();
+		int x = pos[0];
+		int y = pos[1];
+		
+		Gelaxka gel = zerrenda [x][y];
+		
+		if(!gel.getBonba()) {
+			gel.setBonba(true);
+			System.out.println("Bonba jarri du ("+x+","+y+")");
+			
+			//bonba apurtu + timerra
+		}
+	}
+	
 }
