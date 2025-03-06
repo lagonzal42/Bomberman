@@ -123,9 +123,9 @@ public class JokoBista extends JFrame implements Observer{
 		mapa.eguneratu();
 	}
 	
-	private boolean bigunaDa(int errenkada, int zutabea) {
+	/*private boolean bigunaDa(int errenkada, int zutabea) {
 		return Matrizea.getMatrizea().getGelaxka(errenkada, zutabea) instanceof Biguna;
-	}
+	}*/
 	
 	//Kontroladorea
 	private Controler getControler() {
@@ -182,9 +182,9 @@ public class JokoBista extends JFrame implements Observer{
 			}
 		}
 		
-		public void blokeBigunakApurtu(int errenkada, int zutabea) {
+		/*public void blokeBigunakApurtu(int errenkada, int zutabea) {
 			if (bigunaDa(errenkada,zutabea+1)){
-				blokeaEzabatu(errenkada,zutabea+1);
+				//blokeaEzabatu(errenkada,zutabea+1);
 			}
 			if (bigunaDa(errenkada,zutabea-1)){
 				blokeaEzabatu(errenkada,zutabea-1);
@@ -195,15 +195,15 @@ public class JokoBista extends JFrame implements Observer{
 			if (bigunaDa(errenkada-1,zutabea)){
 				blokeaEzabatu(errenkada-1,zutabea);
 			}
-		}
+		}*/
 		
-		public void blokeaEzabatu(int errenkada, int zutabea) {
+		/*public void blokeaEzabatu(int errenkada, int zutabea) {
 			if(errenkada >= 0 && errenkada <= 11 && zutabea >= 0 && zutabea <= 17) {
 				Matrizea.getMatrizea().ezabatu(errenkada, zutabea);
 				JLabel lbl= mapa.get(errenkada, zutabea);
 				lbl.setIcon(null);
 			}
-		}
+		}*/
 
 		@Override
 		public void keyReleased(KeyEvent e) {

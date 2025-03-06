@@ -116,12 +116,31 @@ public class Matrizea{
 		int y = pos[1];
 		
 		Gelaxka gel = zerrenda [x][y];
-		
+		//bonba jarri
 		if(!gel.getBonba()) {
 			gel.setBonba(true);
 			System.out.println("Bonba jarri du ("+x+","+y+")");
-			
-			//bonba apurtu + timerra
+			//timerra
+			new javax.swing.Timer(2000, e ->{
+				gel.bonbaApurtu();
+				System.out.println("Bonba apurtu da (" +x+","+y+")");
+				blokeBigunakApurtu(x,y);
+			}).start();
+		}
+	}
+	
+	public void blokeBigunakApurtu(int x, int y) {
+		apurtuBlokea(x,y+1);
+		apurtuBlokea(x,y-1);
+		apurtuBlokea(x+1,y);
+		apurtuBlokea(x-1,y);
+	}
+	
+	private void apurtuBlokea(int errenkada, int zutabea) {
+		if (errenkada >= 0 && errenkada <= 11 && zutabea >= 0 && zutabea <= 17) {
+			if (zerrenda [errenkada][zutabea] instanceof Biguna) {
+				zerrenda[errenkada][zutabea]=new Hutsik();
+			}
 		}
 	}
 	
