@@ -56,8 +56,16 @@ public class GelaxkaBista extends JLabel implements Observer{
 		case JOKALARIBONBAREKIN:
 			this.setIrudia("/bista/Sprites/whitewithbomb1.png");
 			//path = "/bista/Sprites/whiteright1.png";
-		case SUA:
+		case BONBAESTANDA:
 			this.setIrudia("/bista/Sprites/blast.png");
+			//path = "/bista/Sprites/whiteright1.png";
+			break;
+		case SUA:
+			this.setIrudia("/bista/Sprites/kaBonb5.png");
+			//path = "/bista/Sprites/whiteright1.png";
+			break;
+		case JOKALARIASUAREKIN:
+			this.setIrudia("/bista/Sprites/onFire2.png");
 			//path = "/bista/Sprites/whiteright1.png";
 			break;
 		default:
