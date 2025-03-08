@@ -19,6 +19,7 @@ public abstract class Jokalaria{
 	
 	public void mugituGora(){
 		this.setAzkenMugi(Mugimendu.GORA);
+		Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
 		//this.setIrudia("whiteup1.png");
 		if (Matrizea.getMatrizea().getGelaxka(yPos-1, xPos) instanceof Hutsik){
 			//Matrizea.getMatrizea().aldatuPos(xPos, yPos, xPos, yPos-1);
@@ -32,6 +33,7 @@ public abstract class Jokalaria{
 	
 	public void mugituBehera(){
 		this.setAzkenMugi(Mugimendu.BEHERA);
+		Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
 		//this.setIrudia("whitedown1.png");
 		if (Matrizea.getMatrizea().getGelaxka(yPos+1, xPos) instanceof Hutsik){
 			//Matrizea.getMatrizea().aldatuPos(xPos, yPos, xPos, yPos+1);
@@ -45,6 +47,7 @@ public abstract class Jokalaria{
 	
 	public void mugituEzkerra(){
 		this.setAzkenMugi(Mugimendu.EZKER);
+		Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
 		//this.setIrudia("whiteleft1.png");
 		if (Matrizea.getMatrizea().getGelaxka(yPos, xPos-1) instanceof Hutsik){
 			//Matrizea.getMatrizea().aldatuPos(xPos, yPos, xPos-1, yPos);
@@ -58,6 +61,7 @@ public abstract class Jokalaria{
 	
 	public void mugituEskuma() {
 		this.setAzkenMugi(Mugimendu.ESKUIN);
+		Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
 		//this.setIrudia("whiteright1.png");
 		if (Matrizea.getMatrizea().getGelaxka(yPos, xPos+1) instanceof Hutsik){
 			((Hutsik)Matrizea.getMatrizea().getGelaxka(yPos, xPos)).setJokalaria(null);
