@@ -4,6 +4,6 @@ public enum Mugimendu {
 	GORA,
 	BEHERA,
 	EZKER,
-	ESKUIN,
-	HILDA;
+	HILDA,
+	ESKUIN;
 }

@@ -74,7 +74,9 @@ public class Hutsik extends Gelaxka{
 					gM = GelaxkaMota.JOKALARIAESKUIN;
 					break;
 				case HILDA:
+					if (this.sua == true) {
 					gM = GelaxkaMota.JOKALARIASUAREKIN;
+					}
 					break;
 				default:
 					gM = GelaxkaMota.JOKALARIABEHERA;

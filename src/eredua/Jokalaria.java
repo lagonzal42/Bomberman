@@ -4,6 +4,11 @@ import common.Mugimendu;
 
 public abstract class Jokalaria{
 	
+	private int xPos;
+	private int yPos;
+	private boolean hil;
+	private Mugimendu azkenMugi;
+	
 	public Jokalaria() {
 		//super(pIrudia);
 		// TODO Auto-generated constructor stub
@@ -12,12 +17,6 @@ public abstract class Jokalaria{
 		hil = false;
 		azkenMugi = Mugimendu.BEHERA;
 	}
-
-	private int xPos;
-	private int yPos;
-	private boolean hil;
-	private Mugimendu azkenMugi;
-	
 	
 	public void mugituGora(){
 		this.setAzkenMugi(Mugimendu.GORA);
@@ -28,7 +27,6 @@ public abstract class Jokalaria{
 			((Hutsik)Matrizea.getMatrizea().getGelaxka(yPos, xPos)).setJokalaria(null);
 			Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
 			((Hutsik)Matrizea.getMatrizea().getGelaxka(yPos + 1, xPos)).setJokalaria(this);
-			Matrizea.getMatrizea().getGelaxka(yPos + 1, xPos).eguneratuGelaxka();
 			this.yPos = this.yPos -1;
 			if (((Hutsik)Matrizea.getMatrizea().getGelaxka(yPos +1, xPos)).getSua() == true) {
 				this.hil = true;
@@ -47,7 +45,6 @@ public abstract class Jokalaria{
 			((Hutsik)Matrizea.getMatrizea().getGelaxka(yPos, xPos)).setJokalaria(null);
 			Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
 			((Hutsik)Matrizea.getMatrizea().getGelaxka(yPos - 1, xPos)).setJokalaria(this);
-			Matrizea.getMatrizea().getGelaxka(yPos - 1, xPos).eguneratuGelaxka();
 			this.yPos = this.yPos +1;
 			if (((Hutsik)Matrizea.getMatrizea().getGelaxka(yPos-1, xPos)).getSua() == true) {
 				this.hil = true;
@@ -66,7 +63,6 @@ public abstract class Jokalaria{
 			((Hutsik)Matrizea.getMatrizea().getGelaxka(yPos, xPos)).setJokalaria(null);
 			Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
 			((Hutsik)Matrizea.getMatrizea().getGelaxka(yPos, xPos - 1)).setJokalaria(this);
-			Matrizea.getMatrizea().getGelaxka(yPos, xPos - 1).eguneratuGelaxka();
 			this.xPos = this.xPos -1;
 			if (((Hutsik)Matrizea.getMatrizea().getGelaxka(yPos, xPos -1)).getSua() == true) {
 				this.hil = true;
