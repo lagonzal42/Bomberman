@@ -34,13 +34,13 @@ public class Matrizea{
 	//private izan behar du.
 	private Gelaxka[][] matrizeaSortu() {
 		Dadoa dado = Dadoa.getNireDadoa();
-		Gelaxka[][] zerrenda = new Gelaxka[11][17];
+		Gelaxka[][] zerrenda = new Gelaxka[lerroak][zutabeak];
 		for(int i = 0; i < lerroak; i++) {
 			for(int j = 0; j < zutabeak; j++) {
 				if(j == 0 && i == 0) {
 					//jokalaria
 					zerrenda[i][j] = new Hutsik();
-					zerrenda[i][j].setJokalaria(true);
+					((Hutsik)zerrenda[i][j]).setJokalaria(new Zuria());
 					
 				}
 				else if((j == 0 && i == 1) || (j == 1 && i == 0)) {
@@ -62,6 +62,15 @@ public class Matrizea{
 			}
 		}
 		return zerrenda;
+	}
+	
+	public void hasieratuBista()
+	{
+		for(int i = 0; i < lerroak; i++)
+		{
+			for(int j = 0; j < zutabeak; j++)
+				zerrenda[i][j].eguneratuGelaxka();
+		}
 	}
 	
 	public Gelaxka getGelaxka(int i, int j){
@@ -115,10 +124,10 @@ public class Matrizea{
 		int x = pos[0];
 		int y = pos[1];
 		
-		Gelaxka gel = zerrenda [x][y];
+		Hutsik gel = ((Hutsik)zerrenda [x][y]);
 		//bonba jarri
-		if(!gel.getBonba()) {
-			gel.setBonba(true);
+		if(gel.getBonba() != null) {
+			gel.setBonba(new Bonba());
 			System.out.println("Bonba jarri du ("+x+","+y+")");
 			//timerra
 			new javax.swing.Timer(2000, e ->{

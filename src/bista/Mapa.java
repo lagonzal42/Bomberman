@@ -38,63 +38,14 @@ public class Mapa{
 		
 	}
 	
-	public void eguneratu()
+	public void jarriListenerrak()
 	{
-		String		path;
-		Matrizea	m = Matrizea.getMatrizea();
-		for (int i = 0; i < 11; i++)
+		Matrizea m = Matrizea.getMatrizea();
+		for (int y = 0; y < 11; y++)
 		{
-			for (int j = 0; j < 17; j++)
-			{
-				Gelaxka g = m.getGelaxka(i, j);
-				GelaxkaBista gel = (GelaxkaBista) mapa[i][j];
-				
-				if(g.getJokalaria())
-				{
-					switch (m.getJokalaria().getAzkenMugi())
-					{
-						case GORA:
-							gel.setIrudia("/bista/Sprites/whiteup1.png");
-							//path = "/bista/Sprites/whiteup1.png";
-							break;
-						case EZKER:
-							gel.setIrudia("/bista/Sprites/whiteleft1.png");
-							//path = "/bista/Sprites/whiteleft1.png";
-							break;
-						case ESKUIN:
-							gel.setIrudia("/bista/Sprites/whiteright1.png");
-							//path = "/bista/Sprites/whiteright1.png";
-							break;
-						default:
-							gel.setIrudia("/bista/Sprites/whitedown1.png");
-							//path = "/bista/Sprites/whitedown1.png";
-							break;
-					}
-					gel.setIcon(new ImageIcon(this.getClass().getResource(gel.getIrudia())));
-				}
-				else if(g instanceof Gogorra) {
-					//TODO
-					if(gel.getIrudia() == null) {
-						gel.setIrudia("/bista/Sprites/hard1.png");
-					}
-					//path = "/bista/Sprites/hard1.png";
-					gel.setSize(gel.getWidth(), gel.getHeight());
-					gel.setIcon(new ImageIcon(this.getClass().getResource(gel.getIrudia())));
-				}
-				else if(g instanceof Biguna) {
-					//TODO
-					if(gel.getIrudia() == null) {
-						gel.setIrudia("/bista/Sprites/soft4" + Dadoa.getNireDadoa().zenbakiaAukeratu(1, 6) + ".png");
-					}
-					//path = "/bista/Sprites/soft1.png";
-					gel.setIcon(new ImageIcon(this.getClass().getResource(gel.getIrudia())));
-				}
-				else {
-					//TODO
-					gel.setIcon(null);
-				}
-			}
-		}	
+			for (int x = 0; x < 17; x++)
+				m.getGelaxka(y, x).addObserver(mapa[y][x]);
+		}
 		
 	}
 	

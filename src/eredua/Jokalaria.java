@@ -22,8 +22,10 @@ public abstract class Jokalaria{
 		//this.setIrudia("whiteup1.png");
 		if (Matrizea.getMatrizea().getGelaxka(yPos-1, xPos) instanceof Hutsik){
 			//Matrizea.getMatrizea().aldatuPos(xPos, yPos, xPos, yPos-1);
-			Matrizea.getMatrizea().getGelaxka(yPos, xPos).setJokalaria(false);
-			Matrizea.getMatrizea().getGelaxka(yPos - 1, xPos).setJokalaria(true);
+			((Hutsik)Matrizea.getMatrizea().getGelaxka(yPos, xPos)).setJokalaria(null);
+			Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
+			((Hutsik)Matrizea.getMatrizea().getGelaxka(yPos - 1, xPos)).setJokalaria(this);
+			Matrizea.getMatrizea().getGelaxka(yPos - 1, xPos).eguneratuGelaxka();
 			this.yPos = this.yPos -1;
 		}
 	}
@@ -33,8 +35,10 @@ public abstract class Jokalaria{
 		//this.setIrudia("whitedown1.png");
 		if (Matrizea.getMatrizea().getGelaxka(yPos+1, xPos) instanceof Hutsik){
 			//Matrizea.getMatrizea().aldatuPos(xPos, yPos, xPos, yPos+1);
-			Matrizea.getMatrizea().getGelaxka(yPos, xPos).setJokalaria(false);
-			Matrizea.getMatrizea().getGelaxka(yPos + 1, xPos).setJokalaria(true);
+			((Hutsik)Matrizea.getMatrizea().getGelaxka(yPos, xPos)).setJokalaria(null);
+			Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
+			((Hutsik)Matrizea.getMatrizea().getGelaxka(yPos + 1, xPos)).setJokalaria(this);
+			Matrizea.getMatrizea().getGelaxka(yPos + 1, xPos).eguneratuGelaxka();
 			this.yPos = this.yPos +1;
 		}
 	}
@@ -44,9 +48,10 @@ public abstract class Jokalaria{
 		//this.setIrudia("whiteleft1.png");
 		if (Matrizea.getMatrizea().getGelaxka(yPos, xPos-1) instanceof Hutsik){
 			//Matrizea.getMatrizea().aldatuPos(xPos, yPos, xPos-1, yPos);
-			Matrizea.getMatrizea().getGelaxka(yPos, xPos).setJokalaria(false);
-			Matrizea.getMatrizea().getGelaxka(yPos, xPos - 1).setJokalaria(true);
-			
+			((Hutsik)Matrizea.getMatrizea().getGelaxka(yPos, xPos)).setJokalaria(null);
+			Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
+			((Hutsik)Matrizea.getMatrizea().getGelaxka(yPos, xPos - 1)).setJokalaria(this);
+			Matrizea.getMatrizea().getGelaxka(yPos, xPos - 1).eguneratuGelaxka();
 			this.xPos = this.xPos -1;
 		}
 	}
@@ -55,8 +60,10 @@ public abstract class Jokalaria{
 		this.setAzkenMugi(Mugimendu.ESKUIN);
 		//this.setIrudia("whiteright1.png");
 		if (Matrizea.getMatrizea().getGelaxka(yPos, xPos+1) instanceof Hutsik){
-			Matrizea.getMatrizea().getGelaxka(yPos, xPos).setJokalaria(false);
-			Matrizea.getMatrizea().getGelaxka(yPos, xPos + 1).setJokalaria(true);
+			((Hutsik)Matrizea.getMatrizea().getGelaxka(yPos, xPos)).setJokalaria(null);
+			Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
+			((Hutsik)Matrizea.getMatrizea().getGelaxka(yPos, xPos + 1)).setJokalaria(this);
+			Matrizea.getMatrizea().getGelaxka(yPos, xPos + 1).eguneratuGelaxka();
 			//Matrizea.getMatrizea().aldatuPos(xPos, yPos, xPos+1, yPos);
 			this.xPos = this.xPos +1;
 		}

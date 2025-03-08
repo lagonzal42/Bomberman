@@ -29,12 +29,13 @@ import eredua.Gogorra;
 import eredua.Jokalaria;
 import eredua.Matrizea;
 
-public class JokoBista extends JFrame implements Observer{
+public class JokoBista extends JFrame{
 
 	private static final long serialVersionUID = 1L;
 	private JPanel panel;
 	private Mapa mapa;
 	private Controler controler = null;
+	private static JokoBista jb = null;
 
 	/**
 	 * Launch the application.
@@ -55,7 +56,7 @@ public class JokoBista extends JFrame implements Observer{
 	/**
 	 * Create the frame.
 	 */
-	public JokoBista() {
+	private JokoBista() {
 		setTitle("BOMBERMAN");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 500);
@@ -63,7 +64,15 @@ public class JokoBista extends JFrame implements Observer{
 		getContentPane().add(getPanel_1(), BorderLayout.CENTER);
 		setVisible(true);
 		
+		this.mapa.jarriListenerrak();
 		this.addKeyListener(getControler());
+	}
+	
+	public static JokoBista getJokoBista()
+	{
+		if (jb == null)
+			jb = new JokoBista();
+		return (jb);
 	}
 	
 	private JPanel getPanel_1() {
@@ -80,6 +89,12 @@ public class JokoBista extends JFrame implements Observer{
 		}
 		return panel;
 	}
+	
+	public Mapa getMapa()
+	{
+		return (mapa);
+	}
+	
 	private void initialice() {
 		/*mapa = new JPanel[11][17];
 		for(int i = 0; i < 11; i++) {
@@ -93,34 +108,6 @@ public class JokoBista extends JFrame implements Observer{
 	            panel.add(mapa[i][j]);
 			}
 		}*/
-	}
-	
-
-	@Override
-	public void update(Observable o, Object arg) {
-		/*for(int i = 0; i < 11; i++) {
-			for(int j = 0; j < 17; j++) {
-				Gelaxka gel = Matrizea.getMatrizea().getGelaxka(i, j);
-				JLabel lbl = (JLabel) mapa[i][j].getComponent(0);
-				
-				if(gel instanceof Jokalaria) {
-					lbl.setIcon(new ImageIcon(this.getClass().getResource(gel.getIrudia())));
-				}
-				else if(gel instanceof Gogorra) {
-					//TODO
-					lbl.setIcon(new ImageIcon(this.getClass().getResource(gel.getIrudia())));
-				}
-				else if(gel instanceof Biguna) {
-					//TODO
-					lbl.setIcon(new ImageIcon(this.getClass().getResource(gel.getIrudia())));
-				}
-				else {
-					//TODO
-					lbl.setIcon(null);
-				}
-			}
-		}*/
-		mapa.eguneratu();
 	}
 	
 	/*private boolean bigunaDa(int errenkada, int zutabea) {
