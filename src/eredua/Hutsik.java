@@ -38,7 +38,7 @@ public class Hutsik extends Gelaxka{
 	public void bonbaApurtu(){
 		this.bonba=null;
 		setChanged();
-		notifyObservers();
+		notifyObservers(GelaxkaMota.BONBAESTANDA);
 	}
 	
 	public Jokalaria getJokalaria()
