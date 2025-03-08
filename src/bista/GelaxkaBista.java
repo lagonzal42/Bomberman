@@ -1,5 +1,7 @@
 package bista;
 
+import java.awt.Graphics;
+import java.awt.Image;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -22,8 +24,11 @@ public class GelaxkaBista extends JLabel implements Observer{
 	
 	public void setIrudia(String pIrudia) {
 		this.irudia = pIrudia;
-		if (pIrudia != null)
-			this.setIcon(new ImageIcon(this.getClass().getResource(pIrudia)));
+		if (pIrudia != null) {
+			ImageIcon icon = new ImageIcon(this.getClass().getResource(pIrudia));
+			Image img = icon.getImage().getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
+			this.setIcon(new ImageIcon(img));
+		}
 		else
 			this.setIcon(null);
 	}
