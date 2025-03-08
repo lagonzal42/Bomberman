@@ -9,37 +9,49 @@ public abstract class Jokalaria{
 		// TODO Auto-generated constructor stub
 		xPos = 0;
 		yPos = 0;
+		hil = false;
 		azkenMugi = Mugimendu.BEHERA;
 	}
 
 	private int xPos;
 	private int yPos;
+	private boolean hil;
 	private Mugimendu azkenMugi;
 	
 	
 	public void mugituGora(){
 		this.setAzkenMugi(Mugimendu.GORA);
 		//this.setIrudia("whiteup1.png");
-		if (Matrizea.getMatrizea().getGelaxka(yPos-1, xPos) instanceof Hutsik){
+		if (Matrizea.getMatrizea().getGelaxka(yPos+1, xPos) instanceof Hutsik){
 			//Matrizea.getMatrizea().aldatuPos(xPos, yPos, xPos, yPos-1);
 			((Hutsik)Matrizea.getMatrizea().getGelaxka(yPos, xPos)).setJokalaria(null);
 			Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
-			((Hutsik)Matrizea.getMatrizea().getGelaxka(yPos - 1, xPos)).setJokalaria(this);
-			Matrizea.getMatrizea().getGelaxka(yPos - 1, xPos).eguneratuGelaxka();
+			((Hutsik)Matrizea.getMatrizea().getGelaxka(yPos + 1, xPos)).setJokalaria(this);
+			Matrizea.getMatrizea().getGelaxka(yPos + 1, xPos).eguneratuGelaxka();
 			this.yPos = this.yPos -1;
+			if (((Hutsik)Matrizea.getMatrizea().getGelaxka(yPos +1, xPos)).getSua() == true) {
+				this.hil = true;
+				this.setAzkenMugi(Mugimendu.HILDA);
+			}
+			Matrizea.getMatrizea().getGelaxka(yPos+1, xPos).eguneratuGelaxka();
 		}
 	}
 	
 	public void mugituBehera(){
 		this.setAzkenMugi(Mugimendu.BEHERA);
 		//this.setIrudia("whitedown1.png");
-		if (Matrizea.getMatrizea().getGelaxka(yPos+1, xPos) instanceof Hutsik){
+		if (Matrizea.getMatrizea().getGelaxka(yPos-1, xPos) instanceof Hutsik){
 			//Matrizea.getMatrizea().aldatuPos(xPos, yPos, xPos, yPos+1);
 			((Hutsik)Matrizea.getMatrizea().getGelaxka(yPos, xPos)).setJokalaria(null);
 			Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
-			((Hutsik)Matrizea.getMatrizea().getGelaxka(yPos + 1, xPos)).setJokalaria(this);
-			Matrizea.getMatrizea().getGelaxka(yPos + 1, xPos).eguneratuGelaxka();
+			((Hutsik)Matrizea.getMatrizea().getGelaxka(yPos - 1, xPos)).setJokalaria(this);
+			Matrizea.getMatrizea().getGelaxka(yPos - 1, xPos).eguneratuGelaxka();
 			this.yPos = this.yPos +1;
+			if (((Hutsik)Matrizea.getMatrizea().getGelaxka(yPos-1, xPos)).getSua() == true) {
+				this.hil = true;
+				this.setAzkenMugi(Mugimendu.HILDA);
+			}
+			Matrizea.getMatrizea().getGelaxka(yPos-1, xPos).eguneratuGelaxka();
 		}
 	}
 	
@@ -53,6 +65,11 @@ public abstract class Jokalaria{
 			((Hutsik)Matrizea.getMatrizea().getGelaxka(yPos, xPos - 1)).setJokalaria(this);
 			Matrizea.getMatrizea().getGelaxka(yPos, xPos - 1).eguneratuGelaxka();
 			this.xPos = this.xPos -1;
+			if (((Hutsik)Matrizea.getMatrizea().getGelaxka(yPos, xPos -1)).getSua() == true) {
+				this.hil = true;
+				this.setAzkenMugi(Mugimendu.HILDA);
+			}
+			Matrizea.getMatrizea().getGelaxka(yPos, xPos - 1).eguneratuGelaxka();
 		}
 	}
 	
@@ -63,9 +80,13 @@ public abstract class Jokalaria{
 			((Hutsik)Matrizea.getMatrizea().getGelaxka(yPos, xPos)).setJokalaria(null);
 			Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
 			((Hutsik)Matrizea.getMatrizea().getGelaxka(yPos, xPos + 1)).setJokalaria(this);
-			Matrizea.getMatrizea().getGelaxka(yPos, xPos + 1).eguneratuGelaxka();
 			//Matrizea.getMatrizea().aldatuPos(xPos, yPos, xPos+1, yPos);
 			this.xPos = this.xPos +1;
+			if (((Hutsik)Matrizea.getMatrizea().getGelaxka(yPos, xPos +1)).getSua() == true) {
+				this.hil = true;
+				this.setAzkenMugi(Mugimendu.HILDA);
+			}
+			Matrizea.getMatrizea().getGelaxka(yPos, xPos + 1).eguneratuGelaxka();
 		}
 	}
 	

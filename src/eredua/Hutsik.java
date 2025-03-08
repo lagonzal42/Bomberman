@@ -6,11 +6,13 @@ public class Hutsik extends Gelaxka{
 
 	private Jokalaria jok;
 	private Bonba bonba;
+	private boolean sua;
 	
 	public Hutsik() {
 		super();
 		jok = null;
 		bonba = null;
+		sua = false;
 		// TODO Auto-generated constructor stub
 	}
 
@@ -44,11 +46,19 @@ public class Hutsik extends Gelaxka{
 		return (jok);
 	}
 	
+	public void setSua() {
+		this.sua=true;
+	}
+	
+	public boolean getSua() {
+		return this.sua;
+	}
+	
 	public void eguneratuGelaxka()
 	{
 		GelaxkaMota gM = null;
 		if (jok != null)
-		{
+		{	
 			switch (jok.getAzkenMugi())
 			{
 				case GORA:
@@ -62,6 +72,9 @@ public class Hutsik extends Gelaxka{
 					break;
 				case ESKUIN:
 					gM = GelaxkaMota.JOKALARIAESKUIN;
+					break;
+				case HILDA:
+					gM = GelaxkaMota.JOKALARIASUAREKIN;
 					break;
 				default:
 					gM = GelaxkaMota.JOKALARIABEHERA;
