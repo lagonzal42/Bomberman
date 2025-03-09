@@ -13,4 +13,6 @@ public class Biguna extends Bloke {
 		this.setChanged();
 		this.notifyObservers(GelaxkaMota.BIGUNA);
 	}
+	
+	
 }

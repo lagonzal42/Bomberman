@@ -23,11 +23,16 @@ public class Hutsik extends Gelaxka{
 		notifyObservers();
 	}
 	
+	public Jokalaria getJokalaria()
+	{
+		return (jok);
+	}
+	
 	public void setBonba(Bonba pBonba)
 	{
 		bonba = pBonba;
 		setChanged();
-		notifyObservers();
+		notifyObservers(GelaxkaMota.BONBA);
 	}
 	
 	public Bonba getBonba()
@@ -36,22 +41,27 @@ public class Hutsik extends Gelaxka{
 	}
 	
 	public void bonbaApurtu(){
-		this.bonba=null;
-		setChanged();
-		notifyObservers(GelaxkaMota.BONBAESTANDA);
-	}
-	
-	public Jokalaria getJokalaria()
-	{
-		return (jok);
+		if (bonba!=null) {
+			this.bonba=null;
+			setChanged();
+			notifyObservers(GelaxkaMota.BONBAESTANDA);	
+		}
 	}
 	
 	public void setSua() {
 		this.sua=true;
+		setChanged();
+		notifyObservers(GelaxkaMota.SUA);
 	}
 	
 	public boolean getSua() {
 		return this.sua;
+	}
+	
+	public void deleteSua() {
+		this.sua=false;
+		setChanged();
+		notifyObservers();
 	}
 	
 	public void eguneratuGelaxka()
@@ -83,6 +93,7 @@ public class Hutsik extends Gelaxka{
 					break;
 			}
 		}
+		
 		this.setChanged();
 		this.notifyObservers(gM);
 	}

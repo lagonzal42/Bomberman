@@ -9,6 +9,7 @@ import java.util.Random;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
+import bista.JokoBista;
 import common.Mugimendu;
 
 public class Matrizea{
@@ -121,20 +122,32 @@ public class Matrizea{
 	
 	public void bonbaJarri() {
 		int [] pos=getJokalariPos();
-		int x = pos[0];
-		int y = pos[1];
+		int y = pos[0];
+		int x = pos[1];
 		
-		Hutsik gel = ((Hutsik)zerrenda [x][y]);
-		//bonba jarri
-		if(gel.getBonba() != null) {
-			gel.setBonba(new Bonba());
-			System.out.println("Bonba jarri du ("+x+","+y+")");
+		if (zerrenda[y][x] instanceof Hutsik) {
+			Hutsik gel = ((Hutsik)zerrenda [y][x]);
+			//bonba jarri
+			if(gel.getBonba() == null) {
+				gel.setBonba(new Bonba());
+				System.out.println("Bonba jarri du ("+y+","+x+")");
+			}
+
 			//timerra
-			new javax.swing.Timer(2000, e ->{
+			javax.swing.Timer errementa = new javax.swing.Timer(3000, e ->{
+				System.out.println("Bonba apurtu da (" +y+","+x+")");
 				gel.bonbaApurtu();
-				System.out.println("Bonba apurtu da (" +x+","+y+")");
-				blokeBigunakApurtu(x,y);
-			}).start();
+				blokeBigunakApurtu(y,x);
+		
+				javax.swing.Timer sua = new javax.swing.Timer(2000, o->{
+					gel.deleteSua();
+				});
+				sua.setRepeats(false);
+				sua.start();
+				
+			});
+			errementa.setRepeats(false);
+			errementa.start();
 		}
 	}
 	
@@ -149,6 +162,8 @@ public class Matrizea{
 		if (errenkada >= 0 && errenkada <= 11 && zutabea >= 0 && zutabea <= 17) {
 			if (zerrenda [errenkada][zutabea] instanceof Biguna) {
 				zerrenda[errenkada][zutabea]=new Hutsik();
+				zerrenda [errenkada][zutabea].eguneratuGelaxka();
+				
 			}
 		}
 	}
