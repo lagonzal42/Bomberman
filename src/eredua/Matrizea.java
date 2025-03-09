@@ -137,7 +137,7 @@ public class Matrizea{
 				System.out.println("Bonba apurtu da (" +y+","+x+")");
 				gel.bonbaApurtu();
 				blokeBigunakApurtu(y,x);
-		
+				//timerra2
 				javax.swing.Timer sua = new javax.swing.Timer(2000, o->{
 					gel.deleteSua();
 				});
@@ -161,6 +161,7 @@ public class Matrizea{
 		if (errenkada >= 0 && errenkada <= 11 && zutabea >= 0 && zutabea <= 17) {
 			if (zerrenda [errenkada][zutabea] instanceof Biguna) {
 				zerrenda[errenkada][zutabea]=new Hutsik();
+				//((Hutsik) zerrenda [errenkada][zutabea]).setSua();
 				zerrenda [errenkada][zutabea].eguneratuGelaxka();
 				
 			}

@@ -69,6 +69,10 @@ public class Hutsik extends Gelaxka{
 		GelaxkaMota gM = null;
 		if (bonba !=null) {
 			gM =GelaxkaMota.BONBA;
+			
+		} else if (sua) {
+			gM=GelaxkaMota.SUA;
+			
 		} else if (jok != null){	
 			switch (jok.getAzkenMugi())
 			{
