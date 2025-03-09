@@ -67,8 +67,9 @@ public class Hutsik extends Gelaxka{
 	public void eguneratuGelaxka()
 	{
 		GelaxkaMota gM = null;
-		if (jok != null)
-		{	
+		if (bonba !=null) {
+			gM =GelaxkaMota.BONBA;
+		} else if (jok != null){	
 			switch (jok.getAzkenMugi())
 			{
 				case GORA:
@@ -94,6 +95,7 @@ public class Hutsik extends Gelaxka{
 			}
 		}
 		
+
 		this.setChanged();
 		this.notifyObservers(gM);
 	}

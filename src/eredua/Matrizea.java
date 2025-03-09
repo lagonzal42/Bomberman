@@ -132,7 +132,6 @@ public class Matrizea{
 				gel.setBonba(new Bonba());
 				System.out.println("Bonba jarri du ("+y+","+x+")");
 			}
-
 			//timerra
 			javax.swing.Timer errementa = new javax.swing.Timer(3000, e ->{
 				System.out.println("Bonba apurtu da (" +y+","+x+")");
