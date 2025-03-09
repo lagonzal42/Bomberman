@@ -94,8 +94,6 @@ public class Hutsik extends Gelaxka{
 					break;
 			}
 		}
-		
-
 		this.setChanged();
 		this.notifyObservers(gM);
 	}
