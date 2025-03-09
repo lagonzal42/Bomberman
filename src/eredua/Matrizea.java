@@ -161,8 +161,9 @@ public class Matrizea{
 		if (errenkada >= 0 && errenkada <= 11 && zutabea >= 0 && zutabea <= 17) {
 			if (zerrenda [errenkada][zutabea] instanceof Biguna) {
 				zerrenda[errenkada][zutabea]=new Hutsik();
-				//((Hutsik) zerrenda [errenkada][zutabea]).setSua();
-				zerrenda [errenkada][zutabea].eguneratuGelaxka();
+				((Hutsik) zerrenda [errenkada][zutabea]).setSua();
+				((Hutsik) zerrenda [errenkada][zutabea]).eguneratuGelaxka();
+				System.out.println("blokea apurtu da:"+ errenkada +","+ zutabea);
 				
 			}
 		}

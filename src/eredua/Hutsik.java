@@ -70,7 +70,7 @@ public class Hutsik extends Gelaxka{
 		if (bonba !=null) {
 			gM =GelaxkaMota.BONBA;
 			
-		} else if (sua) {
+		} else if (sua==true) {
 			gM=GelaxkaMota.SUA;
 			
 		} else if (jok != null){	
