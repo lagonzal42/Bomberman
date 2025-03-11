@@ -123,12 +123,14 @@ public class Matrizea{
 			//bonba jarri
 			if(gel.getBonba() == null) {
 				gel.setBonba(new Bonba());
+				gel.eguneratuGelaxka();
 				System.out.println("Bonba jarri du ("+y+","+x+")");
 			}
 			//timerra
 			javax.swing.Timer errementa = new javax.swing.Timer(3000, e ->{
 				System.out.println("Bonba apurtu da (" +y+","+x+")");
 				gel.bonbaApurtu();
+				gel.eguneratuGelaxka();
 				blokeBigunakApurtu(y,x);
 				//timerra2
 				this.suaJarri(y, x);

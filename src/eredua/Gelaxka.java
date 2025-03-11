@@ -33,8 +33,8 @@ public class Gelaxka extends Observable{
 	public void setBonba(Bonba pBonba)
 	{
 		bonba = pBonba;
-		setChanged();
-		notifyObservers(GelaxkaMota.BONBA);
+//		setChanged();
+//		notifyObservers(GelaxkaMota.BONBA);
 	}
 	
 	public Bonba getBonba()
@@ -45,8 +45,8 @@ public class Gelaxka extends Observable{
 	public void bonbaApurtu(){
 		if (bonba!=null) {
 			this.bonba=null;
-			setChanged();
-			notifyObservers(GelaxkaMota.BONBAESTANDA);	
+//			setChanged();
+//			notifyObservers(GelaxkaMota.BONBAESTANDA);	
 		}
 	}
 	
@@ -62,32 +62,25 @@ public class Gelaxka extends Observable{
 	
 	public void deleteSua() {
 		this.sua=false;
-		setChanged();
-		notifyObservers();
+//		setChanged();
+//		notifyObservers();
 	}
 	
 	public void eguneratuGelaxka()
 	{
 		GelaxkaMota gM = null;
-		if (bonba !=null) {
-			if(jok!= null) {
-				gM=GelaxkaMota.JOKALARIBONBAREKIN;
+		if (jok != null){
+			if(bonba != null) {
+				gM = GelaxkaMota.JOKALARIBONBAREKIN;
 			}
 			else{
-				gM =GelaxkaMota.BONBA;
-			}
-			
-		} else if (sua==true) {
-			if(jok!= null) {
-				gM=GelaxkaMota.JOKALARIASUAREKIN;
-			}
-			else {
-				gM=GelaxkaMota.SUA;				
-			}
-			
-		} else if (jok != null){	
-			switch (jok.getAzkenMugi())
-			{
+				switch (jok.getAzkenMugi())
+				{
+				case HILDA:
+					if (this.sua == true) {
+						gM = GelaxkaMota.JOKALARIASUAREKIN;
+					}
+					break;
 				case GORA:
 					gM = GelaxkaMota.JOKALARIAGORA;
 					break;
@@ -100,16 +93,18 @@ public class Gelaxka extends Observable{
 				case ESKUIN:
 					gM = GelaxkaMota.JOKALARIAESKUIN;
 					break;
-				case HILDA:
-					if (this.sua == true) {
-					gM = GelaxkaMota.JOKALARIASUAREKIN;
-					}
-					break;
 				default:
 					gM = GelaxkaMota.JOKALARIABEHERA;
 					break;
+				}
 			}
 		}
+		else if (bonba !=null) {
+			gM =GelaxkaMota.BONBA;
+		} 
+		else if (sua==true) {
+			gM=GelaxkaMota.SUA;				
+		}	
 		else if (this.blokea instanceof Hutsik)
 		{
 			gM = null;
