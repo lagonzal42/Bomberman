@@ -84,9 +84,9 @@ public class Bozgorailua implements Observer{
 				case JOKALARIBONBAREKIN:
 					break;
 				case BONBAESTANDA:
-					this.getBonba().bonbaEgin();;
 					break;
 				case SUA:
+					this.getBonba().bonbaEgin();;
 					break;
 				case JOKALARIASUAREKIN:
 					break;
