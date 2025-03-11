@@ -149,7 +149,7 @@ public class Matrizea{
 	}
 	
 	private void apurtuBlokea(int errenkada, int zutabea) {
-		if (errenkada >= 0 && errenkada <= 11 && zutabea >= 0 && zutabea <= 17) {
+		if (errenkada >= 0 && errenkada < 11 && zutabea >= 0 && zutabea < 17) {
 			Gelaxka gel = zerrenda[errenkada][zutabea];
 			if (gel.getBlokea() instanceof Biguna) {
 				gel.setBlokea(new Hutsik());
