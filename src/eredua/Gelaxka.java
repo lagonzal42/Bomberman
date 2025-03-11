@@ -70,10 +70,20 @@ public class Gelaxka extends Observable{
 	{
 		GelaxkaMota gM = null;
 		if (bonba !=null) {
-			gM =GelaxkaMota.BONBA;
+			if(jok!= null) {
+				gM=GelaxkaMota.JOKALARIBONBAREKIN;
+			}
+			else{
+				gM =GelaxkaMota.BONBA;
+			}
 			
 		} else if (sua==true) {
-			gM=GelaxkaMota.SUA;
+			if(jok!= null) {
+				gM=GelaxkaMota.JOKALARIASUAREKIN;
+			}
+			else {
+				gM=GelaxkaMota.SUA;				
+			}
 			
 		} else if (jok != null){	
 			switch (jok.getAzkenMugi())

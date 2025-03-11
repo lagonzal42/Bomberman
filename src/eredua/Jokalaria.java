@@ -40,8 +40,6 @@ public abstract class Jokalaria{
 	public void mugituBehera(){
 		this.setAzkenMugi(Mugimendu.BEHERA);
 		Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
-		
-		
 		Gelaxka gel = Matrizea.getMatrizea().getGelaxka(yPos+1, xPos);
 		if (gel!=null && gel.hutsikDago()){
 			Matrizea.getMatrizea().getGelaxka(yPos, xPos).setJokalaria(null);

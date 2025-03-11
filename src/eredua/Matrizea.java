@@ -115,8 +115,8 @@ public class Matrizea{
 	}
 	
 	public void bonbaJarri() {
-		int y = jok.getX();
-		int x = jok.getY();
+		int y = jok.getY();
+		int x = jok.getX();
 		
 		if (zerrenda[y][x].hutsikDago()) {
 			Gelaxka gel = zerrenda [y][x];
@@ -131,11 +131,7 @@ public class Matrizea{
 				gel.bonbaApurtu();
 				blokeBigunakApurtu(y,x);
 				//timerra2
-				javax.swing.Timer sua = new javax.swing.Timer(2000, o->{
-					gel.deleteSua();
-				});
-				sua.setRepeats(false);
-				sua.start();
+				this.suaJarri(y, x);
 				
 			});
 			errementa.setRepeats(false);
@@ -152,14 +148,29 @@ public class Matrizea{
 	
 	private void apurtuBlokea(int errenkada, int zutabea) {
 		if (errenkada >= 0 && errenkada <= 11 && zutabea >= 0 && zutabea <= 17) {
-			if (zerrenda [errenkada][zutabea].getBlokea() instanceof Biguna) {
-				zerrenda[errenkada][zutabea].setBlokea(new Hutsik());
-				zerrenda [errenkada][zutabea].setSua();
-				zerrenda [errenkada][zutabea].eguneratuGelaxka();
+			Gelaxka gel = zerrenda[errenkada][zutabea];
+			if (gel.getBlokea() instanceof Biguna) {
+				gel.setBlokea(new Hutsik());
+				this.suaJarri(errenkada, zutabea);
 				System.out.println("blokea apurtu da:"+ errenkada +","+ zutabea);
-				
+			}
+			else if (gel.getBlokea() instanceof Hutsik) {
+				this.suaJarri(errenkada, zutabea);
 			}
 		}
+	}
+	
+	private void suaJarri(int errenkada, int zutabea) {
+		Gelaxka gel = zerrenda[errenkada][zutabea];
+		gel.setSua();
+		gel.eguneratuGelaxka();
+		javax.swing.Timer sua = new javax.swing.Timer(2000, o->{
+			gel.deleteSua();
+			gel.eguneratuGelaxka();
+		});
+		sua.setRepeats(false);
+		sua.start();
+		
 	}
 	
 }
