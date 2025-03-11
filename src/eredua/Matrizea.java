@@ -85,13 +85,6 @@ public class Matrizea{
 	public void ezabatu(int i, int j) {
 		this.zerrenda[i][j].setBlokea(new Hutsik());
 	}
-	
-	public int[] getJokalariPos(){
-		int[] pos = new int[2];
-		pos[0] = jok.getY();
-		pos[1] = jok.getX();
-		return pos;
-	}
 	public Jokalaria getJokalaria() {
 		return jok;
 	}
@@ -122,9 +115,8 @@ public class Matrizea{
 	}
 	
 	public void bonbaJarri() {
-		int [] pos=getJokalariPos();
-		int y = pos[0];
-		int x = pos[1];
+		int y = jok.getX();
+		int x = jok.getY();
 		
 		if (zerrenda[y][x].hutsikDago()) {
 			Gelaxka gel = zerrenda [y][x];
