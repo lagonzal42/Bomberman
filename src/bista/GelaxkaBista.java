@@ -42,6 +42,8 @@ public class GelaxkaBista extends JLabel implements Observer{
 		// TODO Auto-generated method stub
 		GelaxkaMota gelMota = (GelaxkaMota)arg;
 		
+		System.out.println("gelaxka orain " + arg);
+		
 		if (gelMota == null)
 			this.setIrudia(null);
 			

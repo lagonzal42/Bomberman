@@ -38,27 +38,28 @@ public class Matrizea{
 		Gelaxka[][] zerrenda = new Gelaxka[lerroak][zutabeak];
 		for(int i = 0; i < lerroak; i++) {
 			for(int j = 0; j < zutabeak; j++) {
+				zerrenda[i][j] = new Gelaxka();
 				if(j == 0 && i == 0) {
 					//jokalaria
-					zerrenda[i][j] = new Hutsik();
-					((Hutsik)zerrenda[i][j]).setJokalaria(new Zuria());
+					zerrenda[i][j].setBlokea(new Hutsik());
+					zerrenda[i][j].setJokalaria(new Zuria());
 					
 				}
 				else if((j == 0 && i == 1) || (j == 1 && i == 0)) {
 					//hutsik
-					zerrenda[i][j] = new Hutsik();
+					zerrenda[i][j].setBlokea(new Hutsik()); 
 				}
 				else if((j % 2 != 0 && i % 2 != 0)) {
 					//bloke gogorra
-					zerrenda[i][j] = new Gogorra();
+					zerrenda[i][j].setBlokea(new Gogorra()); 
 				}
 				else if(dado.gainditzenDu(0.4)){
 					//bloke biguna
-					zerrenda[i][j] = new Biguna();
+					zerrenda[i][j].setBlokea(new Biguna());
 				}
 				else {
 					//hutsik
-					zerrenda[i][j] = new Hutsik();
+					zerrenda[i][j].setBlokea(new Hutsik());
 				}
 			}
 		}
@@ -82,7 +83,7 @@ public class Matrizea{
 	}
 	
 	public void ezabatu(int i, int j) {
-		this.zerrenda[i][j] = new Hutsik();
+		this.zerrenda[i][j].setBlokea(new Hutsik());
 	}
 	
 	public int[] getJokalariPos(){
@@ -125,8 +126,8 @@ public class Matrizea{
 		int y = pos[0];
 		int x = pos[1];
 		
-		if (zerrenda[y][x] instanceof Hutsik) {
-			Hutsik gel = ((Hutsik)zerrenda [y][x]);
+		if (zerrenda[y][x].hutsikDago()) {
+			Gelaxka gel = zerrenda [y][x];
 			//bonba jarri
 			if(gel.getBonba() == null) {
 				gel.setBonba(new Bonba());
@@ -159,10 +160,10 @@ public class Matrizea{
 	
 	private void apurtuBlokea(int errenkada, int zutabea) {
 		if (errenkada >= 0 && errenkada <= 11 && zutabea >= 0 && zutabea <= 17) {
-			if (zerrenda [errenkada][zutabea] instanceof Biguna) {
-				zerrenda[errenkada][zutabea]=new Hutsik();
-				((Hutsik) zerrenda [errenkada][zutabea]).setSua();
-				((Hutsik) zerrenda [errenkada][zutabea]).eguneratuGelaxka();
+			if (zerrenda [errenkada][zutabea].getBlokea() instanceof Biguna) {
+				zerrenda[errenkada][zutabea].setBlokea(new Hutsik());
+				zerrenda [errenkada][zutabea].setSua();
+				zerrenda [errenkada][zutabea].eguneratuGelaxka();
 				System.out.println("blokea apurtu da:"+ errenkada +","+ zutabea);
 				
 			}

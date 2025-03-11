@@ -2,21 +2,128 @@ package eredua;
 
 import java.util.Observable;
 
-public abstract class Gelaxka extends Observable{
+import common.GelaxkaMota;
+
+public class Gelaxka extends Observable{
 	
-	//private String irudia;
+	private Jokalaria	jok;
+	private Bonba		bonba;
+	private boolean 	sua;
+	private Bloke		blokea;
 	
 	public Gelaxka() {
-		//this.irudia = "/bista/Sprites/" + pIrudia;
+		
 	}
 	
-	//public String getIrudia() {
-	//	return this.irudia;
-	//}
+	public boolean hutsikDago()
+	{
+		return (blokea instanceof Hutsik);
+	}
 	
-	//public void setIrudia(String pIrudia) {
-	//	this.irudia = "/bista/Sprites/" + pIrudia;
-	//}
+	public void setJokalaria(Jokalaria pJok)
+	{
+		jok = pJok;
+	}
 	
-	public abstract void eguneratuGelaxka();
+	public Jokalaria getJokalaria()
+	{
+		return (jok);
+	}
+	
+	public void setBonba(Bonba pBonba)
+	{
+		bonba = pBonba;
+		setChanged();
+		notifyObservers(GelaxkaMota.BONBA);
+	}
+	
+	public Bonba getBonba()
+	{
+		return (bonba);
+	}
+	
+	public void bonbaApurtu(){
+		if (bonba!=null) {
+			this.bonba=null;
+			setChanged();
+			notifyObservers(GelaxkaMota.BONBAESTANDA);	
+		}
+	}
+	
+	public void setSua() {
+		this.sua=true;
+		setChanged();
+		notifyObservers(GelaxkaMota.SUA);
+	}
+	
+	public boolean getSua() {
+		return this.sua;
+	}
+	
+	public void deleteSua() {
+		this.sua=false;
+		setChanged();
+		notifyObservers();
+	}
+	
+	public void eguneratuGelaxka()
+	{
+		GelaxkaMota gM = null;
+		if (bonba !=null) {
+			gM =GelaxkaMota.BONBA;
+			
+		} else if (sua==true) {
+			gM=GelaxkaMota.SUA;
+			
+		} else if (jok != null){	
+			switch (jok.getAzkenMugi())
+			{
+				case GORA:
+					gM = GelaxkaMota.JOKALARIAGORA;
+					break;
+				case BEHERA:
+					gM = GelaxkaMota.JOKALARIABEHERA;
+					break;
+				case EZKER:
+					gM = GelaxkaMota.JOKALARIAEZKER;
+					break;
+				case ESKUIN:
+					gM = GelaxkaMota.JOKALARIAESKUIN;
+					break;
+				case HILDA:
+					if (this.sua == true) {
+					gM = GelaxkaMota.JOKALARIASUAREKIN;
+					}
+					break;
+				default:
+					gM = GelaxkaMota.JOKALARIABEHERA;
+					break;
+			}
+		}
+		else if (this.blokea instanceof Hutsik)
+		{
+			gM = null;
+		}
+		else if (this.blokea instanceof Biguna)
+		{
+			gM = GelaxkaMota.BIGUNA;
+		}
+		else if (this.blokea instanceof Gogorra)
+		{
+			gM = GelaxkaMota.GOGORRA;
+		}
+		
+		this.setChanged();
+		this.notifyObservers(gM);
+	}
+	
+	public Bloke getBlokea()
+	{
+		return (blokea);
+	}
+	
+	public void setBlokea(Bloke pBloke)
+	{
+		this.blokea = pBloke;
+	}
 }

@@ -1,9 +1,8 @@
 package eredua;
 
-public abstract class Bloke extends Gelaxka{
+public abstract class Bloke{
 
 	public Bloke() {
-		super();
 	}
 
 }

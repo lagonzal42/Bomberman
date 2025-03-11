@@ -7,12 +7,4 @@ public class Biguna extends Bloke {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	public void eguneratuGelaxka()
-	{
-		this.setChanged();
-		this.notifyObservers(GelaxkaMota.BIGUNA);
-	}
-	
-	
 }
