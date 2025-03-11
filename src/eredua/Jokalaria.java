@@ -21,8 +21,9 @@ public abstract class Jokalaria{
 	public void mugituGora(){
 		this.setAzkenMugi(Mugimendu.GORA);
 		Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
+		Gelaxka gel = Matrizea.getMatrizea().getGelaxka(yPos-1, xPos);
 		//this.setIrudia("whiteup1.png");
-		if (Matrizea.getMatrizea().getGelaxka(yPos-1, xPos).hutsikDago()){
+		if (gel!=null && gel.hutsikDago()){
 			//Matrizea.getMatrizea().aldatuPos(xPos, yPos, xPos, yPos-1);
 			Matrizea.getMatrizea().getGelaxka(yPos, xPos).setJokalaria(null);
 			Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
@@ -38,9 +39,11 @@ public abstract class Jokalaria{
 	
 	public void mugituBehera(){
 		this.setAzkenMugi(Mugimendu.BEHERA);
+		Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
 		
 		
-		if (Matrizea.getMatrizea().getGelaxka(yPos+1, xPos).hutsikDago()){
+		Gelaxka gel = Matrizea.getMatrizea().getGelaxka(yPos+1, xPos);
+		if (gel!=null && gel.hutsikDago()){
 			Matrizea.getMatrizea().getGelaxka(yPos, xPos).setJokalaria(null);
 			Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
 			Matrizea.getMatrizea().getGelaxka(yPos + 1, xPos).setJokalaria(this);
@@ -57,8 +60,9 @@ public abstract class Jokalaria{
 	public void mugituEzkerra(){
 		this.setAzkenMugi(Mugimendu.EZKER);
 		Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
+		Gelaxka gel = Matrizea.getMatrizea().getGelaxka(yPos, xPos-1);
 		//this.setIrudia("whiteleft1.png");
-		if (Matrizea.getMatrizea().getGelaxka(yPos, xPos-1).hutsikDago()){
+		if (gel!= null && gel.hutsikDago()){
 			//Matrizea.getMatrizea().aldatuPos(xPos, yPos, xPos-1, yPos);
 			Matrizea.getMatrizea().getGelaxka(yPos, xPos).setJokalaria(null);
 			Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
@@ -75,8 +79,9 @@ public abstract class Jokalaria{
 	public void mugituEskuma() {
 		this.setAzkenMugi(Mugimendu.ESKUIN);
 		Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
+		Gelaxka gel = Matrizea.getMatrizea().getGelaxka(yPos, xPos+1);
 		//this.setIrudia("whiteright1.png");
-		if (Matrizea.getMatrizea().getGelaxka(yPos, xPos+1).hutsikDago()){
+		if (gel != null && gel.hutsikDago()){
 			Matrizea.getMatrizea().getGelaxka(yPos, xPos).setJokalaria(null);
 			Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
 			Matrizea.getMatrizea().getGelaxka(yPos, xPos + 1).setJokalaria(this);
