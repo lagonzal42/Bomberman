@@ -3,6 +3,7 @@ package eredua;
 import java.util.Observable;
 
 import common.GelaxkaMota;
+import common.Mugimendu;
 
 public class Gelaxka extends Observable{
 	
@@ -52,8 +53,11 @@ public class Gelaxka extends Observable{
 	
 	public void setSua() {
 		this.sua=true;
-		setChanged();
-		notifyObservers(GelaxkaMota.SUA);
+		if(this.jok!=null) {
+			jok.setAzkenMugi(Mugimendu.HILDA);
+		}
+//		setChanged();
+//		notifyObservers(GelaxkaMota.SUA);
 	}
 	
 	public boolean getSua() {
