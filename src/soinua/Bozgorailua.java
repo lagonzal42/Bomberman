@@ -6,6 +6,7 @@ import java.util.Observer;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
 
 import common.GelaxkaMota;
 import eredua.Gelaxka;
@@ -13,54 +14,23 @@ import eredua.Matrizea;
 
 public class Bozgorailua implements Observer{
 	
-	private Clip clip;
-	private static Bozgorailua backMusic = null; 
-	private static Bozgorailua bonbaMusic = null; 
+	private static Bozgorailua boz=null;
 	
-	private Bozgorailua(String musika) {
-		try {
-			String filePath = "/soinua/soinuak/" + musika + ".wav";
-			clip = AudioSystem.getClip();
-			
-			AudioInputStream inputStream = AudioSystem.getAudioInputStream(getClass().getResource(filePath));
-			
-			clip.open(inputStream);
-			this.jarriListenerrak();
-		}catch(Exception e) {
-			e.printStackTrace();
+	private Bozgorailua() {
+		this.jarriListenerrak();
+	}
+	
+	public static Bozgorailua getBozgorailua() {
+		if(boz==null) {
+			boz=new Bozgorailua();
 		}
+		return boz;
 	}
 	
-	public static Bozgorailua getBackMusic() {
-		if(backMusic==null) {
-			backMusic = new Bozgorailua("backMusic");
-		}
-		return backMusic;
+	public AtzekoMusika getMusika() {
+		return (AtzekoMusika) BozgorailuFactory.getBF().getMusika();
 	}
 	
-	public void backMusicHasi()
-	{
-		clip.loop(Clip.LOOP_CONTINUOUSLY);
-	}
-	
-	public void backMusicPausatu() {
-		clip.stop();
-	}
-	
-	public static Bozgorailua getBonba() {
-		if(bonbaMusic==null) {
-			bonbaMusic = new Bozgorailua("bomba");
-		}
-		return bonbaMusic;
-	}
-	
-	private void bonbaEgin() {
-		if(clip.isRunning()) {
-			clip.stop();
-		}
-		clip.setFramePosition(0);
-		clip.start();
-	}
 
 	@Override
 	public void update(Observable o, Object arg) {
@@ -86,7 +56,7 @@ public class Bozgorailua implements Observer{
 				case BONBAESTANDA:
 					break;
 				case SUA:
-					this.getBonba().bonbaEgin();;
+					BozgorailuFactory.getBF().getBonba().hasi();;
 					break;
 				case JOKALARIASUAREKIN:
 					break;
