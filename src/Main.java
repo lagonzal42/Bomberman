@@ -7,8 +7,8 @@ public class Main {
 		
 		JokoBista jb = JokoBista.getJokoBista();
 		
-		Bozgorailua musika = Bozgorailua.getBackMusic();
-		musika.backMusicHasi();
+		Bozgorailua musika = Bozgorailua.getBozgorailua();
+		musika.getMusika().hasi();
 		
 		
 		Matrizea mat = Matrizea.getMatrizea();
