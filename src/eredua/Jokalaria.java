@@ -23,7 +23,7 @@ public abstract class Jokalaria{
 		Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
 		Gelaxka gel = Matrizea.getMatrizea().getGelaxka(yPos-1, xPos);
 		//this.setIrudia("whiteup1.png");
-		if (gel!=null && gel.hutsikDago()){
+		if (gel!=null && gel.hutsikDago()&& gel.getBonba()== null){
 			//Matrizea.getMatrizea().aldatuPos(xPos, yPos, xPos, yPos-1);
 			Matrizea.getMatrizea().getGelaxka(yPos, xPos).setJokalaria(null);
 			Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
@@ -41,7 +41,7 @@ public abstract class Jokalaria{
 		this.setAzkenMugi(Mugimendu.BEHERA);
 		Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
 		Gelaxka gel = Matrizea.getMatrizea().getGelaxka(yPos+1, xPos);
-		if (gel!=null && gel.hutsikDago()){
+		if (gel!=null && gel.hutsikDago() && gel.getBonba()== null){
 			Matrizea.getMatrizea().getGelaxka(yPos, xPos).setJokalaria(null);
 			Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
 			Matrizea.getMatrizea().getGelaxka(yPos + 1, xPos).setJokalaria(this);
@@ -60,7 +60,7 @@ public abstract class Jokalaria{
 		Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
 		Gelaxka gel = Matrizea.getMatrizea().getGelaxka(yPos, xPos-1);
 		//this.setIrudia("whiteleft1.png");
-		if (gel!= null && gel.hutsikDago()){
+		if (gel!= null && gel.hutsikDago() && gel.getBonba()== null){
 			//Matrizea.getMatrizea().aldatuPos(xPos, yPos, xPos-1, yPos);
 			Matrizea.getMatrizea().getGelaxka(yPos, xPos).setJokalaria(null);
 			Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
@@ -79,7 +79,7 @@ public abstract class Jokalaria{
 		Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
 		Gelaxka gel = Matrizea.getMatrizea().getGelaxka(yPos, xPos+1);
 		//this.setIrudia("whiteright1.png");
-		if (gel != null && gel.hutsikDago()){
+		if (gel != null && gel.hutsikDago() && gel.getBonba()== null){
 			Matrizea.getMatrizea().getGelaxka(yPos, xPos).setJokalaria(null);
 			Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
 			Matrizea.getMatrizea().getGelaxka(yPos, xPos + 1).setJokalaria(this);
@@ -116,5 +116,13 @@ public abstract class Jokalaria{
 	public void printPosizio()
 	{
 		System.out.println("Errenkada: " + yPos + " Zutabe: " + xPos);
+	}
+	
+	public boolean getHilda() {
+		return hil;
+	}
+	
+	public void setHilda() {
+		this.hil = true;
 	}
 }
