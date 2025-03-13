@@ -5,6 +5,7 @@ public class BozgorailuFactory {
 	private static BozgorailuFactory bF=null;
 	private static Soinua backMusic=null;
 	private static Soinua bonba=null;
+	private static Soinua galdu = null;
 	
 	private BozgorailuFactory() {
 		
@@ -29,6 +30,13 @@ public class BozgorailuFactory {
             bonba = new BonbaSoinua("bomba");
         }
         return bonba;
+    }
+    
+    public static Soinua getGaldu() {
+        if (galdu == null) {
+            galdu = new GalduSoinua("galdu");
+        }
+        return galdu;
     }
 
 }
