@@ -156,7 +156,7 @@ public class Matrizea{
 				this.suaJarri(errenkada, zutabea);
 				System.out.println("blokea apurtu da:"+ errenkada +","+ zutabea);
 			}
-			else if (gel.getBlokea() instanceof Hutsik) {
+			else if (gel.hutsikDago()) {
 				this.suaJarri(errenkada, zutabea);
 			}
 		}

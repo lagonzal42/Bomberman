@@ -137,38 +137,42 @@ public class JokoBista extends JFrame{
 			//int[] pos = Matrizea.getMatrizea().getJokalariPos();
 			Matrizea mat = Matrizea.getMatrizea();
 			
-			// TODO Auto-generated method stub
-			if(e.getKeyCode() == KeyEvent.VK_UP) {
-				mat.mugituJokalaria(Mugimendu.GORA);
-				//jok.mugituGora();
-				//jokalaria.mugituGora()
+			if(!mat.getJokalaria().getHilda()) {
+				// TODO Auto-generated method stub
+				if(e.getKeyCode() == KeyEvent.VK_UP) {
+					mat.mugituJokalaria(Mugimendu.GORA);
+					//jok.mugituGora();
+					//jokalaria.mugituGora()
+				}
+				if(e.getKeyCode() == KeyEvent.VK_DOWN) {
+					mat.mugituJokalaria(Mugimendu.BEHERA);
+					//jok.mugituBehera();
+					//jokalaria.mugituBehera()
+				}
+				if(e.getKeyCode() == KeyEvent.VK_LEFT) {
+					mat.mugituJokalaria(Mugimendu.EZKER);
+					//jok.mugituEzkerra();
+					//jokalaria.mugituEzkerra()
+				}
+				if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
+					mat.mugituJokalaria(Mugimendu.ESKUIN);
+					//jok.mugituEskuma();
+					//jokalaria.mugituEskuma()
+				}
+				if(e.getKeyCode() == KeyEvent.VK_B) {
+					//bonba ipini
+					mat.bonbaJarri();
+					//JLabel bonbaLabel = new JLabel(new ImageIcon(this.getClass().getResource("/bista/Sprites/bomb1.png")));
+					//mapa[pos[0]][pos[1]].add(bonbaLabel);
+					//timerra hasi
+					//bonbaLabel.setIcon(new ImageIcon(this.getClass().getResource("/bista/Sprites/kaBomb0.png")));
+					//timerra amaitu
+					//blokeBigunakApurtu(pos[0],pos[1]);
+					//mapa[pos[0]][pos[1]].remove(bonbaLabel);	
+				}
+				
 			}
-			if(e.getKeyCode() == KeyEvent.VK_DOWN) {
-				mat.mugituJokalaria(Mugimendu.BEHERA);
-				//jok.mugituBehera();
-				//jokalaria.mugituBehera()
-			}
-			if(e.getKeyCode() == KeyEvent.VK_LEFT) {
-				mat.mugituJokalaria(Mugimendu.EZKER);
-				//jok.mugituEzkerra();
-				//jokalaria.mugituEzkerra()
-			}
-			if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
-				mat.mugituJokalaria(Mugimendu.ESKUIN);
-				//jok.mugituEskuma();
-				//jokalaria.mugituEskuma()
-			}
-			if(e.getKeyCode() == KeyEvent.VK_B) {
-				//bonba ipini
-				mat.bonbaJarri();
-				//JLabel bonbaLabel = new JLabel(new ImageIcon(this.getClass().getResource("/bista/Sprites/bomb1.png")));
-				//mapa[pos[0]][pos[1]].add(bonbaLabel);
-				//timerra hasi
-				//bonbaLabel.setIcon(new ImageIcon(this.getClass().getResource("/bista/Sprites/kaBomb0.png")));
-				//timerra amaitu
-				//blokeBigunakApurtu(pos[0],pos[1]);
-				//mapa[pos[0]][pos[1]].remove(bonbaLabel);	
-			}
+			
 		}
 		
 		/*public void blokeBigunakApurtu(int errenkada, int zutabea) {

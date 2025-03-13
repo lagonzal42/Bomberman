@@ -46,6 +46,10 @@ public class Gelaxka extends Observable{
 	public void bonbaApurtu(){
 		if (bonba!=null) {
 			this.bonba=null;
+			if(this.jok!=null) {
+				jok.setAzkenMugi(Mugimendu.HILDA);
+				jok.setHilda();
+			}
 //			setChanged();
 //			notifyObservers(GelaxkaMota.BONBAESTANDA);	
 		}
@@ -55,6 +59,7 @@ public class Gelaxka extends Observable{
 		this.sua=true;
 		if(this.jok!=null) {
 			jok.setAzkenMugi(Mugimendu.HILDA);
+			jok.setHilda();
 		}
 //		setChanged();
 //		notifyObservers(GelaxkaMota.SUA);
