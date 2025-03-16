@@ -19,6 +19,7 @@ public class Matrizea{
 	private int lerroak = 11;
 	private int zutabeak = 17;
 	private Jokalaria jok;
+	private int bigunKop = 0;
 	
 	private Matrizea() {
 		this.zerrenda = matrizeaSortu();
@@ -56,6 +57,7 @@ public class Matrizea{
 				else if(dado.gainditzenDu(0.4)){
 					//bloke biguna
 					zerrenda[i][j].setBlokea(new Biguna());
+					bigunKop ++;
 				}
 				else {
 					//hutsik
@@ -123,14 +125,12 @@ public class Matrizea{
 			//bonba jarri
 			if(gel.getBonba() == null) {
 				gel.setBonba(new Bonba());
-				gel.eguneratuGelaxka();
 				System.out.println("Bonba jarri du ("+y+","+x+")");
 			}
 			//timerra
 			javax.swing.Timer errementa = new javax.swing.Timer(3000, e ->{
 				System.out.println("Bonba apurtu da (" +y+","+x+")");
 				gel.bonbaApurtu();
-				gel.eguneratuGelaxka();
 				blokeBigunakApurtu(y,x);
 				//timerra2
 				this.suaJarri(y, x);
@@ -154,7 +154,11 @@ public class Matrizea{
 			if (gel.getBlokea() instanceof Biguna) {
 				gel.setBlokea(new Hutsik());
 				this.suaJarri(errenkada, zutabea);
-				System.out.println("blokea apurtu da:"+ errenkada +","+ zutabea);
+				bigunKop --;
+				if(bigunKop == 0) {
+					System.out.println("Irabazi duzu!!");
+				}
+				System.out.println("blokea apurtu da:"+ errenkada +","+ zutabea + "bigun kop: " + bigunKop);
 			}
 			else if (gel.hutsikDago()) {
 				this.suaJarri(errenkada, zutabea);
@@ -165,10 +169,8 @@ public class Matrizea{
 	private void suaJarri(int errenkada, int zutabea) {
 		Gelaxka gel = zerrenda[errenkada][zutabea];
 		gel.setSua();
-		gel.eguneratuGelaxka();
 		javax.swing.Timer sua = new javax.swing.Timer(2000, o->{
 			gel.deleteSua();
-			gel.eguneratuGelaxka();
 		});
 		sua.setRepeats(false);
 		sua.start();

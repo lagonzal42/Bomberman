@@ -34,8 +34,7 @@ public class Gelaxka extends Observable{
 	public void setBonba(Bonba pBonba)
 	{
 		bonba = pBonba;
-//		setChanged();
-//		notifyObservers(GelaxkaMota.BONBA);
+		this.eguneratuGelaxka();
 	}
 	
 	public Bonba getBonba()
@@ -50,8 +49,7 @@ public class Gelaxka extends Observable{
 				jok.setAzkenMugi(Mugimendu.HILDA);
 				jok.setHilda();
 			}
-//			setChanged();
-//			notifyObservers(GelaxkaMota.BONBAESTANDA);	
+			this.eguneratuGelaxka();
 		}
 	}
 	
@@ -61,8 +59,7 @@ public class Gelaxka extends Observable{
 			jok.setAzkenMugi(Mugimendu.HILDA);
 			jok.setHilda();
 		}
-//		setChanged();
-//		notifyObservers(GelaxkaMota.SUA);
+		this.eguneratuGelaxka();
 	}
 	
 	public boolean getSua() {
@@ -71,8 +68,7 @@ public class Gelaxka extends Observable{
 	
 	public void deleteSua() {
 		this.sua=false;
-//		setChanged();
-//		notifyObservers();
+		this.eguneratuGelaxka();
 	}
 	
 	public void eguneratuGelaxka()

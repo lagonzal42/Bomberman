@@ -30,6 +30,9 @@ import eredua.Gelaxka;
 import eredua.Gogorra;
 import eredua.Jokalaria;
 import eredua.Matrizea;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import javax.swing.SwingConstants;
 
 public class JokoBista extends JFrame{
 
@@ -38,22 +41,8 @@ public class JokoBista extends JFrame{
 	private Mapa mapa;
 	private Controler controler = null;
 	private static JokoBista jb = null;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					JokoBista frame = new JokoBista();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private JPanel panel_1;
+	private JLabel lblNewLabel;
 
 	/**
 	 * Create the frame.
@@ -96,25 +85,6 @@ public class JokoBista extends JFrame{
 	{
 		return (mapa);
 	}
-	
-	private void initialice() {
-		/*mapa = new JPanel[11][17];
-		for(int i = 0; i < 11; i++) {
-			for(int j = 0; j < 17; j++) {
-				mapa[i][j] = new JPanel();
-				mapa[i][j].setOpaque(false);
-				mapa[i][j].setLayout(new BorderLayout()); // Para centrar la imagen
-	            JLabel label = new JLabel();
-	            label.setOpaque(false);
-	            mapa[i][j].add(label);
-	            panel.add(mapa[i][j]);
-			}
-		}*/
-	}
-	
-	/*private boolean bigunaDa(int errenkada, int zutabea) {
-		return Matrizea.getMatrizea().getGelaxka(errenkada, zutabea) instanceof Biguna;
-	}*/
 	
 	//Kontroladorea
 	private Controler getControler() {
@@ -161,42 +131,13 @@ public class JokoBista extends JFrame{
 				}
 				if(e.getKeyCode() == KeyEvent.VK_B) {
 					//bonba ipini
-					mat.bonbaJarri();
-					//JLabel bonbaLabel = new JLabel(new ImageIcon(this.getClass().getResource("/bista/Sprites/bomb1.png")));
-					//mapa[pos[0]][pos[1]].add(bonbaLabel);
-					//timerra hasi
-					//bonbaLabel.setIcon(new ImageIcon(this.getClass().getResource("/bista/Sprites/kaBomb0.png")));
-					//timerra amaitu
-					//blokeBigunakApurtu(pos[0],pos[1]);
-					//mapa[pos[0]][pos[1]].remove(bonbaLabel);	
+					mat.bonbaJarri();	
 				}
 				
 			}
 			
 		}
 		
-		/*public void blokeBigunakApurtu(int errenkada, int zutabea) {
-			if (bigunaDa(errenkada,zutabea+1)){
-				//blokeaEzabatu(errenkada,zutabea+1);
-			}
-			if (bigunaDa(errenkada,zutabea-1)){
-				blokeaEzabatu(errenkada,zutabea-1);
-			}
-			if (bigunaDa(errenkada+1,zutabea)){
-				blokeaEzabatu(errenkada+1,zutabea);
-			}
-			if (bigunaDa(errenkada-1,zutabea)){
-				blokeaEzabatu(errenkada-1,zutabea);
-			}
-		}*/
-		
-		/*public void blokeaEzabatu(int errenkada, int zutabea) {
-			if(errenkada >= 0 && errenkada <= 11 && zutabea >= 0 && zutabea <= 17) {
-				Matrizea.getMatrizea().ezabatu(errenkada, zutabea);
-				JLabel lbl= mapa.get(errenkada, zutabea);
-				lbl.setIcon(null);
-			}
-		}*/
 
 		@Override
 		public void keyReleased(KeyEvent e) {

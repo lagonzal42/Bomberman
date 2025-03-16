@@ -8,6 +8,7 @@ public abstract class Jokalaria{
 	private int yPos;
 	private boolean hil;
 	private Mugimendu azkenMugi;
+	private int bonbaKop;
 	
 	public Jokalaria() {
 		//super(pIrudia);
@@ -16,6 +17,7 @@ public abstract class Jokalaria{
 		yPos = 0;
 		hil = false;
 		azkenMugi = Mugimendu.BEHERA;
+		bonbaKop = 10;
 	}
 	
 	public void mugituGora(){
@@ -124,5 +126,12 @@ public abstract class Jokalaria{
 	
 	public void setHilda() {
 		this.hil = true;
+	}
+	
+	public boolean bonbaDu() {
+		return (bonbaKop > 0);
+	}
+	public void bonbaKendu() {
+		this.bonbaKop --;
 	}
 }
