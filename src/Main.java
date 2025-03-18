@@ -13,5 +13,6 @@ public class Main {
 		
 		Matrizea mat = Matrizea.getMatrizea();
 		mat.hasieratuBista();
+		
 	}
 }

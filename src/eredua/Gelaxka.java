@@ -76,7 +76,10 @@ public class Gelaxka extends Observable{
 		GelaxkaMota gM = null;
 		if (jok != null){
 			if(bonba != null) {
-				gM = GelaxkaMota.JOKALARIBONBAREKIN;
+				if (sua == true)
+					gM = GelaxkaMota.JOKALARIASUAREKIN;
+				else
+					gM = GelaxkaMota.JOKALARIBONBAREKIN;
 			}
 			else{
 				switch (jok.getAzkenMugi())
