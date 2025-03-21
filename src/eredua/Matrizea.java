@@ -20,8 +20,6 @@ public class Matrizea{
 	private int zutabeak = 17;
 	private Jokalaria jok;
 	
-	int bonbKont = 0;
-	
 	private Matrizea() {
 		this.zerrenda = matrizeaSortu();
 		this.jok = new Zuria();
@@ -123,13 +121,13 @@ public class Matrizea{
 		if (zerrenda[y][x].hutsikDago()) {
 			Gelaxka gel = zerrenda [y][x];
 			//bonba jarri
-			if (bonbKont <=10) {
-				if(gel.getBonba() == null) {
-					gel.setBonba(new Bonba());
-					bonbKont=bonbKont+1;
-					gel.eguneratuGelaxka();
-					System.out.println("Bonba jarri du ("+y+","+x+")");
-				}
+			if (jok.getBonbaKop()>0) {	
+				jok.bonbaKendu();
+				jok.setBonba(new Bonba());
+				gel.setBonba(jok.getBonba());
+				gel.eguneratuGelaxka();
+				System.out.println("Bonba jarri du ("+y+","+x+")");
+			
 				//timerra
 				javax.swing.Timer errementa = new javax.swing.Timer(3000, e ->{
 					System.out.println("Bonba apurtu da (" +y+","+x+")");
@@ -138,6 +136,7 @@ public class Matrizea{
 					blokeBigunakApurtu(y,x);
 					//timerra2
 					this.suaJarri(y, x);
+					jok.setBonba(null);
 					
 				});
 				errementa.setRepeats(false);
@@ -148,7 +147,7 @@ public class Matrizea{
 				//bonba itxaroteko timerra
 				javax.swing.Timer itxaron = new javax.swing.Timer(3000, e->{
 					System.out.println("Bonba eskuragarri duzu");
-					bonbKont=bonbKont-1;
+					jok.bonbaGehitu();
 				});
 				itxaron.setRepeats(false);
 				itxaron.start();

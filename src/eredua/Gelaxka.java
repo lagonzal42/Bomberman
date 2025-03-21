@@ -46,6 +46,7 @@ public class Gelaxka extends Observable{
 		if (bonba!=null) {
 			this.bonba=null;
 			if(this.jok!=null) {
+				jok.setBonba(null);
 				jok.setAzkenMugi(Mugimendu.HILDA);
 				jok.setHilda();
 			}

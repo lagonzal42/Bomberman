@@ -8,8 +8,9 @@ public abstract class Jokalaria{
 	private int yPos;
 	private boolean hil;
 	private Mugimendu azkenMugi;
+	private Bonba bonba;
 	protected int bonbaKop;
-	
+		
 	public Jokalaria() {
 		//super(pIrudia);
 		// TODO Auto-generated constructor stub
@@ -17,7 +18,7 @@ public abstract class Jokalaria{
 		yPos = 0;
 		hil = false;
 		azkenMugi = Mugimendu.BEHERA;
-		//bonbaKop = 10;
+		bonbaKop = 10;
 	}
 	
 	public void mugituGora(){
@@ -128,10 +129,25 @@ public abstract class Jokalaria{
 		this.hil = true;
 	}
 	
-	public boolean bonbaDu() {
-		return (bonbaKop > 0);
+	public int getBonbaKop() {
+		return (this.bonbaKop);
 	}
+	
 	public void bonbaKendu() {
-		this.bonbaKop --;
+		this.bonbaKop= this.bonbaKop-1;
+	}
+	
+	public void bonbaGehitu() {
+		this.bonbaKop ++;
+	}
+	
+	public Bonba getBonba()
+	{
+		return (bonba);
+	}
+	
+	public void setBonba(Bonba pBonba)
+	{
+		bonba = pBonba;
 	}
 }
