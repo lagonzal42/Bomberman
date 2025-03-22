@@ -1,3 +1,4 @@
+
 package bista;
 
 import java.awt.Graphics;
@@ -96,11 +97,6 @@ public class GelaxkaBista extends JLabel implements Observer{
 					break;
 			}
 		}
-		
-	}
-	
-	public void eguneratu(GelaxkaMota gelMota)
-	{
 		
 	}
 }
