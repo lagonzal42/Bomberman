@@ -4,15 +4,13 @@ import soinua.Bozgorailua;
 
 public class Main {
 	public static void main(String[] args) {
-		
-		JokoBista jb = JokoBista.getJokoBista();
-		
+		Matrizea mat = Matrizea.getMatrizea();
+		mat.hasieratuBista();
 		Bozgorailua musika = Bozgorailua.getBozgorailua();
 		musika.getMusika().hasi();
 		
-		
-		Matrizea mat = Matrizea.getMatrizea();
-		mat.hasieratuBista();
-		
+		while (!mat.partidaBukatu());
+		JokoBista.getJokoBista().itxi();
+		return;
 	}
 }

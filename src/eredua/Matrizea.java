@@ -19,8 +19,10 @@ public class Matrizea{
 	private int lerroak = 11;
 	private int zutabeak = 17;
 	private Jokalaria jok;
+	private int blokeKop;
 	
 	private Matrizea() {
+		blokeKop = 0;
 		this.zerrenda = matrizeaSortu();
 		this.jok = new Zuria();
 	}
@@ -56,6 +58,7 @@ public class Matrizea{
 				else if(dado.gainditzenDu(0.4)){
 					//bloke biguna
 					zerrenda[i][j].setBlokea(new Biguna());
+					blokeKop++;
 				}
 				else {
 					//hutsik
@@ -68,6 +71,7 @@ public class Matrizea{
 	
 	public void hasieratuBista()
 	{
+		JokoBista jb = JokoBista.getJokoBista();
 		for(int i = 0; i < lerroak; i++)
 		{
 			for(int j = 0; j < zutabeak; j++)
@@ -170,6 +174,7 @@ public class Matrizea{
 				gel.setBlokea(new Hutsik());
 				this.suaJarri(errenkada, zutabea);
 				System.out.println("blokea apurtu da:"+ errenkada +","+ zutabea);
+				blokeKop--;
 			}
 			else if (gel.hutsikDago()) {
 				this.suaJarri(errenkada, zutabea);
@@ -188,6 +193,13 @@ public class Matrizea{
 		sua.setRepeats(false);
 		sua.start();
 		
+	}
+	
+	public boolean partidaBukatu()
+	{
+		System.out.println("Bloke kopurua " + (blokeKop == 0) + " " + blokeKop );
+		System.out.println("Jokalaria Hilda "+ jok.getHilda());
+		return(blokeKop == 0 || jok.getHilda());
 	}
 	
 }
