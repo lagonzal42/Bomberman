@@ -56,7 +56,7 @@ public class Matrizea{
 					//bloke gogorra
 					zerrenda[i][j].setBlokea(new Gogorra()); 
 				}
-				else if(dado.gainditzenDu(0.4) && blokeKop <2){
+				else if(dado.gainditzenDu(0.4)){
 					//bloke biguna
 					zerrenda[i][j].setBlokea(new Biguna());
 					blokeKop++;
