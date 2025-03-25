@@ -42,7 +42,7 @@ public class BozgorailuFactory {
     
     public static Soinua getIrabazi() {
         if (irabazi == null) {
-            irabazi = new GalduSoinua("irabazi");
+            irabazi = new IrabaziSoinua("irabazi");
         }
         return irabazi;
     }
