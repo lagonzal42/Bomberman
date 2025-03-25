@@ -126,6 +126,9 @@ public class Gelaxka extends Observable{
 		{
 			gM = GelaxkaMota.GOGORRA;
 		}
+		if(Matrizea.getMatrizea().partidaBukatu()) {
+			gM = GelaxkaMota.IRABAZI;
+		}
 		
 		this.setChanged();
 		this.notifyObservers(gM);

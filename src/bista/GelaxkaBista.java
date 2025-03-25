@@ -8,6 +8,7 @@ import java.util.Observer;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.Timer;
 
 import eredua.Biguna;
 import eredua.Dadoa;
@@ -42,6 +43,7 @@ public class GelaxkaBista extends JLabel implements Observer{
 	public void update(Observable o, Object arg) {
 		// TODO Auto-generated method stub
 		GelaxkaMota gelMota = (GelaxkaMota)arg;
+		Timer animazioa;
 		
 		System.out.println("gelaxka orain " + arg);
 		
@@ -89,8 +91,16 @@ public class GelaxkaBista extends JLabel implements Observer{
 					break;
 				case JOKALARIASUAREKIN:
 					this.setIrudia("/bista/Sprites/onFire2.png");
+					animazioa = new Timer(2000, e -> {
+						((Timer) e.getSource()).stop();
+						JokoBista.getJokoBista().itxi(true);
+			        });
+			        animazioa.start();
+					//this.setIrudia("/bista/Sprites/onFire2.png");
 					//path = "/bista/Sprites/whiteright1.png";
 					break;
+				case IRABAZI:
+					JokoBista.getJokoBista().itxi(false);
 				default:
 					this.setIrudia("/bista/Sprites/whitedown1.png");
 					//path = "/bista/Sprites/whitedown1.png";

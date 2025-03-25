@@ -11,5 +11,6 @@ public enum GelaxkaMota {
 	SUA,
 	BIGUNA,
 	GOGORRA,
-	BONBAESTANDA;
+	BONBAESTANDA,
+	IRABAZI;
 }

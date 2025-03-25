@@ -95,9 +95,16 @@ public class JokoBista extends JFrame{
 		return controler;
 	}
 	
-	public void itxi()
+	public void itxi(boolean pGaldu)
 	{
-		this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+		//this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+		this.dispose();
+		if(pGaldu) {
+			Amaitu galdu = Amaitu.getGaldu();			
+		}
+		else {
+			Amaitu irabazi = Amaitu.getIrabazi();	
+		}
 	}
 	
 	private class Controler implements KeyListener{

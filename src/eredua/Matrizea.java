@@ -86,17 +86,10 @@ public class Matrizea{
 		return this.zerrenda[i][j];
 	}
 	
-	public void ezabatu(int i, int j) {
-		this.zerrenda[i][j].setBlokea(new Hutsik());
-	}
 	public Jokalaria getJokalaria() {
 		return jok;
 	}
 	
-	public void aldatuPos(int j1, int i1, int j2, int i2) {
-		this.zerrenda[i2][j2] = this.zerrenda[i1][j1];
-		this.ezabatu(i1, j1);
-	}
 	
 	public void mugituJokalaria(Mugimendu mugimendu)
 	{
@@ -175,6 +168,9 @@ public class Matrizea{
 				this.suaJarri(errenkada, zutabea);
 				System.out.println("blokea apurtu da:"+ errenkada +","+ zutabea);
 				blokeKop--;
+				if(blokeKop == 0) {
+					gel.eguneratuGelaxka();
+				}
 			}
 			else if (gel.hutsikDago()) {
 				this.suaJarri(errenkada, zutabea);
@@ -197,9 +193,7 @@ public class Matrizea{
 	
 	public boolean partidaBukatu()
 	{
-		System.out.println("Bloke kopurua " + (blokeKop == 0) + " " + blokeKop );
-		System.out.println("Jokalaria Hilda "+ jok.getHilda());
-		return(blokeKop == 0 || jok.getHilda());
+		return(blokeKop==0);
 	}
 	
 }

@@ -9,8 +9,8 @@ public class Main {
 		Bozgorailua musika = Bozgorailua.getBozgorailua();
 		musika.getMusika().hasi();
 		
-		while (!mat.partidaBukatu());
-		JokoBista.getJokoBista().itxi();
+		//while (!mat.partidaBukatu());
+		//JokoBista.getJokoBista().itxi();
 		return;
 	}
 }
