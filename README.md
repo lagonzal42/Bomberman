@@ -9,3 +9,14 @@
     -Bonba normala
   
 -MVC aplikatu
+
+
+## 2.Sprinta
+-Hasierako pantaila
+
+-Bomberman beltza
+
+-etsaiak
+
+-patroiak
+
