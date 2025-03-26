@@ -63,7 +63,6 @@ public class Matrizea{
 	
 	public void hasieratuBista()
 	{
-		JokoBista jb = JokoBista.getJokoBista();
 		for(int i = 0; i < lerroak; i++)
 		{
 			for(int j = 0; j < zutabeak; j++)
@@ -121,7 +120,6 @@ public class Matrizea{
 				javax.swing.Timer errementa = new javax.swing.Timer(3000, e ->{
 					System.out.println("Bonba apurtu da (" +y+","+x+")");
 					gel.bonbaApurtu();
-					gel.eguneratuGelaxka();
 					blokeBigunakApurtu(y,x);
 					//timerra2
 					this.suaJarri(y, x);
