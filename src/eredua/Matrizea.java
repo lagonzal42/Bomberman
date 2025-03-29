@@ -63,6 +63,7 @@ public class Matrizea{
 	
 	public void hasieratuBista()
 	{
+		JokoBista.getJokoBista();
 		for(int i = 0; i < lerroak; i++)
 		{
 			for(int j = 0; j < zutabeak; j++)
