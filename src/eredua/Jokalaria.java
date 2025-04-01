@@ -54,8 +54,8 @@ public abstract class Jokalaria{
 				this.setAzkenMugi(Mugimendu.HILDA);
 			}
 			//Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
+			Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
 		}
-		Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
 	}
 	
 	public void mugituEzkerra(){

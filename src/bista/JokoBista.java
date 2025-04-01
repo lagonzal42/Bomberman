@@ -42,8 +42,7 @@ public class JokoBista extends JFrame{
 	private Mapa mapa;
 	private Controler controler = null;
 	private static JokoBista jb = null;
-	private JPanel panel_1;
-	private JLabel lblNewLabel;
+
 
 	/**
 	 * Create the frame.
