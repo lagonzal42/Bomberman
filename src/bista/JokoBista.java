@@ -3,8 +3,11 @@ package bista;
 import common.Mugimendu;
 
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
@@ -38,10 +41,18 @@ import javax.swing.SwingConstants;
 public class JokoBista extends JFrame{
 
 	private static final long serialVersionUID = 1L;
-	private JPanel panel;
+	private CardLayout cardLayout;
+	private JPanel panelJokoa;
+	private JPanel panelHasiera;
+	private JPanel mainPanel;
 	private Mapa mapa;
 	private Controler controler = null;
 	private static JokoBista jb = null;
+	private Image titulua;
+	private Image backHasiera;
+	private Image[] pertsonaiak;
+	private Image backJokoa;
+	private int unekoPanela = -1;
 
 
 	/**
@@ -52,13 +63,39 @@ public class JokoBista extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 500);
 		getContentPane().setLayout(new BorderLayout(0, 0));
-		getContentPane().add(getPanel_1(), BorderLayout.CENTER);
+		setLocationRelativeTo(null);
+		
+		cardLayout = new CardLayout();
+		mainPanel = new JPanel(cardLayout);
+		
+		irudiakKargatu();
+		
+		panelHasiera = getPanelHasiera();
+		panelJokoa = getPanelJokoa();
+		
+		mainPanel.add(panelHasiera, "Hasiera");
+		mainPanel.add(panelJokoa, "Jokoa");
+		
+		getContentPane().add(mainPanel);
 		setVisible(true);
 		
 		this.mapa.jarriListenerrak();
 		this.addKeyListener(getControler());
+		cardLayout.show(mainPanel, "Hasiera");
+		unekoPanela = 0;//hasierako panela
 	}
 	
+
+	private void irudiakKargatu() {
+		backHasiera = new ImageIcon(getClass().getResource("/bista/Sprites/back.png")).getImage();
+		titulua = new ImageIcon(getClass().getResource("/bista/Sprites/title.png")).getImage();
+		pertsonaiak = new Image[3];
+		for (int i = 1; i < pertsonaiak.length; i++) {
+			pertsonaiak[i] = new ImageIcon(getClass().getResource("/bista/Sprites/bomber"+i+".png")).getImage();
+		}
+	}
+
+
 	public static JokoBista getJokoBista()
 	{
 		if (jb == null)
@@ -66,19 +103,72 @@ public class JokoBista extends JFrame{
 		return (jb);
 	}
 	
-	private JPanel getPanel_1() {
-		if (panel == null) {
-			panel = new JPanel() {
+	private JPanel getPanelHasiera() {
+		if (panelHasiera == null) {
+			panelHasiera = new JPanel() {
+				private Image back = backHasiera;
+				protected void paintComponent(Graphics g) {
+					super.paintComponent(g);
+					g.drawImage(back, 0, 0, getWidth(), getHeight(), this);
+				}
+			};
+			panelHasiera.setLayout(new BorderLayout());
+			
+			//hasierako panelaren goikaldean tituluaren irudia jartzen du(zentroan)
+			JLabel titleLabel = new JLabel(new ImageIcon(titulua));
+			titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
+			panelHasiera.add(titleLabel, BorderLayout.NORTH);
+			
+			//erdian elementu bat baino gehiago egon ahal izateko panel bat sortu
+			JPanel erdikoPanela = new JPanel();
+			erdikoPanela.setLayout(new GridLayout(2,1,0,0));
+			erdikoPanela.setOpaque(false);
+			
+			//jokalaria erabakitzeko textua
+			JLabel erabaki = new JLabel("<Jokalaria erabaki -><- geziekin>");
+			erabaki.setFont(new Font("Arial",Font.PLAIN,24));
+			erabaki.setForeground(Color.BLACK);
+			erabaki.setHorizontalAlignment(SwingConstants.CENTER);
+			erabaki.setVerticalAlignment(SwingConstants.NORTH);
+			erdikoPanela.add(erabaki);
+			
+			//Jokalarien irudiak erakutzi
+			JPanel pertsonaienPanela = new JPanel(new GridLayout(1,2,0,0));
+			pertsonaienPanela.setOpaque(false);
+			for(int i = 1; i < pertsonaiak.length; i++) {
+				ImageIcon icon = new ImageIcon(pertsonaiak[i]);
+				JLabel perLabel = new JLabel(icon);
+				perLabel.setVerticalAlignment(SwingConstants.NORTH);
+				pertsonaienPanela.add(perLabel);
+			}
+			erdikoPanela.add(pertsonaienPanela);
+			
+			panelHasiera.add(erdikoPanela, BorderLayout.CENTER);
+			
+			//Mezua jarri
+			JLabel mezua = new JLabel("<space> to start, <m>usic, <o>ptions && <esc> to exit");
+			mezua.setFont(new Font("Arial", Font.PLAIN, 18));
+            mezua.setForeground(Color.BLACK);
+            mezua.setHorizontalAlignment(SwingConstants.CENTER);
+            panelHasiera.add(mezua, BorderLayout.SOUTH);
+			
+		}
+		return panelHasiera;
+	}
+	
+	private JPanel getPanelJokoa() {
+		if (panelJokoa == null) {
+			panelJokoa = new JPanel() {
 				private Image back = new ImageIcon(this.getClass().getResource("/bista/Sprites/stageBack1.png")).getImage();
 				protected void paintComponent(Graphics g) {
 					super.paintComponent(g);
 					g.drawImage(back, 0, 0, getWidth(), getHeight(), this);
 				}
 			};
-			panel.setLayout(new GridLayout(11, 17, 0, 0));
-			mapa = new Mapa(panel);
+			panelJokoa.setLayout(new GridLayout(11, 17, 0, 0));
+			mapa = new Mapa(panelJokoa);
 		}
-		return panel;
+		return panelJokoa;
 	}
 	
 	public Mapa getMapa()
@@ -86,14 +176,7 @@ public class JokoBista extends JFrame{
 		return (mapa);
 	}
 	
-	//Kontroladorea
-	private Controler getControler() {
-		if(controler == null) {
-			controler = new Controler();
-		}
-		return controler;
-	}
-	
+	//TODO:Aldatu cardLayout-ekin
 	public void itxi(boolean pGaldu)
 	{
 		//this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
@@ -104,6 +187,13 @@ public class JokoBista extends JFrame{
 		else {
 			Amaitu irabazi = Amaitu.getIrabazi();	
 		}
+	}
+	//Kontroladorea
+	private Controler getControler() {
+		if(controler == null) {
+			controler = new Controler();
+		}
+		return controler;
 	}
 	
 	private class Controler implements KeyListener{
@@ -116,36 +206,38 @@ public class JokoBista extends JFrame{
 
 		@Override
 		public void keyPressed(KeyEvent e) {
-			//int[] pos = Matrizea.getMatrizea().getJokalariPos();
-			Matrizea mat = Matrizea.getMatrizea();
-			
-			if(!mat.getJokalaria().getHilda()) {
-				// TODO Auto-generated method stub
-				if(e.getKeyCode() == KeyEvent.VK_UP) {
-					mat.mugituJokalaria(Mugimendu.GORA);
-					//jok.mugituGora();
-					//jokalaria.mugituGora()
+			if(unekoPanela == 0) {
+				switch(e.getKeyCode()) {
+					case KeyEvent.VK_LEFT:
+						//TODO: aukeratu hurrengo pertsonaia
+						break;
+					case KeyEvent.VK_SPACE:
+						cardLayout.show(mainPanel, "Jokoa");
+						unekoPanela = 1;
+						break;
 				}
-				if(e.getKeyCode() == KeyEvent.VK_DOWN) {
-					mat.mugituJokalaria(Mugimendu.BEHERA);
-					//jok.mugituBehera();
-					//jokalaria.mugituBehera()
-				}
-				if(e.getKeyCode() == KeyEvent.VK_LEFT) {
-					mat.mugituJokalaria(Mugimendu.EZKER);
-					//jok.mugituEzkerra();
-					//jokalaria.mugituEzkerra()
-				}
-				if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
-					mat.mugituJokalaria(Mugimendu.ESKUIN);
-					//jok.mugituEskuma();
-					//jokalaria.mugituEskuma()
-				}
-				if(e.getKeyCode() == KeyEvent.VK_B) {
-					//bonba ipini
-					mat.bonbaJarri();	
-				}
+			}
+			else if(unekoPanela == 1) {
+				//int[] pos = Matrizea.getMatrizea().getJokalariPos();
+				Matrizea mat = Matrizea.getMatrizea();
 				
+				switch(e.getKeyCode()) {
+				case KeyEvent.VK_UP:
+					mat.mugituJokalaria(Mugimendu.GORA);
+					break;
+				case KeyEvent.VK_DOWN:
+					mat.mugituJokalaria(Mugimendu.BEHERA);
+					break;
+				case KeyEvent.VK_LEFT:
+					mat.mugituJokalaria(Mugimendu.EZKER);
+					break;
+				case KeyEvent.VK_RIGHT:
+					mat.mugituJokalaria(Mugimendu.ESKUIN);
+					break;
+				case KeyEvent.VK_B:
+					mat.bonbaJarri();	
+					break;	
+				}
 			}
 			
 		}
