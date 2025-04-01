@@ -43,7 +43,6 @@ public class JokoBista extends JFrame{
 	private Controler controler = null;
 	private static JokoBista jb = null;
 
-
 	/**
 	 * Create the frame.
 	 */
