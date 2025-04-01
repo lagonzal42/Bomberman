@@ -54,7 +54,6 @@ public class JokoBista extends JFrame{
 	private Image backJokoa;
 	private int unekoPanela = -1;
 
-
 	/**
 	 * Create the frame.
 	 */
