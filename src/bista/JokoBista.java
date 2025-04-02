@@ -21,6 +21,7 @@ import java.awt.event.WindowEvent;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -41,22 +42,30 @@ import java.awt.GridBagConstraints;
 import javax.swing.SwingConstants;
 
 public class JokoBista extends JFrame{
-
+	//orokorra
 	private static final long serialVersionUID = 1L;
 	private CardLayout cardLayout;
-	private JPanel panelJokoa;
-	private JPanel panelHasiera;
-	private JPanel panelAmaiera;
 	private JPanel mainPanel;
-	private Mapa mapa;
 	private Controler controler = null;
 	private static JokoBista jb = null;
-	private Image titulua;
-	private Image backHasiera;
-	private Image[] pertsonaiak;
-	private Image backJokoa;
+	private Mapa mapa;
 	private int unekoPanela = -1;
+	
+	//Jokoa
+	private JPanel panelJokoa;
+	private Image backJokoa;
 	private boolean musikaOn = false;
+	
+	//hasiera
+	private JPanel panelHasiera;
+	private Image titulua;
+	private Image[] pertsonaiak;
+	private Image backHasiera;
+	private JPanel pertsonaienPanela;
+	private int aukeratutakoPertsonaia = 1;
+	
+	//amaiera
+	private JPanel panelAmaiera;
 
 	/**
 	 * Create the frame.
@@ -138,14 +147,15 @@ public class JokoBista extends JFrame{
 			erdikoPanela.add(erabaki);
 			
 			//Jokalarien irudiak erakutzi
-			JPanel pertsonaienPanela = new JPanel(new GridLayout(1,2,0,0));
+			pertsonaienPanela = new JPanel(new GridLayout(1,2,0,0));
 			pertsonaienPanela.setOpaque(false);
-			for(int i = 1; i < pertsonaiak.length; i++) {
-				ImageIcon icon = new ImageIcon(pertsonaiak[i]);
-				JLabel perLabel = new JLabel(icon);
-				perLabel.setVerticalAlignment(SwingConstants.NORTH);
-				pertsonaienPanela.add(perLabel);
-			}
+//			for(int i = 1; i < pertsonaiak.length; i++) {
+//				ImageIcon icon = new ImageIcon(pertsonaiak[i]);
+//				JLabel perLabel = new JLabel(icon);
+//				perLabel.setVerticalAlignment(SwingConstants.NORTH);
+//				pertsonaienPanela.add(perLabel);
+//			}
+			this.updatePertsonaienPanela();
 			erdikoPanela.add(pertsonaienPanela);
 			
 			panelHasiera.add(erdikoPanela, BorderLayout.CENTER);
@@ -159,6 +169,17 @@ public class JokoBista extends JFrame{
 			
 		}
 		return panelHasiera;
+	}
+	public void updatePertsonaienPanela() {
+		pertsonaienPanela.removeAll();
+		for(int i = 1; i < pertsonaiak.length; i++) {
+			ImageIcon icon = new ImageIcon(pertsonaiak[i]);
+			JLabel perLabel = new JLabel(icon);
+			perLabel.setBorder(i == aukeratutakoPertsonaia ? BorderFactory.createLineBorder(Color.GRAY, 3) : null);
+			pertsonaienPanela.add(perLabel);
+		}
+		pertsonaienPanela.revalidate();
+		pertsonaienPanela.repaint();
 	}
 	
 	private JPanel getPanelJokoa() {
@@ -231,8 +252,16 @@ public class JokoBista extends JFrame{
 				switch(e.getKeyCode()) {
 					case KeyEvent.VK_LEFT:
 						//TODO: aukeratu hurrengo pertsonaia
+						if(aukeratutakoPertsonaia -1 == 1) {
+							aukeratutakoPertsonaia --;
+							updatePertsonaienPanela();
+						}
 						break;
 					case KeyEvent.VK_RIGHT:
+						if(aukeratutakoPertsonaia + 1 == 2) {
+							aukeratutakoPertsonaia ++;
+							updatePertsonaienPanela();
+						}
 						break;
 					case KeyEvent.VK_M:
 						Bozgorailua musika = Bozgorailua.getBozgorailua();
