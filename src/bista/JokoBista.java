@@ -34,6 +34,8 @@ import eredua.Gelaxka;
 import eredua.Gogorra;
 import eredua.Jokalaria;
 import eredua.Matrizea;
+import soinua.Bozgorailua;
+
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import javax.swing.SwingConstants;
@@ -44,6 +46,7 @@ public class JokoBista extends JFrame{
 	private CardLayout cardLayout;
 	private JPanel panelJokoa;
 	private JPanel panelHasiera;
+	private JPanel panelAmaiera;
 	private JPanel mainPanel;
 	private Mapa mapa;
 	private Controler controler = null;
@@ -53,6 +56,7 @@ public class JokoBista extends JFrame{
 	private Image[] pertsonaiak;
 	private Image backJokoa;
 	private int unekoPanela = -1;
+	private boolean musikaOn = false;
 
 	/**
 	 * Create the frame.
@@ -71,9 +75,11 @@ public class JokoBista extends JFrame{
 		
 		panelHasiera = getPanelHasiera();
 		panelJokoa = getPanelJokoa();
+		panelAmaiera = getPanelAmaiera();
 		
 		mainPanel.add(panelHasiera, "Hasiera");
 		mainPanel.add(panelJokoa, "Jokoa");
+		mainPanel.add(panelAmaiera, "Amaiera");
 		
 		getContentPane().add(mainPanel);
 		setVisible(true);
@@ -175,17 +181,33 @@ public class JokoBista extends JFrame{
 		return (mapa);
 	}
 	
+	private JPanel getPanelAmaiera() {
+		if(panelAmaiera == null) {
+			panelAmaiera = new JPanel();
+			panelAmaiera.setVisible(true);
+			panelAmaiera.setLayout(new BorderLayout());
+		}
+		return panelAmaiera;
+	}
 	//TODO:Aldatu cardLayout-ekin
 	public void itxi(boolean pGaldu)
 	{
 		//this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
-		this.dispose();
 		if(pGaldu) {
-			Amaitu galdu = Amaitu.getGaldu();			
+			JLabel label = new JLabel("BESTE BATEAN IZANGO DA.");
+			label.setFont(new Font("Trebuchet MS", Font.BOLD, 35));
+			label.setHorizontalAlignment(SwingConstants.CENTER);
+			panelAmaiera.add(label, BorderLayout.CENTER);
+			cardLayout.show(mainPanel, "Amaiera");
 		}
 		else {
-			Amaitu irabazi = Amaitu.getIrabazi();	
+			JLabel label = new JLabel("ZORIONAK!!!");
+			label.setFont(new Font("Trebuchet MS", Font.BOLD, 35));
+			label.setHorizontalAlignment(SwingConstants.CENTER);
+			panelAmaiera.add(label, BorderLayout.CENTER);		
+			cardLayout.show(mainPanel, "Amaiera");
 		}
+		unekoPanela = 2;
 	}
 	//Kontroladorea
 	private Controler getControler() {
@@ -209,6 +231,25 @@ public class JokoBista extends JFrame{
 				switch(e.getKeyCode()) {
 					case KeyEvent.VK_LEFT:
 						//TODO: aukeratu hurrengo pertsonaia
+						break;
+					case KeyEvent.VK_RIGHT:
+						break;
+					case KeyEvent.VK_M:
+						Bozgorailua musika = Bozgorailua.getBozgorailua();
+						if (musikaOn) {
+							musika.getMusika().pausatu();
+							musikaOn = false;
+						}
+						else {
+							musika.getMusika().hasi();
+							musikaOn = true;
+						}
+						break;
+					case KeyEvent.VK_O:
+						//TODO:jokoa erabakitzeko
+						break;
+					case KeyEvent.VK_ESCAPE:
+						System.exit(0);;
 						break;
 					case KeyEvent.VK_SPACE:
 						cardLayout.show(mainPanel, "Jokoa");
@@ -236,6 +277,8 @@ public class JokoBista extends JFrame{
 				case KeyEvent.VK_B:
 					mat.bonbaJarri();	
 					break;	
+				case KeyEvent.VK_ESCAPE:
+					System.exit(0);
 				}
 			}
 			

@@ -1,6 +1,5 @@
 package soinua;
 
-import java.util.Observable;
 
 import javax.sound.sampled.Clip;
 
@@ -12,6 +11,7 @@ public class AtzekoMusika extends Soinua{
 
 	@Override
 	public void hasi() {
+		clip.setFramePosition(0);
 		clip.loop(Clip.LOOP_CONTINUOUSLY);
 		
 	}
