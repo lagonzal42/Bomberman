@@ -11,6 +11,7 @@ public class Gelaxka extends Observable{
 	private Bonba		bonba;
 	private boolean 	sua;
 	private Bloke		blokea;
+	private Etsaia		etsaia;
 	
 	public Gelaxka() {
 		
@@ -142,5 +143,13 @@ public class Gelaxka extends Observable{
 	public void setBlokea(Bloke pBloke)
 	{
 		this.blokea = pBloke;
+	}
+	
+	public void setEtsaia(Etsaia pEtsaia) {
+		this.etsaia = pEtsaia;
+	}
+	
+	public Etsaia getEtsaia() {
+		return this.etsaia;
 	}
 }
