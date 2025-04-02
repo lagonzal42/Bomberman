@@ -139,9 +139,6 @@ public abstract class Jokalaria{
 	
 	public void bonbaKendu() {
 		this.bonbaKop= this.bonbaKop-1;
-		if (this.bonbaKop==0) {
-			bonbaBarik();
-		}
 	}
 	
 	public void bonbaGehitu() {
