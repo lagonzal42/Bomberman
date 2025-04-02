@@ -19,7 +19,7 @@ public abstract class Jokalaria{
 		yPos = 0;
 		hil = false;
 		azkenMugi = Mugimendu.BEHERA;
-		bonbaKop = 10;
+//		bonbaKop = 10;
 	}
 	
 	public void mugituGora(){
@@ -136,6 +136,9 @@ public abstract class Jokalaria{
 	
 	public void bonbaKendu() {
 		this.bonbaKop= this.bonbaKop-1;
+		if (this.bonbaKop==0) {
+			bonbaBarik();
+		}
 	}
 	
 	public void bonbaGehitu() {
@@ -150,6 +153,10 @@ public abstract class Jokalaria{
 		{
 			this.bonbaKop--;
 			berria = new Bonba(this.bonbaEstaldura);
+			
+			if (this.bonbaKop ==0) {
+				bonbaBarik();
+			}
 		}
 		return (berria);
 	}	
@@ -157,4 +164,16 @@ public abstract class Jokalaria{
 	{
 		bonba = pBonba;
 	}
+	public void bonbaBarik() {
+		System.out.println("Ez daukazu bonbarik, itxaron 3 segundo");
+		//bonba itxaron timerra
+		javax.swing.Timer itxaron = new javax.swing.Timer(3000, e->{
+			System.out.println("Bonba bakarra daukazu eskuragarri");
+			bonbaGehitu();
+		});
+		itxaron.setRepeats(false);
+		itxaron.start();
+	}
+
+
 }

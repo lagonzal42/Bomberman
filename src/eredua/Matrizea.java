@@ -110,10 +110,9 @@ public class Matrizea{
 		if (zerrenda[y][x].hutsikDago()) {
 			Gelaxka gel = zerrenda [y][x];
 			//bonba jarri
-			if (jok.getBonbaKop()>0) {	
-				jok.bonbaKendu();
-				jok.setBonba(new Bonba());
-				gel.setBonba(jok.getBonba());
+			Bonba bon = jok.getBonba();
+			if (bon != null) {
+				gel.setBonba(bon);
 				gel.eguneratuGelaxka();
 				System.out.println("Bonba jarri du ("+y+","+x+")");
 			
@@ -129,16 +128,6 @@ public class Matrizea{
 				});
 				errementa.setRepeats(false);
 				errementa.start();
-			}
-			else {
-				System.out.println("Ez daukazu bonbarik, itxaron 3 segundu");
-				//bonba itxaroteko timerra
-				javax.swing.Timer itxaron = new javax.swing.Timer(3000, e->{
-					System.out.println("Bonba eskuragarri duzu");
-					jok.bonbaGehitu();
-				});
-				itxaron.setRepeats(false);
-				itxaron.start();
 			}
 		}
 
