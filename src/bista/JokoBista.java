@@ -57,11 +57,7 @@ public class JokoBista extends JFrame{
 	private boolean musikaOn = false;
 	
 	//hasiera
-	private JPanel panelHasiera;
-	private Image titulua;
-	private Image[] pertsonaiak;
-	private Image backHasiera;
-	private JPanel pertsonaienPanela;
+	private PanelHasiera panelHasiera = new PanelHasiera();
 	private int aukeratutakoPertsonaia = 1;
 	
 	//amaiera
@@ -80,9 +76,9 @@ public class JokoBista extends JFrame{
 		cardLayout = new CardLayout();
 		mainPanel = new JPanel(cardLayout);
 		
-		irudiakKargatu();
-		
-		panelHasiera = getPanelHasiera();
+//		irudiakKargatu();
+//		
+//		panelHasiera = getPanelHasiera();
 		panelJokoa = getPanelJokoa();
 		panelAmaiera = getPanelAmaiera();
 		
@@ -100,16 +96,6 @@ public class JokoBista extends JFrame{
 	}
 	
 
-	private void irudiakKargatu() {
-		backHasiera = new ImageIcon(getClass().getResource("/bista/Sprites/back.png")).getImage();
-		titulua = new ImageIcon(getClass().getResource("/bista/Sprites/title.png")).getImage();
-		pertsonaiak = new Image[3];
-		for (int i = 1; i < pertsonaiak.length; i++) {
-			pertsonaiak[i] = new ImageIcon(getClass().getResource("/bista/Sprites/bomber"+i+".png")).getImage();
-		}
-	}
-
-
 	public static JokoBista getJokoBista()
 	{
 		if (jb == null)
@@ -117,70 +103,6 @@ public class JokoBista extends JFrame{
 		return (jb);
 	}
 	
-	private JPanel getPanelHasiera() {
-		if (panelHasiera == null) {
-			panelHasiera = new JPanel() {
-				private Image back = backHasiera;
-				protected void paintComponent(Graphics g) {
-					super.paintComponent(g);
-					g.drawImage(back, 0, 0, getWidth(), getHeight(), this);
-				}
-			};
-			panelHasiera.setLayout(new BorderLayout());
-			
-			//hasierako panelaren goikaldean tituluaren irudia jartzen du(zentroan)
-			JLabel titleLabel = new JLabel(new ImageIcon(titulua));
-			titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
-			panelHasiera.add(titleLabel, BorderLayout.NORTH);
-			
-			//erdian elementu bat baino gehiago egon ahal izateko panel bat sortu
-			JPanel erdikoPanela = new JPanel();
-			erdikoPanela.setLayout(new GridLayout(2,1,0,0));
-			erdikoPanela.setOpaque(false);
-			
-			//jokalaria erabakitzeko textua
-			JLabel erabaki = new JLabel("<Jokalaria erabaki -><- geziekin>");
-			erabaki.setFont(new Font("Arial",Font.PLAIN,24));
-			erabaki.setForeground(Color.BLACK);
-			erabaki.setHorizontalAlignment(SwingConstants.CENTER);
-			erabaki.setVerticalAlignment(SwingConstants.NORTH);
-			erdikoPanela.add(erabaki);
-			
-			//Jokalarien irudiak erakutzi
-			pertsonaienPanela = new JPanel(new GridLayout(1,2,0,0));
-			pertsonaienPanela.setOpaque(false);
-//			for(int i = 1; i < pertsonaiak.length; i++) {
-//				ImageIcon icon = new ImageIcon(pertsonaiak[i]);
-//				JLabel perLabel = new JLabel(icon);
-//				perLabel.setVerticalAlignment(SwingConstants.NORTH);
-//				pertsonaienPanela.add(perLabel);
-//			}
-			this.updatePertsonaienPanela();
-			erdikoPanela.add(pertsonaienPanela);
-			
-			panelHasiera.add(erdikoPanela, BorderLayout.CENTER);
-			
-			//Mezua jarri
-			JLabel mezua = new JLabel("<space> to start, <m>usic, <o>ptions && <esc> to exit");
-			mezua.setFont(new Font("Arial", Font.PLAIN, 18));
-            mezua.setForeground(Color.BLACK);
-            mezua.setHorizontalAlignment(SwingConstants.CENTER);
-            panelHasiera.add(mezua, BorderLayout.SOUTH);
-			
-		}
-		return panelHasiera;
-	}
-	public void updatePertsonaienPanela() {
-		pertsonaienPanela.removeAll();
-		for(int i = 1; i < pertsonaiak.length; i++) {
-			ImageIcon icon = new ImageIcon(pertsonaiak[i]);
-			JLabel perLabel = new JLabel(icon);
-			perLabel.setBorder(i == aukeratutakoPertsonaia ? BorderFactory.createLineBorder(Color.GRAY, 3) : null);
-			pertsonaienPanela.add(perLabel);
-		}
-		pertsonaienPanela.revalidate();
-		pertsonaienPanela.repaint();
-	}
 	
 	private JPanel getPanelJokoa() {
 		if (panelJokoa == null) {
@@ -254,13 +176,13 @@ public class JokoBista extends JFrame{
 						//TODO: aukeratu hurrengo pertsonaia
 						if(aukeratutakoPertsonaia -1 == 1) {
 							aukeratutakoPertsonaia --;
-							updatePertsonaienPanela();
+							panelHasiera.setAukeratutakoPertsonaia(aukeratutakoPertsonaia);
 						}
 						break;
 					case KeyEvent.VK_RIGHT:
 						if(aukeratutakoPertsonaia + 1 == 2) {
 							aukeratutakoPertsonaia ++;
-							updatePertsonaienPanela();
+							panelHasiera.setAukeratutakoPertsonaia(aukeratutakoPertsonaia);
 						}
 						break;
 					case KeyEvent.VK_M:
