@@ -1,6 +1,7 @@
 package eredua;
 
 import common.Mugimendu;
+import javax.swing.Timer;
 
 public class Etsaia {
 	
@@ -14,7 +15,15 @@ public class Etsaia {
 		azkenMugi = Mugimendu.BEHERA;
 	}
 	
-	public void mugitu() {
+	public void hasieratuEtsaia() {
+		Timer denbora = new Timer(1000, e ->{
+			mugitu();
+		});
+		denbora.setRepeats(true);
+		denbora.start();
+	}
+	
+	private void mugitu() {
 		boolean ahal = false;
 		while (ahal == false) {
 			int zenb = Dadoa.getNireDadoa().zenbakiaAukeratu(1, 4);
