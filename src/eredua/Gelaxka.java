@@ -127,6 +127,14 @@ public class Gelaxka extends Observable{
 		{
 			gM = GelaxkaMota.GOGORRA;
 		}
+		else if (etsaia != null)
+		{
+			if (etsaia.getAzkenMugi() == Mugimendu.ESKUIN) {
+				gM = GelaxkaMota.ETSAIAESKUMA;
+			} else {
+				gM = GelaxkaMota.ETSAIAEZKERRA;
+			}
+		}
 		if(Matrizea.getMatrizea().partidaBukatu()) {
 			gM = GelaxkaMota.IRABAZI;
 		}
