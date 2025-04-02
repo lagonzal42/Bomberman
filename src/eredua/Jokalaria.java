@@ -10,6 +10,7 @@ public abstract class Jokalaria{
 	private Mugimendu azkenMugi;
 	private Bonba bonba;
 	protected int bonbaKop;
+	protected int bonbaEstaldura;
 		
 	public Jokalaria() {
 		//super(pIrudia);
@@ -143,9 +144,15 @@ public abstract class Jokalaria{
 	
 	public Bonba getBonba()
 	{
-		return (bonba);
-	}
-	
+		Bonba berria = null;
+		
+		if (this.bonbaKop > 0)
+		{
+			this.bonbaKop--;
+			berria = new Bonba(this.bonbaEstaldura);
+		}
+		return (berria);
+	}	
 	public void setBonba(Bonba pBonba)
 	{
 		bonba = pBonba;
