@@ -56,6 +56,10 @@ public class Etsaia {
 		Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
 		Matrizea.getMatrizea().getGelaxka(yPos -1, xPos).setEtsaia(this);
 		this.yPos = this.yPos -1;
+		if (Matrizea.getMatrizea().getGelaxka(yPos, xPos).getJokalaria() != null) {
+			Matrizea.getMatrizea().getGelaxka(yPos, xPos).getJokalaria().setHilda();
+			Matrizea.getMatrizea().getGelaxka(yPos, xPos).getJokalaria().setAzkenMugi(Mugimendu.HILDA);
+		}
 		Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
 	}
 	
@@ -64,6 +68,10 @@ public class Etsaia {
 		Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
 		Matrizea.getMatrizea().getGelaxka(yPos +1, xPos).setEtsaia(this);
 		this.yPos = this.yPos +1;
+		if (Matrizea.getMatrizea().getGelaxka(yPos, xPos).getJokalaria() != null) {
+			Matrizea.getMatrizea().getGelaxka(yPos, xPos).getJokalaria().setHilda();
+			Matrizea.getMatrizea().getGelaxka(yPos, xPos).getJokalaria().setAzkenMugi(Mugimendu.HILDA);
+		}
 		Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
 	}
 	
@@ -73,6 +81,10 @@ public class Etsaia {
 		Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
 		Matrizea.getMatrizea().getGelaxka(yPos, xPos -1).setEtsaia(this);
 		this.xPos = this.xPos -1;
+		if (Matrizea.getMatrizea().getGelaxka(yPos, xPos).getJokalaria() != null) {
+			Matrizea.getMatrizea().getGelaxka(yPos, xPos).getJokalaria().setHilda();
+			Matrizea.getMatrizea().getGelaxka(yPos, xPos).getJokalaria().setAzkenMugi(Mugimendu.HILDA);
+		}
 		Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
 	}
 	
@@ -82,6 +94,10 @@ public class Etsaia {
 		Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
 		Matrizea.getMatrizea().getGelaxka(yPos, xPos +1).setEtsaia(this);
 		this.xPos = this.xPos +1;
+		if (Matrizea.getMatrizea().getGelaxka(yPos, xPos).getJokalaria() != null) {
+			Matrizea.getMatrizea().getGelaxka(yPos, xPos).getJokalaria().setHilda();
+			Matrizea.getMatrizea().getGelaxka(yPos, xPos).getJokalaria().setAzkenMugi(Mugimendu.HILDA);
+		}
 		Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
 	}
 	
