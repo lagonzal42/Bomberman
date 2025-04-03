@@ -10,8 +10,4 @@ public class MapaFactory {
 		}
 		return nMP;
 	}
-	
-	public Mapa mapaSortu() {
-		//TODO
-	}
 }
