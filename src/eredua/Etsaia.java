@@ -25,30 +25,30 @@ public class Etsaia {
 	
 	private void mugitu() {
 		boolean ahal = false;
-		while (ahal == false) {
-			int zenb = Dadoa.getNireDadoa().zenbakiaAukeratu(1, 4);
-			if (zenb == 1) {
-				ahal = mugituAhal(this.yPos-1,this.xPos);
-				if (ahal == true) {
-					mugituGora();
-				}
-			} else if (zenb == 2) {
-				ahal = mugituAhal(this.yPos+1,this.xPos);
-				if (ahal == true) {
-					mugituBehera();
-				}
-			} else if (zenb == 3) {
-				ahal = mugituAhal(this.yPos,this.xPos-1);
-				if (ahal == true) {
-					mugituEzkerra();	
-				}
-			} else {
-				ahal = mugituAhal(this.yPos,this.yPos+1);
-				if (ahal == true) {
-					mugituEskuma();
-				}
+		int zenb = Dadoa.getNireDadoa().zenbakiaAukeratu(1, 4);
+		if (zenb == 1) {
+			ahal = mugituAhal(this.yPos-1,this.xPos);
+			if (ahal == true) {
+				mugituGora();
+			}
+		} else if (zenb == 2) {
+			ahal = mugituAhal(this.yPos+1,this.xPos);
+			if (ahal == true) {
+				mugituBehera();
+			}
+		} else if (zenb == 3) {
+			ahal = mugituAhal(this.yPos,this.xPos-1);
+			if (ahal == true) {
+				mugituEzkerra();	
+			}
+		} else {
+			ahal = mugituAhal(this.yPos,this.yPos+1);
+			if (ahal == true) {
+				mugituEskuma();
 			}
 		}
+//		while (ahal == false) {
+//		}
 	}
 	
 	private void mugituGora() {

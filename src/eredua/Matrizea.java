@@ -142,20 +142,20 @@ public class Matrizea{
 	
 	public void blokeBigunakApurtu(int x, int y) {
 		int estaldura = jok.bonbaEstaldura;
-		//eskuma
-		for (int kont=0; kont<=10; kont ++) {
+		//eskumata
+		for (int kont=0; kont<=estaldura; kont ++) {
 			if (!apurtuBlokea(x,y+kont)) break;
 		}
 		//ezkerreta
-		for (int kont=0; kont<=10; kont ++) {
+		for (int kont=0; kont<=estaldura; kont ++) {
 			if (!apurtuBlokea(x,y-kont)) break;
 		}
 		//gora
-		for (int kont=0; kont<=10; kont ++) {
+		for (int kont=0; kont<=estaldura; kont ++) {
 			if (!apurtuBlokea(x+kont,y)) break;
 		}
 		//behera
-		for (int kont=0; kont<=10; kont ++) {
+		for (int kont=0; kont<=estaldura; kont ++) {
 			if(!apurtuBlokea(x-kont,y)) break;
 		}
 	}
