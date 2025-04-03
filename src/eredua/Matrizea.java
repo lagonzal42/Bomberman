@@ -123,7 +123,7 @@ public class Matrizea{
 					blokeBigunakApurtu(y,x);
 					//timerra2
 					this.suaJarri(y, x);
-					jok.setBonba(null);
+					//jok.setBonba(null);
 					
 				});
 				errementa.setRepeats(false);
@@ -134,13 +134,26 @@ public class Matrizea{
 	}
 	
 	public void blokeBigunakApurtu(int x, int y) {
-		apurtuBlokea(x,y+1);
-		apurtuBlokea(x,y-1);
-		apurtuBlokea(x+1,y);
-		apurtuBlokea(x-1,y);
+		int estaldura = jok.bonbaEstaldura;
+		//eskuma
+		for (int kont=0; kont<=10; kont ++) {
+			if (!apurtuBlokea(x,y+kont)) break;
+		}
+		//ezkerreta
+		for (int kont=0; kont<=10; kont ++) {
+			if (!apurtuBlokea(x,y-kont)) break;
+		}
+		//gora
+		for (int kont=0; kont<=10; kont ++) {
+			if (!apurtuBlokea(x+kont,y)) break;
+		}
+		//behera
+		for (int kont=0; kont<=10; kont ++) {
+			if(!apurtuBlokea(x-kont,y)) break;
+		}
 	}
 	
-	private void apurtuBlokea(int errenkada, int zutabea) {
+	private boolean apurtuBlokea(int errenkada, int zutabea) {
 		if (errenkada >= 0 && errenkada < 11 && zutabea >= 0 && zutabea < 17) {
 			Gelaxka gel = zerrenda[errenkada][zutabea];
 			if (gel.getBlokea() instanceof Biguna) {
@@ -152,7 +165,11 @@ public class Matrizea{
 			else if (gel.hutsikDago()) {
 				this.suaJarri(errenkada, zutabea);
 			}
+			if (gel.getBlokea() instanceof Gogorra) {
+				return false;
+			}
 		}
+		return true;
 	}
 	
 	private void suaJarri(int errenkada, int zutabea) {
