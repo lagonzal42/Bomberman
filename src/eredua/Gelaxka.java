@@ -117,7 +117,16 @@ public class Gelaxka extends Observable{
 		}	
 		else if (this.blokea instanceof Hutsik)
 		{
-			gM = null;
+			if(etsaia!= null) {
+				if (etsaia.getAzkenMugi() == Mugimendu.ESKUIN) {
+					gM = GelaxkaMota.ETSAIAESKUMA;
+				} else {
+					gM = GelaxkaMota.ETSAIAEZKERRA;
+				}
+			}
+			else {
+				gM = null;
+			}
 		}
 		else if (this.blokea instanceof Biguna)
 		{
@@ -126,14 +135,6 @@ public class Gelaxka extends Observable{
 		else if (this.blokea instanceof Gogorra)
 		{
 			gM = GelaxkaMota.GOGORRA;
-		}
-		else if (etsaia != null)
-		{
-			if (etsaia.getAzkenMugi() == Mugimendu.ESKUIN) {
-				gM = GelaxkaMota.ETSAIAESKUMA;
-			} else {
-				gM = GelaxkaMota.ETSAIAEZKERRA;
-			}
 		}
 		if(Matrizea.getMatrizea().partidaBukatu()) {
 			gM = GelaxkaMota.IRABAZI;

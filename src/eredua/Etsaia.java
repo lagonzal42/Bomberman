@@ -12,7 +12,7 @@ public class Etsaia {
 	public Etsaia(int x, int y) {
 		xPos = x;
 		yPos = y;
-		azkenMugi = Mugimendu.BEHERA;
+		azkenMugi = Mugimendu.ESKUIN;
 	}
 	
 	public void hasieratuEtsaia() {

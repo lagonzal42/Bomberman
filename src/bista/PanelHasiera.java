@@ -62,8 +62,8 @@ public class PanelHasiera extends JPanel {
 		erdikoPanela.setOpaque(false);
 		
 		//jokalaria erabakitzeko textua
-		JLabel erabaki = new JLabel("<Jokalaria erabaki -><- geziekin>");
-		erabaki.setFont(new Font("Arial",Font.PLAIN,24));
+		JLabel erabaki = new JLabel("<Jokalaria eta mapa aukeratu>");
+		erabaki.setFont(new Font("Times New Roman", Font.BOLD, 24));
 		erabaki.setForeground(Color.BLACK);
 		erabaki.setHorizontalAlignment(SwingConstants.CENTER);
 		erabaki.setVerticalAlignment(SwingConstants.NORTH);
@@ -107,7 +107,7 @@ public class PanelHasiera extends JPanel {
 		
 		//Mezua jarri
 		JLabel mezua = new JLabel("<space> to start, <m>usic, <o>ptions && <esc> to exit");
-		mezua.setFont(new Font("Arial", Font.PLAIN, 18));
+		mezua.setFont(new Font("Times New Roman", Font.ITALIC, 18));
         mezua.setForeground(Color.BLACK);
         mezua.setHorizontalAlignment(SwingConstants.CENTER);
         add(mezua, BorderLayout.SOUTH);
@@ -118,10 +118,16 @@ public class PanelHasiera extends JPanel {
 	public void updatePertsonaienPanela() {
 		pertsonaienPanela.removeAll();
 		for(int i = 1; i < pertsonaiak.length; i++) {
-			ImageIcon icon = new ImageIcon(pertsonaiak[i]);
-			JLabel perLabel = new JLabel(icon);
-			perLabel.setBorder(i == aukeratutakoPertsonaia ? BorderFactory.createLineBorder(Color.GRAY, 3) : null);
-			pertsonaienPanela.add(perLabel);
+			if(i == aukeratutakoPertsonaia) {
+				ImageIcon icon = new  ImageIcon(getClass().getResource("/bista/Sprites/bomber"+i+"selected.png"));
+				JLabel perLabel = new JLabel(icon);
+				pertsonaienPanela.add(perLabel);
+			}
+			else {
+				ImageIcon icon = new ImageIcon(pertsonaiak[i]);	
+				JLabel perLabel = new JLabel(icon);
+				pertsonaienPanela.add(perLabel);
+			}
 		}
 		pertsonaienPanela.revalidate();
 		pertsonaienPanela.repaint();
