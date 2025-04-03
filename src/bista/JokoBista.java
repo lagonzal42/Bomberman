@@ -52,7 +52,7 @@ public class JokoBista extends JFrame{
 	private int unekoPanela = -1;
 	
 	//Jokoa
-	private JPanel panelJokoa;
+	private PanelJokoa panelJokoa = new PanelJokoa();
 	private Image backJokoa;
 	private boolean musikaOn = false;
 	
@@ -79,7 +79,7 @@ public class JokoBista extends JFrame{
 //		irudiakKargatu();
 //		
 //		panelHasiera = getPanelHasiera();
-		panelJokoa = getPanelJokoa();
+//		panelJokoa = getPanelJokoa();
 		
 		mainPanel.add(panelHasiera, "Hasiera");
 		mainPanel.add(panelJokoa, "Jokoa");
@@ -88,7 +88,7 @@ public class JokoBista extends JFrame{
 		getContentPane().add(mainPanel);
 		setVisible(true);
 		
-		this.mapa.jarriListenerrak();
+		panelJokoa.getMapa().jarriListenerrak();
 		this.addKeyListener(getControler());
 		cardLayout.show(mainPanel, "Hasiera");
 		unekoPanela = 0;//hasierako panela
@@ -103,20 +103,20 @@ public class JokoBista extends JFrame{
 	}
 	
 	
-	private JPanel getPanelJokoa() {
-		if (panelJokoa == null) {
-			panelJokoa = new JPanel() {
-				private Image back = new ImageIcon(this.getClass().getResource("/bista/Sprites/stageBack1.png")).getImage();
-				protected void paintComponent(Graphics g) {
-					super.paintComponent(g);
-					g.drawImage(back, 0, 0, getWidth(), getHeight(), this);
-				}
-			};
-			panelJokoa.setLayout(new GridLayout(11, 17, 0, 0));
-			mapa = new Mapa(panelJokoa);
-		}
-		return panelJokoa;
-	}
+//	private JPanel getPanelJokoa() {
+//		if (panelJokoa == null) {
+//			panelJokoa = new JPanel() {
+//				private Image back = new ImageIcon(this.getClass().getResource("/bista/Sprites/stageBack1.png")).getImage();
+//				protected void paintComponent(Graphics g) {
+//					super.paintComponent(g);
+//					g.drawImage(back, 0, 0, getWidth(), getHeight(), this);
+//				}
+//			};
+//			panelJokoa.setLayout(new GridLayout(11, 17, 0, 0));
+//			mapa = new Mapa(panelJokoa);
+//		}
+//		return panelJokoa;
+//	}
 	
 	public Mapa getMapa()
 	{
@@ -182,6 +182,7 @@ public class JokoBista extends JFrame{
 						break;
 					case KeyEvent.VK_SPACE:
 						int aukeratutakoMapa = panelHasiera.getAukeratutakoMapa();
+						System.out.println(aukeratutakoMapa + " "+ aukeratutakoPertsonaia);
 						cardLayout.show(mainPanel, "Jokoa");
 						unekoPanela = 1;
 						break;
