@@ -11,6 +11,7 @@ public class Matrizea{
 	private int zutabeak = 17;
 	private Jokalaria jok;
 	private int blokeKop;
+	private int etsaiKop;
 	private boolean amaitu = false;
 	
 	private Matrizea() {
@@ -51,6 +52,12 @@ public class Matrizea{
 					//bloke biguna
 					zerrenda[i][j].setBlokea(new Biguna());
 					blokeKop++;
+				}
+				//proba kutre
+				else if(dado.gainditzenDu(0.9) && etsaiKop < 7) {
+					zerrenda[i][j].setBlokea(new Hutsik());
+					zerrenda[i][j].setEtsaia(new Etsaia(j,i));
+					etsaiKop ++;
 				}
 				else {
 					//hutsik
@@ -161,7 +168,7 @@ public class Matrizea{
 		gel.eguneratuGelaxka();
 		javax.swing.Timer sua = new javax.swing.Timer(2000, o->{
 			gel.deleteSua();
-			if(blokeKop == 0) {
+			if(etsaiKop == 0) {
 				amaitu = true;
 			}
 			gel.eguneratuGelaxka();
