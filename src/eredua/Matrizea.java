@@ -57,6 +57,7 @@ public class Matrizea{
 				else if(dado.gainditzenDu(0.9) && etsaiKop < 7) {
 					zerrenda[i][j].setBlokea(new Hutsik());
 					zerrenda[i][j].setEtsaia(new Etsaia(j,i));
+					zerrenda[i][j].getEtsaia().hasieratuEtsaia();
 					etsaiKop ++;
 				}
 				else {

@@ -12,7 +12,16 @@ public class MatrizeFactory {
 		}
 		
 		public Matrize matrizeaSortu() {
-			//TODO
+			Matrizea nMatrizea = null;
+			if(type==1) {
+				nMatrizea = new ClassicMatrize();
+			}
+			else if(type==2) {
+				nMatrizea = new SoftMatrize();
+			}
+			else if(type==3) {
+				nMatrizea = new EmptyMatrize();
+			}		
 		}
 
 }
