@@ -119,7 +119,7 @@ public class PanelHasiera extends JPanel {
 		pertsonaienPanela.removeAll();
 		for(int i = 1; i < pertsonaiak.length; i++) {
 			if(i == aukeratutakoPertsonaia) {
-				ImageIcon icon = new  ImageIcon(getClass().getResource("/bista/Sprites/bomber"+i+"selected.png"));
+				ImageIcon icon = new  ImageIcon(getClass().getResource("/bista/Sprites/bomber"+i+"selectedhandia.png"));
 				JLabel perLabel = new JLabel(icon);
 				pertsonaienPanela.add(perLabel);
 			}
@@ -138,7 +138,7 @@ public class PanelHasiera extends JPanel {
 		titulua = new ImageIcon(getClass().getResource("/bista/Sprites/title.png")).getImage();
 		pertsonaiak = new Image[3];
 		for (int i = 1; i < pertsonaiak.length; i++) {
-			pertsonaiak[i] = new ImageIcon(getClass().getResource("/bista/Sprites/bomber"+i+".png")).getImage();
+			pertsonaiak[i] = new ImageIcon(getClass().getResource("/bista/Sprites/bomber"+i+"handia.png")).getImage();
 		}	
 	}
 	
