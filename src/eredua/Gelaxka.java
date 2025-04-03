@@ -90,6 +90,9 @@ public class Gelaxka extends Observable{
 					if (this.sua == true) {
 						gM = GelaxkaMota.JOKALARIASUAREKIN;
 					}
+					else {
+						gM = GelaxkaMota.JOKALARIASUAREKIN;
+					}
 					break;
 				case GORA:
 					gM = GelaxkaMota.JOKALARIAGORA;
