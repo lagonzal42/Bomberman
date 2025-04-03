@@ -3,6 +3,7 @@ package bista;
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.GridLayout;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
@@ -22,16 +23,29 @@ public class PanelAmaiera extends JPanel {
 	}
 	
 	public void itxi(boolean pGaldu) {
+		JPanel guztia = new JPanel(new GridLayout(2,1,0,0));
+		guztia.setOpaque(false);
 		JLabel label = new JLabel();
-		if(pGaldu) {
-			label.setText("BESTE BATEAN IZANGO DA.");
-		}
-		else {
-			label.setText("ZORIONAK!!!");	
-		}
 		label.setFont(new Font("Trebuchet MS", Font.BOLD, 35));
 		label.setHorizontalAlignment(SwingConstants.CENTER);
-		add(label, BorderLayout.CENTER);
+		guztia.add(label);
+		if(pGaldu) {
+			label.setText("BESTE BATEAN IZANGO DA.");
+			ImageIcon iconTxarra = new ImageIcon(getClass().getResource("/bista/Sprites/amaieraitsusia.png"));
+			JLabel irudiaTxarra = new JLabel(iconTxarra);
+			irudiaTxarra.setHorizontalAlignment(SwingConstants.CENTER);
+			guztia.add(irudiaTxarra);
+			irudiaTxarra.setOpaque(false);
+		}
+		else {
+			label.setText("ZORIONAK!!!");
+			ImageIcon iconOna = new ImageIcon(getClass().getResource("/bista/Sprites/amaierapolita.png"));
+			JLabel irudiaOna = new JLabel(iconOna);
+			irudiaOna.setHorizontalAlignment(SwingConstants.CENTER);
+			guztia.add(irudiaOna);
+			irudiaOna.setOpaque(false);
+		}
+		add(guztia, BorderLayout.CENTER);
 	}
 	
 	@Override
