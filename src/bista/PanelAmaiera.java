@@ -22,18 +22,16 @@ public class PanelAmaiera extends JPanel {
 	}
 	
 	public void itxi(boolean pGaldu) {
+		JLabel label = new JLabel();
 		if(pGaldu) {
-			JLabel label = new JLabel("BESTE BATEAN IZANGO DA.");
-			label.setFont(new Font("Trebuchet MS", Font.BOLD, 35));
-			label.setHorizontalAlignment(SwingConstants.CENTER);
-			add(label, BorderLayout.CENTER);
+			label.setText("BESTE BATEAN IZANGO DA.");
 		}
 		else {
-			JLabel label = new JLabel("ZORIONAK!!!");
-			label.setFont(new Font("Trebuchet MS", Font.BOLD, 35));
-			label.setHorizontalAlignment(SwingConstants.CENTER);
-			add(label, BorderLayout.CENTER);		
+			label.setText("ZORIONAK!!!");	
 		}
+		label.setFont(new Font("Trebuchet MS", Font.BOLD, 35));
+		label.setHorizontalAlignment(SwingConstants.CENTER);
+		add(label, BorderLayout.CENTER);
 	}
 	
 	@Override
