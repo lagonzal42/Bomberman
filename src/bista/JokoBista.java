@@ -61,7 +61,7 @@ public class JokoBista extends JFrame{
 	private int aukeratutakoPertsonaia = 1;
 	
 	//amaiera
-	private JPanel panelAmaiera;
+	private PanelAmaiera panelAmaiera = new PanelAmaiera();
 
 	/**
 	 * Create the frame.
@@ -80,7 +80,6 @@ public class JokoBista extends JFrame{
 //		
 //		panelHasiera = getPanelHasiera();
 		panelJokoa = getPanelJokoa();
-		panelAmaiera = getPanelAmaiera();
 		
 		mainPanel.add(panelHasiera, "Hasiera");
 		mainPanel.add(panelJokoa, "Jokoa");
@@ -124,32 +123,11 @@ public class JokoBista extends JFrame{
 		return (mapa);
 	}
 	
-	private JPanel getPanelAmaiera() {
-		if(panelAmaiera == null) {
-			panelAmaiera = new JPanel();
-			panelAmaiera.setVisible(true);
-			panelAmaiera.setLayout(new BorderLayout());
-		}
-		return panelAmaiera;
-	}
 	//TODO:Aldatu cardLayout-ekin
 	public void itxi(boolean pGaldu)
 	{
-		//this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
-		if(pGaldu) {
-			JLabel label = new JLabel("BESTE BATEAN IZANGO DA.");
-			label.setFont(new Font("Trebuchet MS", Font.BOLD, 35));
-			label.setHorizontalAlignment(SwingConstants.CENTER);
-			panelAmaiera.add(label, BorderLayout.CENTER);
-			cardLayout.show(mainPanel, "Amaiera");
-		}
-		else {
-			JLabel label = new JLabel("ZORIONAK!!!");
-			label.setFont(new Font("Trebuchet MS", Font.BOLD, 35));
-			label.setHorizontalAlignment(SwingConstants.CENTER);
-			panelAmaiera.add(label, BorderLayout.CENTER);		
-			cardLayout.show(mainPanel, "Amaiera");
-		}
+		panelAmaiera.itxi(pGaldu);
+		cardLayout.show(mainPanel, "Amaiera");
 		unekoPanela = 2;
 	}
 	//Kontroladorea
@@ -203,6 +181,7 @@ public class JokoBista extends JFrame{
 						System.exit(0);;
 						break;
 					case KeyEvent.VK_SPACE:
+						int aukeratutakoMapa = panelHasiera.getAukeratutakoMapa();
 						cardLayout.show(mainPanel, "Jokoa");
 						unekoPanela = 1;
 						break;

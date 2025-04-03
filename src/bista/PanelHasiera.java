@@ -8,9 +8,11 @@ import java.awt.GridLayout;
 import java.awt.Image;
 
 import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 
 public class PanelHasiera extends JPanel {
@@ -21,6 +23,11 @@ public class PanelHasiera extends JPanel {
 	private Image[] pertsonaiak;
 	private Image backHasiera;
 	private JPanel pertsonaienPanela;
+	private JPanel mapenPanela;
+	private JRadioButton classic;
+	private JRadioButton soft;
+	private JRadioButton empty;
+	private ButtonGroup buttonGroup = new ButtonGroup();
 	private int aukeratutakoPertsonaia = 1;
 
 	/**
@@ -51,7 +58,7 @@ public class PanelHasiera extends JPanel {
 		
 		//erdian elementu bat baino gehiago egon ahal izateko panel bat sortu
 		JPanel erdikoPanela = new JPanel();
-		erdikoPanela.setLayout(new GridLayout(2,1,0,0));
+		erdikoPanela.setLayout(new GridLayout(3,1,0,0));
 		erdikoPanela.setOpaque(false);
 		
 		//jokalaria erabakitzeko textua
@@ -68,7 +75,35 @@ public class PanelHasiera extends JPanel {
 		updatePertsonaienPanela();
 		erdikoPanela.add(pertsonaienPanela);
 		
+		mapenPanela = new JPanel(new GridLayout(1,3,0,0));
+		mapenPanela.setOpaque(false);
+		classic = new JRadioButton("Classic");
+		classic.setHorizontalAlignment(SwingConstants.CENTER);
+		classic.setOpaque(false);
+		classic.setFocusable(false);
+		classic.setSelected(true);
+		
+		soft = new JRadioButton("Soft");
+		soft.setHorizontalAlignment(SwingConstants.CENTER);
+		soft.setOpaque(false);
+		soft.setFocusable(false);
+		
+		empty = new JRadioButton("Empty");
+		empty.setHorizontalAlignment(SwingConstants.CENTER);
+		empty.setOpaque(false);
+		empty.setFocusable(false);
+		
+		buttonGroup.add(classic);
+		buttonGroup.add(soft);
+		buttonGroup.add(empty);
+		mapenPanela.add(classic);
+		mapenPanela.add(soft);
+		mapenPanela.add(empty);
+		erdikoPanela.add(mapenPanela);
+		
 		add(erdikoPanela, BorderLayout.CENTER);
+		
+		
 		
 		//Mezua jarri
 		JLabel mezua = new JLabel("<space> to start, <m>usic, <o>ptions && <esc> to exit");
@@ -105,6 +140,18 @@ public class PanelHasiera extends JPanel {
         this.aukeratutakoPertsonaia = index;
         updatePertsonaienPanela();
     }
+	
+	public int getAukeratutakoMapa() {
+		if(classic.isSelected()) {
+			return 1;
+		}
+		else if(soft.isSelected()) {
+			return 2;
+		}
+		else {
+			return 3;
+		}
+	}
 
 
 }
