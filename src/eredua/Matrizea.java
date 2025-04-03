@@ -186,14 +186,18 @@ public class Matrizea{
 		gel.eguneratuGelaxka();
 		javax.swing.Timer sua = new javax.swing.Timer(2000, o->{
 			gel.deleteSua();
-			if(etsaiKop == 0) {
-				amaitu = true;
-			}
 			gel.eguneratuGelaxka();
 		});
 		sua.setRepeats(false);
 		sua.start();
 		
+	}
+	
+	public void etsaiakMurriztu() {
+		etsaiKop --;
+		if(etsaiKop == 0) {
+			amaitu = true;
+		}
 	}
 	
 	public boolean partidaBukatu()

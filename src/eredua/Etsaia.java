@@ -8,6 +8,7 @@ public class Etsaia {
 	private int xPos;
 	private int yPos;
 	private Mugimendu azkenMugi;
+	private Timer denbora;
 	
 	public Etsaia(int x, int y) {
 		xPos = x;
@@ -16,7 +17,7 @@ public class Etsaia {
 	}
 	
 	public void hasieratuEtsaia() {
-		Timer denbora = new Timer(1000, e ->{
+		denbora = new Timer(1000, e ->{
 			mugitu();
 		});
 		denbora.setRepeats(true);
@@ -117,6 +118,12 @@ public class Etsaia {
 		return this.yPos;
 	}
 	
+	public void geldituEtsaia() {
+		if(denbora != null && denbora.isRunning()) {
+			denbora.stop();
+		}
+		
+	}
 	private boolean mugituAhal(int y, int x) {
 		boolean ema = false;
 		Gelaxka gel = Matrizea.getMatrizea().getGelaxka(y, x);

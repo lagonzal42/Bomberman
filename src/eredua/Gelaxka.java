@@ -61,6 +61,11 @@ public class Gelaxka extends Observable{
 			jok.setAzkenMugi(Mugimendu.HILDA);
 			jok.setHilda();
 		}
+		if(this.etsaia!=null) {
+			this.etsaia.geldituEtsaia();
+	        this.etsaia = null;
+	        Matrizea.getMatrizea().etsaiakMurriztu();
+		}
 		this.eguneratuGelaxka();
 	}
 	
