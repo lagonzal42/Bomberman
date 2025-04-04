@@ -6,7 +6,7 @@ import common.Mugimendu;
 public class Matrizea{
 	
 	private static Matrizea nMatrizea = null;
-	private Gelaxka[][] zerrenda;
+	private EreduMapa eMapa;
 	private int lerroak = 11;
 	private int zutabeak = 17;
 	private Jokalaria jok;
@@ -15,12 +15,11 @@ public class Matrizea{
 	private boolean amaitu = false;
 	
 	private Matrizea() {
-		blokeKop = 0;
-		this.jok = JokalariFactory.getJokFactory().sortuJokalaria(1);
-		this.zerrenda = matrizeaSortu();
+		
 	}
 	
-	public static Matrizea getMatrizea() {
+	public static Matrizea getMatrizea()
+	{
 		if(nMatrizea == null) {
 			nMatrizea = new Matrizea();
 		}
@@ -28,62 +27,19 @@ public class Matrizea{
 	}
 	
 	//private izan behar du.
-	private Gelaxka[][] matrizeaSortu() {
-		Dadoa dado = Dadoa.getNireDadoa();
-		Gelaxka[][] zerrenda = new Gelaxka[lerroak][zutabeak];
-		for(int i = 0; i < lerroak; i++) {
-			for(int j = 0; j < zutabeak; j++) {
-				zerrenda[i][j] = new Gelaxka();
-				if(j == 0 && i == 0) {
-					//jokalaria
-					zerrenda[i][j].setBlokea(new Hutsik());
-					zerrenda[i][j].setJokalaria(this.jok);
-					
-				}
-				else if((j == 0 && i == 1) || (j == 1 && i == 0)) {
-					//hutsik
-					zerrenda[i][j].setBlokea(new Hutsik()); 
-				}
-				else if((j % 2 != 0 && i % 2 != 0)) {
-					//bloke gogorra
-					zerrenda[i][j].setBlokea(new Gogorra()); 
-				}
-				else if(dado.gainditzenDu(0.4)){
-					//bloke biguna
-					zerrenda[i][j].setBlokea(new Biguna());
-					blokeKop++;
-				}
-				//proba kutre
-				else if(dado.gainditzenDu(0.9) && etsaiKop < 7) {
-					zerrenda[i][j].setBlokea(new Hutsik());
-					zerrenda[i][j].setEtsaia(new Etsaia(j,i));
-					zerrenda[i][j].getEtsaia().hasieratuEtsaia();
-					etsaiKop ++;
-				}
-				else {
-					//hutsik
-					zerrenda[i][j].setBlokea(new Hutsik());
-				}
-			}
-		}
-		return zerrenda;
+	public void mapaSortu(int pMapaMota, int pJokalariMota)
+	{
+		eMapa = EreduMapaFactory.getMF().mapaSortu(pMapaMota, pJokalariMota);
+		jok = eMapa.getJokalaria();
 	}
 	
 	public void hasieratuBista()
 	{
-		JokoBista.getJokoBista();
-		for(int i = 0; i < lerroak; i++)
-		{
-			for(int j = 0; j < zutabeak; j++)
-				zerrenda[i][j].eguneratuGelaxka();
-		}
+		eMapa.hasieratuBista();
 	}
 	
 	public Gelaxka getGelaxka(int i, int j){
-		if(i < 0 || j < 0 || i > 10 || j > 16) {
-			return null;
-		}
-		return this.zerrenda[i][j];
+		return this.eMapa.getGelaxka(i, j);
 	}
 	
 	public Jokalaria getJokalaria() {
@@ -93,104 +49,15 @@ public class Matrizea{
 	
 	public void mugituJokalaria(Mugimendu mugimendu)
 	{
-		switch (mugimendu)
-		{
-			case GORA:
-				jok.mugituGora();
-				break;
-			case BEHERA:
-				jok.mugituBehera();
-				break;
-			case EZKER:
-				jok.mugituEzkerra();
-				break;
-			case ESKUIN:
-				jok.mugituEskuma();
-				break;
-		}
-		jok.printPosizio();
+		eMapa.mugituJokalaria(mugimendu);
 	}
 
 	public void bonbaJarri() {
-		int y = jok.getY();
-		int x = jok.getX();
-		
-		if (zerrenda[y][x].hutsikDago()) {
-			Gelaxka gel = zerrenda [y][x];
-			//bonba jarri
-			Bonba bon = jok.getBonba();
-			if (bon != null) {
-				gel.setBonba(bon);
-				gel.eguneratuGelaxka();
-				System.out.println("Bonba jarri du ("+y+","+x+")");
-			
-				//timerra
-				javax.swing.Timer errementa = new javax.swing.Timer(3000, e ->{
-					System.out.println("Bonba apurtu da (" +y+","+x+")");
-					gel.bonbaApurtu();
-					blokeBigunakApurtu(y,x);
-					//timerra2
-					this.suaJarri(y, x);
-					//jok.setBonba(null);
-					
-				});
-				errementa.setRepeats(false);
-				errementa.start();
-			}
-		}
-
+		eMapa.bonbaJarri();
 	}
 	
 	public void blokeBigunakApurtu(int x, int y) {
-		int estaldura = jok.bonbaEstaldura;
-		//eskumata
-		for (int kont=0; kont<=estaldura; kont ++) {
-			if (!apurtuBlokea(x,y+kont)) break;
-		}
-		//ezkerreta
-		for (int kont=0; kont<=estaldura; kont ++) {
-			if (!apurtuBlokea(x,y-kont)) break;
-		}
-		//gora
-		for (int kont=0; kont<=estaldura; kont ++) {
-			if (!apurtuBlokea(x+kont,y)) break;
-		}
-		//behera
-		for (int kont=0; kont<=estaldura; kont ++) {
-			if(!apurtuBlokea(x-kont,y)) break;
-		}
-	}
-	
-	private boolean apurtuBlokea(int errenkada, int zutabea) {
-		if (errenkada >= 0 && errenkada < 11 && zutabea >= 0 && zutabea < 17) {
-			Gelaxka gel = zerrenda[errenkada][zutabea];
-			if (gel.getBlokea() instanceof Biguna) {
-				gel.setBlokea(new Hutsik());
-				this.suaJarri(errenkada, zutabea);
-				System.out.println("blokea apurtu da:"+ errenkada +","+ zutabea);
-				blokeKop--;
-			}
-			else if (gel.hutsikDago()) {
-				this.suaJarri(errenkada, zutabea);
-			}
-			if (gel.getBlokea() instanceof Gogorra) {
-				return false;
-			}
-		}
-		return true;
-	}
-	
-	private void suaJarri(int errenkada, int zutabea) {
-		Gelaxka gel = zerrenda[errenkada][zutabea];
-		gel.setSua();
-		gel.eguneratuGelaxka();
-		javax.swing.Timer sua = new javax.swing.Timer(2000, o->{
-			gel.deleteSua();
-			gel.eguneratuGelaxka();
-		});
-		sua.setRepeats(false);
-		sua.start();
-		
+		eMapa.blokeBigunakApurtu(x, y);
 	}
 	
 	public void etsaiakMurriztu() {
@@ -201,12 +68,7 @@ public class Matrizea{
 	}
 	
 	public void etsaiakGelditu() {
-		for(int i = 0; i < lerroak; i++)
-		{
-			for(int j = 0; j < zutabeak; j++)
-				if(zerrenda[i][j].getEtsaia() != null)
-					zerrenda[i][j].getEtsaia().geldituEtsaia();
-		}
+		eMapa.etsaiakGelditu();
 	}
 	
 	public boolean partidaBukatu()

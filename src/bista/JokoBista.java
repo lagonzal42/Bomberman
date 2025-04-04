@@ -88,7 +88,7 @@ public class JokoBista extends JFrame{
 		getContentPane().add(mainPanel);
 		setVisible(true);
 		
-		panelJokoa.getMapa().jarriListenerrak();
+		//panelJokoa.getMapa().jarriListenerrak();
 		this.addKeyListener(getControler());
 		cardLayout.show(mainPanel, "Hasiera");
 		unekoPanela = 0;//hasierako panela
@@ -167,7 +167,10 @@ public class JokoBista extends JFrame{
 						break;
 					case KeyEvent.VK_SPACE:
 						int aukeratutakoMapa = panelHasiera.getAukeratutakoMapa();
-						System.out.println(aukeratutakoMapa + " "+ aukeratutakoPertsonaia);
+						System.out.println(aukeratutakoMapa + " " + aukeratutakoPertsonaia);
+						Matrizea.getMatrizea().mapaSortu(aukeratutakoMapa, aukeratutakoPertsonaia);
+						panelJokoa.getMapa().jarriListenerrak();
+						Matrizea.getMatrizea().hasieratuBista();
 						cardLayout.show(mainPanel, "Jokoa");
 						unekoPanela = 1;
 						break;

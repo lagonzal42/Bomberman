@@ -1,11 +1,17 @@
 package eredua;
 
-public class SoftMatrizea {
-	public SoftMatrizea() {
-		super(2);
+import bista.JokoBista;
+import eredua.Matrizea;
+
+public class EreduMapaClassic extends EreduMapa {
+	public EreduMapaClassic(int pJokalariMota) {
+		super();
+		gelaxkak = matrizeaSortu(pJokalariMota);
+		jok = JokalariFactory.getJokFactory().sortuJokalaria(pJokalariMota);
+		
 	}
 	
-	private Gelaxka[][] matrizeaSortu() {
+	private Gelaxka[][] matrizeaSortu(int jokalariMota) {
 		Dadoa dado = Dadoa.getNireDadoa();
 		Gelaxka[][] zerrenda = new Gelaxka[lerroak][zutabeak];
 		for(int i = 0; i < lerroak; i++) {
@@ -14,21 +20,24 @@ public class SoftMatrizea {
 				if(j == 0 && i == 0) {
 					//jokalaria
 					zerrenda[i][j].setBlokea(new Hutsik());
-					zerrenda[i][j].setJokalaria(new Zuria());
+					zerrenda[i][j].setJokalaria(jok);
 					
 				}
 				else if((j == 0 && i == 1) || (j == 1 && i == 0)) {
 					//hutsik
 					zerrenda[i][j].setBlokea(new Hutsik()); 
 				}
-				//ez daude bloke gogorrik
+				else if((j % 2 != 0 && i % 2 != 0)) {
+					//bloke gogorra
+					zerrenda[i][j].setBlokea(new Gogorra()); 
+				}
 				else if(dado.gainditzenDu(0.4)){
 					//bloke biguna
 					zerrenda[i][j].setBlokea(new Biguna());
 					blokeKop++;
 				}
 				//proba kutre
-				else if(dado.gainditzenDu(0.9) && etsaiKop < 9) {
+				else if(dado.gainditzenDu(0.9) && etsaiKop < 7) {
 					zerrenda[i][j].setBlokea(new Hutsik());
 					zerrenda[i][j].setEtsaia(new Etsaia(j,i));
 					etsaiKop ++;
@@ -41,5 +50,6 @@ public class SoftMatrizea {
 		}
 		return zerrenda;
 	}
+	
 
 }

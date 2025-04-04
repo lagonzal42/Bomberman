@@ -1,11 +1,14 @@
 package eredua;
 
-public class EmptyMatrizea {
-	public EmptyMatrizea() {
-		super(3);
+public class EreduMapaEmpty extends EreduMapa{
+	
+	public EreduMapaEmpty(int pJokalariMota) {
+		super();
+		gelaxkak = matrizeaSortu(pJokalariMota);
+		jok = JokalariFactory.getJokFactory().sortuJokalaria(pJokalariMota);
 	}
 	
-	private Gelaxka[][] matrizeaSortu() {
+	private Gelaxka[][] matrizeaSortu(int jokalariMota) {
 		Dadoa dado = Dadoa.getNireDadoa();
 		Gelaxka[][] zerrenda = new Gelaxka[lerroak][zutabeak];
 		for(int i = 0; i < lerroak; i++) {
@@ -14,7 +17,7 @@ public class EmptyMatrizea {
 				if(j == 0 && i == 0) {
 					//jokalaria
 					zerrenda[i][j].setBlokea(new Hutsik());
-					zerrenda[i][j].setJokalaria(new Zuria());
+					zerrenda[i][j].setJokalaria(jok);
 					
 				}
 				else if((j == 0 && i == 1) || (j == 1 && i == 0)) {
