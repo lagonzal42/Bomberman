@@ -147,4 +147,10 @@ public abstract class EreduMapa {
 		}
 		jok.printPosizio();
 	}
+	
+	public boolean partidaBukatu()
+	{
+		return etsaiKop == 0;
+	}
+	
 }

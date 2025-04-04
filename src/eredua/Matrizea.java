@@ -7,7 +7,7 @@ import soinua.Bozgorailua;
 public class Matrizea{
 	
 	private static Matrizea nMatrizea = null;
-	private EreduMapa eMapa;
+	private static EreduMapa eMapa;
 	private int lerroak = 11;
 	private int zutabeak = 17;
 	private Jokalaria jok;
@@ -25,6 +25,10 @@ public class Matrizea{
 			nMatrizea = new Matrizea();
 		}
 		return nMatrizea;
+	}
+	
+	public static EreduMapa getEreduMapa() {
+		return eMapa;
 	}
 	
 	//private izan behar du.
