@@ -103,21 +103,6 @@ public class JokoBista extends JFrame{
 	}
 	
 	
-//	private JPanel getPanelJokoa() {
-//		if (panelJokoa == null) {
-//			panelJokoa = new JPanel() {
-//				private Image back = new ImageIcon(this.getClass().getResource("/bista/Sprites/stageBack1.png")).getImage();
-//				protected void paintComponent(Graphics g) {
-//					super.paintComponent(g);
-//					g.drawImage(back, 0, 0, getWidth(), getHeight(), this);
-//				}
-//			};
-//			panelJokoa.setLayout(new GridLayout(11, 17, 0, 0));
-//			mapa = new Mapa(panelJokoa);
-//		}
-//		return panelJokoa;
-//	}
-	
 	public Mapa getMapa()
 	{
 		return (mapa);
@@ -175,7 +160,7 @@ public class JokoBista extends JFrame{
 						}
 						break;
 					case KeyEvent.VK_O:
-						//TODO:jokoa erabakitzeko
+						//TODO:errekorrak?
 						break;
 					case KeyEvent.VK_ESCAPE:
 						System.exit(0);;
@@ -208,6 +193,12 @@ public class JokoBista extends JFrame{
 				case KeyEvent.VK_B:
 					mat.bonbaJarri();	
 					break;	
+				case KeyEvent.VK_ESCAPE:
+					System.exit(0);
+				}
+			}
+			else if(unekoPanela == 2) {
+				switch(e.getKeyCode()) {
 				case KeyEvent.VK_ESCAPE:
 					System.exit(0);
 				}
