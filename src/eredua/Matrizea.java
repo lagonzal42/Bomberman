@@ -16,8 +16,8 @@ public class Matrizea{
 	
 	private Matrizea() {
 		blokeKop = 0;
+		this.jok = JokalariFactory.getJokFactory().sortuJokalaria(1);
 		this.zerrenda = matrizeaSortu();
-		this.jok = new Zuria();
 	}
 	
 	public static Matrizea getMatrizea() {
@@ -37,7 +37,7 @@ public class Matrizea{
 				if(j == 0 && i == 0) {
 					//jokalaria
 					zerrenda[i][j].setBlokea(new Hutsik());
-					zerrenda[i][j].setJokalaria(new Zuria());
+					zerrenda[i][j].setJokalaria(this.jok);
 					
 				}
 				else if((j == 0 && i == 1) || (j == 1 && i == 0)) {
