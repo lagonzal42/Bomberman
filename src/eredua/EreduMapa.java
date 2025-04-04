@@ -117,6 +117,7 @@ public abstract class EreduMapa {
 	
 	public void etsaiakMurriztu() {
 		etsaiKop --;
+		System.out.println("etsaiak: "+etsaiKop);
 	}
 	
 	public void etsaiakGelditu() {
@@ -150,6 +151,9 @@ public abstract class EreduMapa {
 	
 	public boolean partidaBukatu()
 	{
+		if(etsaiKop == 0) {
+			this.etsaiakGelditu();
+		}
 		return etsaiKop == 0;
 	}
 	

@@ -66,7 +66,6 @@ public class Gelaxka extends Observable{
 			this.etsaia.geldituEtsaia();
 	        this.etsaia = null;
 	        Matrizea.getEreduMapa().etsaiakMurriztu();
-	        Matrizea.getEreduMapa().etsaiakGelditu();
 		}
 		this.eguneratuGelaxka();
 	}
