@@ -17,7 +17,7 @@ public class Bozgorailua implements Observer{
 	private static Bozgorailua boz=null;
 	
 	private Bozgorailua() {
-		this.jarriListenerrak();
+		//this.jarriListenerrak();
 	}
 	
 	public static Bozgorailua getBozgorailua() {
@@ -73,7 +73,7 @@ public class Bozgorailua implements Observer{
 		
 	}
 	
-	private void jarriListenerrak()
+	public void jarriListenerrak()
 	{
 		Matrizea m = Matrizea.getMatrizea();
 		for (int y = 0; y < 11; y++)

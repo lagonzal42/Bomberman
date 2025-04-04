@@ -3,8 +3,8 @@ package eredua;
 public class EreduMapaSoft extends EreduMapa{
 	public EreduMapaSoft(int jokalariMota) {
 		super();
-		gelaxkak = matrizeaSortu(jokalariMota);
 		jok = JokalariFactory.getJokFactory().sortuJokalaria(jokalariMota);
+		gelaxkak = matrizeaSortu(jokalariMota);
 	}
 	
 	private Gelaxka[][] matrizeaSortu(int jokalariMota) {
@@ -33,6 +33,7 @@ public class EreduMapaSoft extends EreduMapa{
 				else if(dado.gainditzenDu(0.9) && etsaiKop < 9) {
 					zerrenda[i][j].setBlokea(new Hutsik());
 					zerrenda[i][j].setEtsaia(new Etsaia(j,i));
+					zerrenda[i][j].getEtsaia().hasieratuEtsaia();
 					etsaiKop ++;
 				}
 				else {

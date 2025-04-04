@@ -6,9 +6,8 @@ import eredua.Matrizea;
 public class EreduMapaClassic extends EreduMapa {
 	public EreduMapaClassic(int pJokalariMota) {
 		super();
-		gelaxkak = matrizeaSortu(pJokalariMota);
 		jok = JokalariFactory.getJokFactory().sortuJokalaria(pJokalariMota);
-		
+		gelaxkak = matrizeaSortu(pJokalariMota);
 	}
 	
 	private Gelaxka[][] matrizeaSortu(int jokalariMota) {
@@ -40,6 +39,7 @@ public class EreduMapaClassic extends EreduMapa {
 				else if(dado.gainditzenDu(0.9) && etsaiKop < 7) {
 					zerrenda[i][j].setBlokea(new Hutsik());
 					zerrenda[i][j].setEtsaia(new Etsaia(j,i));
+					zerrenda[i][j].getEtsaia().hasieratuEtsaia();
 					etsaiKop ++;
 				}
 				else {

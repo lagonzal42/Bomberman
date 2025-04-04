@@ -4,8 +4,8 @@ public class EreduMapaEmpty extends EreduMapa{
 	
 	public EreduMapaEmpty(int pJokalariMota) {
 		super();
-		gelaxkak = matrizeaSortu(pJokalariMota);
 		jok = JokalariFactory.getJokFactory().sortuJokalaria(pJokalariMota);
+		gelaxkak = matrizeaSortu(pJokalariMota);
 	}
 	
 	private Gelaxka[][] matrizeaSortu(int jokalariMota) {
@@ -29,6 +29,7 @@ public class EreduMapaEmpty extends EreduMapa{
 				else if(dado.gainditzenDu(0.95) && etsaiKop < 11) {
 					zerrenda[i][j].setBlokea(new Hutsik());
 					zerrenda[i][j].setEtsaia(new Etsaia(j,i));
+					zerrenda[i][j].getEtsaia().hasieratuEtsaia();
 					etsaiKop ++;
 				}
 				else {

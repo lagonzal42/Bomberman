@@ -2,6 +2,7 @@ package eredua;
 
 import bista.JokoBista;
 import common.Mugimendu;
+import soinua.Bozgorailua;
 
 public class Matrizea{
 	
@@ -31,6 +32,7 @@ public class Matrizea{
 	{
 		eMapa = EreduMapaFactory.getMF().mapaSortu(pMapaMota, pJokalariMota);
 		jok = eMapa.getJokalaria();
+		Bozgorailua.getBozgorailua().jarriListenerrak();
 	}
 	
 	public void hasieratuBista()
