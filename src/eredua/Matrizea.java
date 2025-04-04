@@ -200,6 +200,15 @@ public class Matrizea{
 		}
 	}
 	
+	public void etsaiakGelditu() {
+		for(int i = 0; i < lerroak; i++)
+		{
+			for(int j = 0; j < zutabeak; j++)
+				if(zerrenda[i][j].getEtsaia() != null)
+					zerrenda[i][j].getEtsaia().geldituEtsaia();
+		}
+	}
+	
 	public boolean partidaBukatu()
 	{
 		return amaitu;
