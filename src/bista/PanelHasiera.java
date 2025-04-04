@@ -58,7 +58,7 @@ public class PanelHasiera extends JPanel {
 		
 		//erdian elementu bat baino gehiago egon ahal izateko panel bat sortu
 		JPanel erdikoPanela = new JPanel();
-		erdikoPanela.setLayout(new GridLayout(3,1,0,0));
+		erdikoPanela.setLayout(new BorderLayout());
 		erdikoPanela.setOpaque(false);
 		
 		//jokalaria erabakitzeko textua
@@ -67,13 +67,13 @@ public class PanelHasiera extends JPanel {
 		erabaki.setForeground(Color.BLACK);
 		erabaki.setHorizontalAlignment(SwingConstants.CENTER);
 		erabaki.setVerticalAlignment(SwingConstants.NORTH);
-		erdikoPanela.add(erabaki);
+		erdikoPanela.add(erabaki, BorderLayout.NORTH);
 		
 		//Jokalarien irudiak erakutzi
 		pertsonaienPanela = new JPanel(new GridLayout(1,2,0,0));
 		pertsonaienPanela.setOpaque(false);
 		updatePertsonaienPanela();
-		erdikoPanela.add(pertsonaienPanela);
+		erdikoPanela.add(pertsonaienPanela, BorderLayout.CENTER);
 		
 		mapenPanela = new JPanel(new GridLayout(1,3,0,0));
 		mapenPanela.setOpaque(false);
@@ -99,7 +99,7 @@ public class PanelHasiera extends JPanel {
 		mapenPanela.add(classic);
 		mapenPanela.add(soft);
 		mapenPanela.add(empty);
-		erdikoPanela.add(mapenPanela);
+		erdikoPanela.add(mapenPanela, BorderLayout.SOUTH);
 		
 		add(erdikoPanela, BorderLayout.CENTER);
 		
@@ -117,17 +117,16 @@ public class PanelHasiera extends JPanel {
 	
 	public void updatePertsonaienPanela() {
 		pertsonaienPanela.removeAll();
+		ImageIcon icon;
 		for(int i = 1; i < pertsonaiak.length; i++) {
 			if(i == aukeratutakoPertsonaia) {
-				ImageIcon icon = new  ImageIcon(getClass().getResource("/bista/Sprites/bomber"+i+"selectedhandia.png"));
-				JLabel perLabel = new JLabel(icon);
-				pertsonaienPanela.add(perLabel);
+				icon = new  ImageIcon(getClass().getResource("/bista/Sprites/bomber"+i+"selectedhandia.png"));
 			}
 			else {
-				ImageIcon icon = new ImageIcon(pertsonaiak[i]);	
-				JLabel perLabel = new JLabel(icon);
-				pertsonaienPanela.add(perLabel);
+				icon = new ImageIcon(pertsonaiak[i]);	
 			}
+			JLabel perLabel = new JLabel(icon);
+			pertsonaienPanela.add(perLabel);
 		}
 		pertsonaienPanela.revalidate();
 		pertsonaienPanela.repaint();
