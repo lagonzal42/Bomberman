@@ -46,6 +46,7 @@ public class GelaxkaBista extends JLabel implements Observer{
 		Timer animazioa;
 		
 		System.out.println("gelaxka orain " + arg);
+		String color = Matrizea.getEreduMapa().getJokalaria().getColor();
 		
 		if (gelMota == null)
 			this.setIrudia(null);
@@ -64,21 +65,21 @@ public class GelaxkaBista extends JLabel implements Observer{
 					//path = "/bista/Sprites/whiteleft1.png";
 					break;
 				case JOKALARIAGORA:
-					this.setIrudia("/bista/Sprites/whiteup1.png");
+					this.setIrudia("/bista/Sprites/"+color+"up1.png");
 					//path = "/bista/Sprites/whiteright1.png";
 					break;
 				case JOKALARIAEZKER:
-					this.setIrudia("/bista/Sprites/whiteleft1.png");
+					this.setIrudia("/bista/Sprites/"+color+"left1.png");
 					break;
 				case JOKALARIAESKUIN:
-					this.setIrudia("/bista/Sprites/whiteright1.png");
+					this.setIrudia("/bista/Sprites/"+color+"right1.png");
 					break;
 				case BONBA:
 					this.setIrudia("/bista/Sprites/bomb1.png");
 					//path = "/bista/Sprites/whiteright1.png";
 					break;
 				case JOKALARIBONBAREKIN:
-					this.setIrudia("/bista/Sprites/whitewithbomb1.png");
+					this.setIrudia("/bista/Sprites/"+color+"withbomb1.png");
 					//path = "/bista/Sprites/whiteright1.png";
 					break;
 				case BONBAESTANDA:
@@ -115,7 +116,7 @@ public class GelaxkaBista extends JLabel implements Observer{
 			        animazioa.start();
 			        break;
 				default:
-					this.setIrudia("/bista/Sprites/whitedown1.png");
+					this.setIrudia("/bista/Sprites/"+color+"down1.png");
 					//path = "/bista/Sprites/whitedown1.png";
 					break;
 			}

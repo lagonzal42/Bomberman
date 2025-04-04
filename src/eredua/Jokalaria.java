@@ -11,6 +11,7 @@ public abstract class Jokalaria{
 	private Bonba bonba;
 	protected int bonbaKop;
 	protected int bonbaEstaldura;
+	protected String color;
 		
 	public Jokalaria() {
 		//super(pIrudia);
@@ -174,6 +175,8 @@ public abstract class Jokalaria{
 		itxaron.setRepeats(false);
 		itxaron.start();
 	}
-
+	public String getColor() {
+		return color;
+	}
 
 }
