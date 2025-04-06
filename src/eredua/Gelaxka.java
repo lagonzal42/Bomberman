@@ -9,6 +9,7 @@ public class Gelaxka extends Observable{
 	
 	private Jokalaria	jok;
 	private Bonba		bonba;
+	private javax.swing.Timer suaTimerra = null;
 	private boolean 	sua;
 	private Bloke		blokea;
 	private Etsaia		etsaia;
@@ -56,7 +57,10 @@ public class Gelaxka extends Observable{
 	}
 	
 	public void setSua() {
-		this.sua=true;
+		//sua badago aurreko kontagailura gehitu
+		if (suaTimerra !=null) {
+			suaTimerra.stop();
+		}
 		if(this.jok!=null) {
 			jok.setAzkenMugi(Mugimendu.HILDA);
 			jok.setHilda();
@@ -67,7 +71,17 @@ public class Gelaxka extends Observable{
 	        this.etsaia = null;
 	        Matrizea.getEreduMapa().etsaiakMurriztu();
 		}
+		this.sua=true;
 		this.eguneratuGelaxka();
+		
+		//sua errementa
+		suaTimerra =new javax.swing.Timer(2000, o-> {
+			deleteSua();
+			this.eguneratuGelaxka();
+			
+		});
+		suaTimerra.setRepeats(false);
+		suaTimerra.start();
 	}
 	
 	public boolean getSua() {

@@ -92,10 +92,10 @@ public abstract class EreduMapa {
 				System.out.println("blokea apurtu da:"+ errenkada +","+ zutabea);
 				blokeKop--;
 			}
-			else if (gel.hutsikDago()) {
+			else if (gel.hutsikDago() || gel.getSua()) {
 				this.suaJarri(errenkada, zutabea);
 			}
-			if (gel.getBlokea() instanceof Gogorra) {
+			else if (gel.getBlokea() instanceof Gogorra) {
 				return false;
 			}
 		}
@@ -105,14 +105,6 @@ public abstract class EreduMapa {
 	private void suaJarri(int errenkada, int zutabea) {
 		Gelaxka gel = gelaxkak[errenkada][zutabea];
 		gel.setSua();
-		gel.eguneratuGelaxka();
-		javax.swing.Timer sua = new javax.swing.Timer(2000, o->{
-			gel.deleteSua();
-			gel.eguneratuGelaxka();
-		});
-		sua.setRepeats(false);
-		sua.start();
-		
 	}
 	
 	public void etsaiakMurriztu() {
