@@ -27,9 +27,14 @@ public class GelaxkaBista extends JLabel implements Observer{
 	public void setIrudia(String pIrudia) {
 		this.irudia = pIrudia;
 		if (pIrudia != null) {
-			ImageIcon icon = new ImageIcon(this.getClass().getResource(pIrudia));
-			Image img = icon.getImage().getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
-			this.setIcon(new ImageIcon(img));
+			if (pIrudia.toLowerCase().endsWith(".gif")) {
+				this.setIcon(new ImageIcon(this.getClass().getResource(pIrudia)));
+			}else {
+				ImageIcon icon = new ImageIcon(this.getClass().getResource(pIrudia));
+				Image img = icon.getImage().getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
+				this.setIcon(new ImageIcon(img));
+			}
+			
 		}
 		else
 			this.setIcon(null);
@@ -87,7 +92,8 @@ public class GelaxkaBista extends JLabel implements Observer{
 					//path = "/bista/Sprites/whiteright1.png";
 					break;
 				case SUA:
-					this.setIrudia("/bista/Sprites/kaBomb5.png");
+				//	this.setIrudia("/bista/Sprites/kaBomb5.png");
+					this.setIrudia("/bista/Sprites/miniBlast1.gif");
 					//path = "/bista/Sprites/whiteright1.png";
 					break;
 				case JOKALARIASUAREKIN:
