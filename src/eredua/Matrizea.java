@@ -62,9 +62,9 @@ public class Matrizea{
 		eMapa.bonbaJarri();
 	}
 	
-	public void blokeBigunakApurtu(int x, int y) {
-		eMapa.blokeBigunakApurtu(x, y);
-	}
+//	public void blokeBigunakApurtu(int x, int y) {
+//		eMapa.blokeBigunakApurtu(x, y);
+//	}
 	
 	public void etsaiakMurriztu() {
 		etsaiKop --;
