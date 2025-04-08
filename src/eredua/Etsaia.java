@@ -60,53 +60,53 @@ public class Etsaia {
 	}
 	
 	private void mugituGora() {
-		Matrizea.getMatrizea().getGelaxka(yPos, xPos).setEtsaia(null);
-		Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
-		Matrizea.getMatrizea().getGelaxka(yPos -1, xPos).setEtsaia(this);
+		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).setEtsaia(null);
+		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
+		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos -1, xPos).setEtsaia(this);
 		this.yPos = this.yPos -1;
-		if (Matrizea.getMatrizea().getGelaxka(yPos, xPos).getJokalaria() != null) {
-			Matrizea.getMatrizea().getGelaxka(yPos, xPos).getJokalaria().setHilda();
-			Matrizea.getMatrizea().getGelaxka(yPos, xPos).getJokalaria().setAzkenMugi(Mugimendu.HILDA);
+		if (Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria() != null) {
+			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria().setHilda();
+			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria().setAzkenMugi(Mugimendu.HILDA);
 		}
-		Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
+		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
 	}
 	
 	private void mugituBehera() {
-		Matrizea.getMatrizea().getGelaxka(yPos, xPos).setEtsaia(null);
-		Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
-		Matrizea.getMatrizea().getGelaxka(yPos +1, xPos).setEtsaia(this);
+		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).setEtsaia(null);
+		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
+		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos +1, xPos).setEtsaia(this);
 		this.yPos = this.yPos +1;
-		if (Matrizea.getMatrizea().getGelaxka(yPos, xPos).getJokalaria() != null) {
-			Matrizea.getMatrizea().getGelaxka(yPos, xPos).getJokalaria().setHilda();
-			Matrizea.getMatrizea().getGelaxka(yPos, xPos).getJokalaria().setAzkenMugi(Mugimendu.HILDA);
+		if (Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria() != null) {
+			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria().setHilda();
+			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria().setAzkenMugi(Mugimendu.HILDA);
 		}
-		Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
+		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
 	}
 	
 	private void mugituEzkerra() {
 		this.setAzkenMugi(Mugimendu.EZKER);
-		Matrizea.getMatrizea().getGelaxka(yPos, xPos).setEtsaia(null);
-		Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
-		Matrizea.getMatrizea().getGelaxka(yPos, xPos -1).setEtsaia(this);
+		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).setEtsaia(null);
+		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
+		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos -1).setEtsaia(this);
 		this.xPos = this.xPos -1;
-		if (Matrizea.getMatrizea().getGelaxka(yPos, xPos).getJokalaria() != null) {
-			Matrizea.getMatrizea().getGelaxka(yPos, xPos).getJokalaria().setHilda();
-			Matrizea.getMatrizea().getGelaxka(yPos, xPos).getJokalaria().setAzkenMugi(Mugimendu.HILDA);
+		if (Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria() != null) {
+			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria().setHilda();
+			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria().setAzkenMugi(Mugimendu.HILDA);
 		}
-		Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
+		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
 	}
 	
 	private void mugituEskuma() {
 		this.setAzkenMugi(Mugimendu.ESKUIN);
-		Matrizea.getMatrizea().getGelaxka(yPos, xPos).setEtsaia(null);
-		Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
-		Matrizea.getMatrizea().getGelaxka(yPos, xPos +1).setEtsaia(this);
+		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).setEtsaia(null);
+		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
+		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos +1).setEtsaia(this);
 		this.xPos = this.xPos +1;
-		if (Matrizea.getMatrizea().getGelaxka(yPos, xPos).getJokalaria() != null) {
-			Matrizea.getMatrizea().getGelaxka(yPos, xPos).getJokalaria().setHilda();
-			Matrizea.getMatrizea().getGelaxka(yPos, xPos).getJokalaria().setAzkenMugi(Mugimendu.HILDA);
+		if (Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria() != null) {
+			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria().setHilda();
+			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria().setAzkenMugi(Mugimendu.HILDA);
 		}
-		Matrizea.getMatrizea().getGelaxka(yPos, xPos).eguneratuGelaxka();
+		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
 	}
 	
 	private void setAzkenMugi(Mugimendu m) {
@@ -133,7 +133,7 @@ public class Etsaia {
 	}
 	private boolean mugituAhal(int y, int x) {
 		boolean ema = false;
-		Gelaxka gel = Matrizea.getMatrizea().getGelaxka(y, x);
+		Gelaxka gel = Matrizea.getMatrizea().getEreduMapa().getGelaxka(y, x);
 		if (!(x < 0 || y< 0 || x > 10 || y > 16) && gel != null && gel.hutsikDago() && gel.getBonba()==null && gel.getSua()==false && gel.getEtsaia()==null) {
 			ema = true;
 		}

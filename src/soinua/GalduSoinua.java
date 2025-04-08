@@ -8,8 +8,11 @@ public class GalduSoinua extends Soinua{
 
 	@Override
 	public void hasi() {
-		clip.start();
-		
+		if (clip.isRunning()) {
+            clip.stop();
+        }
+        clip.setFramePosition(0);
+        clip.start();
 	}
 
 	@Override

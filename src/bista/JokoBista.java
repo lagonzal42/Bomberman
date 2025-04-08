@@ -49,17 +49,13 @@ public class JokoBista extends JFrame{
 	private Controler controler = null;
 	private static JokoBista jb = null;
 	private Mapa mapa;
-	private int unekoPanela = -1;
 	private PanelEgoera panelEgoera;
 	
 	//Jokoa
 	private PanelJokoa panelJokoa = new PanelJokoa();
-	private Image backJokoa;
-	private boolean musikaOn = false;
 	
 	//hasiera
 	private PanelHasiera panelHasiera = new PanelHasiera();
-	private int aukeratutakoPertsonaia = 1;
 	
 	//amaiera
 	private PanelAmaiera panelAmaiera = new PanelAmaiera();
@@ -93,7 +89,6 @@ public class JokoBista extends JFrame{
 		//panelJokoa.getMapa().jarriListenerrak();
 		this.addKeyListener(getControler());
 		cardLayout.show(mainPanel, "Hasiera");
-		unekoPanela = 0;//hasierako panela
 	}
 	
 
@@ -113,23 +108,25 @@ public class JokoBista extends JFrame{
 	public void itxi(boolean pGaldu)
 	{
 		panelAmaiera.itxi(pGaldu);
-		cardLayout.show(mainPanel, "Amaiera");
-		unekoPanela = 2;
+		this.aldatuPanela("Amaiera");
 	}
 	
 	public void aldatuPanela(String panela) {
 		cardLayout.show(mainPanel, panela);
 		switch(panela) {
 		case("Hasiera"):
+			Matrizea.getMatrizea().mapaErreseteatu();
 			panelEgoera = panelHasiera;
 			break;
 		case("Jokoa"):
 			panelEgoera = panelJokoa;
 			panelJokoa.getMapa().jarriListenerrak();
-			Matrizea.getMatrizea().hasieratuBista();
+			Bozgorailua.getBozgorailua().jarriListenerrak();
+			Matrizea.getMatrizea().getEreduMapa().hasieratuBista();
 			break;
 		case("Amaiera"):
 			panelEgoera = panelAmaiera;
+			break;
 		}
 	}
 	//Kontroladorea

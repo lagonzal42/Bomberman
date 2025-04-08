@@ -79,7 +79,7 @@ public class Bozgorailua implements Observer{
 		for (int y = 0; y < 11; y++)
 		{
 			for (int x = 0; x < 17; x++)
-				m.getGelaxka(y, x).addObserver(this);
+				m.getEreduMapa().getGelaxka(y, x).addObserver(this);
 		}
 		
 	}

@@ -24,6 +24,7 @@ public class PanelAmaiera extends JPanel implements PanelEgoera{
 	}
 	
 	public void itxi(boolean pGaldu) {
+		this.removeAll();
 		JPanel guztia = new JPanel(new GridLayout(2,1,0,0));
 		guztia.setOpaque(false);
 		JLabel label = new JLabel();
@@ -61,7 +62,12 @@ public class PanelAmaiera extends JPanel implements PanelEgoera{
 		switch(e.getKeyCode()) {
 		case KeyEvent.VK_ESCAPE:
 			System.exit(0);
+			break;
+		case KeyEvent.VK_SPACE:
+			JokoBista.getJokoBista().aldatuPanela("Hasiera");
+			break;
 		}
+			
 	}
 
 }

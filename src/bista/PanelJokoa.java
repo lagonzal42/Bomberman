@@ -43,19 +43,19 @@ public class PanelJokoa extends JPanel implements PanelEgoera{
 		
 		switch(e.getKeyCode()) {
 		case KeyEvent.VK_UP:
-			mat.mugituJokalaria(Mugimendu.GORA);
+			mat.getEreduMapa().mugituJokalaria(Mugimendu.GORA);
 			break;
 		case KeyEvent.VK_DOWN:
-			mat.mugituJokalaria(Mugimendu.BEHERA);
+			mat.getEreduMapa().mugituJokalaria(Mugimendu.BEHERA);
 			break;
 		case KeyEvent.VK_LEFT:
-			mat.mugituJokalaria(Mugimendu.EZKER);
+			mat.getEreduMapa().mugituJokalaria(Mugimendu.EZKER);
 			break;
 		case KeyEvent.VK_RIGHT:
-			mat.mugituJokalaria(Mugimendu.ESKUIN);
+			mat.getEreduMapa().mugituJokalaria(Mugimendu.ESKUIN);
 			break;
 		case KeyEvent.VK_B:
-			mat.bonbaJarri();	
+			mat.getEreduMapa().bonbaJarri();	
 			break;	
 		case KeyEvent.VK_ESCAPE:
 			System.exit(0);
