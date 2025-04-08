@@ -134,7 +134,7 @@ public class Etsaia {
 	private boolean mugituAhal(int y, int x) {
 		boolean ema = false;
 		Gelaxka gel = Matrizea.getMatrizea().getEreduMapa().getGelaxka(y, x);
-		if (!(x < 0 || y< 0 || x > 10 || y > 16) && gel != null && gel.hutsikDago() && gel.getBonba()==null && gel.getSua()==false && gel.getEtsaia()==null) {
+		if (!(y < 0 || x< 0 || y > 10 || x > 16) && gel != null && gel.hutsikDago() && gel.getBonba()==null && gel.getSua()==false && gel.getEtsaia()==null) {
 			ema = true;
 		}
 		return ema;
