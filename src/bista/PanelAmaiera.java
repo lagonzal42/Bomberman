@@ -5,13 +5,14 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-public class PanelAmaiera extends JPanel {
+public class PanelAmaiera extends JPanel implements PanelEgoera{
 
 	private static final long serialVersionUID = 1L;
 
@@ -53,6 +54,14 @@ public class PanelAmaiera extends JPanel {
 		super.paintComponent(g);
 		Image backAmaiera = new ImageIcon(getClass().getResource("/bista/Sprites/back2.png")).getImage();
 		g.drawImage(backAmaiera, 0, 0, getWidth(), getHeight(), this);
+	}
+
+	@Override
+	public void teklaSakatuta(KeyEvent e) {
+		switch(e.getKeyCode()) {
+		case KeyEvent.VK_ESCAPE:
+			System.exit(0);
+		}
 	}
 
 }

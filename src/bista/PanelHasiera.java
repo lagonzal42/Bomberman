@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.event.KeyEvent;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
@@ -15,7 +16,10 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 
-public class PanelHasiera extends JPanel {
+import eredua.Matrizea;
+import soinua.Bozgorailua;
+
+public class PanelHasiera extends JPanel implements PanelEgoera{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -29,6 +33,7 @@ public class PanelHasiera extends JPanel {
 	private JRadioButton empty;
 	private ButtonGroup buttonGroup = new ButtonGroup();
 	private int aukeratutakoPertsonaia = 1;
+	private boolean musikaOn = false;
 
 	/**
 	 * Create the panel.
@@ -37,7 +42,7 @@ public class PanelHasiera extends JPanel {
 		this.irudiakKargatu();
 		setLayout(new BorderLayout());
 		setOpaque(false);
-		gehituOsagaiak();		
+		gehituOsagaiak();
 	}
 	
 	 @Override
@@ -158,5 +163,49 @@ public class PanelHasiera extends JPanel {
 		}
 	}
 
-
+	@Override
+	public void teklaSakatuta(KeyEvent e) {
+		System.out.println("1");
+		switch(e.getKeyCode()) {
+		case KeyEvent.VK_LEFT:
+			System.out.println("2");
+			//TODO: aukeratu hurrengo pertsonaia
+			if(aukeratutakoPertsonaia -1 == 1) {
+				aukeratutakoPertsonaia --;
+				this.setAukeratutakoPertsonaia(aukeratutakoPertsonaia);
+			}
+			break;
+		case KeyEvent.VK_RIGHT:
+			if(aukeratutakoPertsonaia + 1 == 2) {
+				aukeratutakoPertsonaia ++;
+				this.setAukeratutakoPertsonaia(aukeratutakoPertsonaia);
+			}
+			break;
+		case KeyEvent.VK_M:
+			Bozgorailua musika = Bozgorailua.getBozgorailua();
+			if (musikaOn) {
+				musika.getMusika().pausatu();
+				musikaOn = false;
+			}
+			else {
+				musika.getMusika().hasi();
+				musikaOn = true;
+			}
+			break;
+		case KeyEvent.VK_O:
+			//TODO:errekorrak?
+			break;
+		case KeyEvent.VK_ESCAPE:
+			System.exit(0);
+			break;
+		case KeyEvent.VK_SPACE:
+			System.out.println("2");
+			int aukeratutakoMapa = this.getAukeratutakoMapa();
+			System.out.println(aukeratutakoMapa + " " + aukeratutakoPertsonaia);
+			Matrizea.getMatrizea().mapaSortu(aukeratutakoMapa, aukeratutakoPertsonaia);
+			JokoBista.getJokoBista().aldatuPanela("Jokoa");
+			break;
+		}
+		
+	}
 }
