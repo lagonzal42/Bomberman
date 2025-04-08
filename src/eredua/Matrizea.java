@@ -35,46 +35,4 @@ public class Matrizea{
 	public void mapaErreseteatu() {
 		eMapa = null;
 	}
-<<<<<<< HEAD
-=======
-	
-	public Gelaxka getGelaxka(int i, int j){
-		return this.eMapa.getGelaxka(i, j);
-	}
-	
-	public Jokalaria getJokalaria() {
-		return jok;
-	}
-	
-	
-	public void mugituJokalaria(Mugimendu mugimendu)
-	{
-		eMapa.mugituJokalaria(mugimendu);
-	}
-
-	public void bonbaJarri() {
-		eMapa.bonbaJarri();
-	}
-	
-//	public void blokeBigunakApurtu(int x, int y) {
-//		eMapa.blokeBigunakApurtu(x, y);
-//	}
-	
-	public void etsaiakMurriztu() {
-		etsaiKop --;
-		if(etsaiKop == 0) {
-			amaitu = true;
-		}
-	}
-	
-	public void etsaiakGelditu() {
-		eMapa.etsaiakGelditu();
-	}
-	
-	public boolean partidaBukatu()
-	{
-		return amaitu;
-	}
-	
->>>>>>> branch 'master' of https://github.com/lagonzal42/Bomberman.git
 }
