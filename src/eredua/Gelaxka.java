@@ -8,7 +8,7 @@ import common.Mugimendu;
 public class Gelaxka extends Observable{
 	
 	private Jokalaria	jok;
-	private Bonba		bonba;
+	private BonbaPortaera		bonba;
 	private javax.swing.Timer suaTimerra = null;
 	private boolean 	sua;
 	private Bloke		blokea;
@@ -33,13 +33,13 @@ public class Gelaxka extends Observable{
 		return (jok);
 	}
 	
-	public void setBonba(Bonba pBonba)
+	public void setBonba(BonbaPortaera pBonba)
 	{
 		bonba = pBonba;
 		this.eguneratuGelaxka();
 	}
 	
-	public Bonba getBonba()
+	public BonbaPortaera getBonba()
 	{
 		return (bonba);
 	}

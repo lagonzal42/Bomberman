@@ -1,11 +1,25 @@
 package eredua;
 
 public class UltraBonba implements BonbaPortaera{
-	private int estaldura = 20;
 	
 	@Override
-	public int getBonbaEstaldura() {
-		return this.estaldura;
+	public void bonbaApurtu(int x, int y) {
+		EreduMapa mapa = Matrizea.getMatrizea().getEreduMapa();
+		//eskumata
+		for (int kont=0; kont<=20; kont ++) {
+				if (!mapa.apurtuBlokea(x,y+kont)) break;
+		}
+		//ezkerreta
+		for (int kont=0; kont<=20; kont ++) {
+			if (!mapa.apurtuBlokea(x,y-kont)) break;
+		}
+		//gora
+		for (int kont=0; kont<=20; kont ++) {
+			if (!mapa.apurtuBlokea(x+kont,y)) break;
+		}
+		//behera
+		for (int kont=0; kont<=20; kont ++) {
+			if(!mapa.apurtuBlokea(x-kont,y)) break;
+		}
 	}
-
 }

@@ -146,24 +146,8 @@ public abstract class Jokalaria{
 		this.bonbaKop ++;
 	}
 	
-	public int getBonbaEstaldura() {
-		return bonPortaera.getBonbaEstaldura();
-	}
-	
-	public Bonba getBonba()
-	{
-		Bonba berria = null;
-		
-		if (this.bonbaKop > 0)
-		{
-			this.bonbaKop--;
-			berria = new Bonba(getBonbaEstaldura());
-
-			if (this.bonbaKop ==0) {
-				bonbaBarik();
-			}
-		}
-		return (berria);
+	public BonbaPortaera getBonba() { 
+		return this.bonPortaera;
 	}	
 	
 //	public void setBonba(Bonba pBonba)

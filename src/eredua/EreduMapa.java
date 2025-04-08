@@ -41,7 +41,7 @@ public abstract class EreduMapa {
 		if (gelaxkak[y][x].hutsikDago()) {
 			Gelaxka gel = gelaxkak [y][x];
 			//bonba jarri
-			Bonba bon = jok.getBonba();
+			BonbaPortaera bon = jok.getBonba();
 			if (bon != null) {
 				gel.setBonba(bon);
 			//	gel.eguneratuGelaxka();
@@ -63,26 +63,10 @@ public abstract class EreduMapa {
 	}
 	
 	public void blokeBigunakApurtu(int x, int y) {
-		int estaldura = jok.getBonbaEstaldura();
-		//eskumata
-		for (int kont=0; kont<=estaldura; kont ++) {
-			if (!apurtuBlokea(x,y+kont)) break;
-		}
-		//ezkerreta
-		for (int kont=0; kont<=estaldura; kont ++) {
-			if (!apurtuBlokea(x,y-kont)) break;
-		}
-		//gora
-		for (int kont=0; kont<=estaldura; kont ++) {
-			if (!apurtuBlokea(x+kont,y)) break;
-		}
-		//behera
-		for (int kont=0; kont<=estaldura; kont ++) {
-			if(!apurtuBlokea(x-kont,y)) break;
-		}
+		jok.getBonba().bonbaApurtu(x,y);
 	}
 	
-	private boolean apurtuBlokea(int errenkada, int zutabea) {
+	public boolean apurtuBlokea(int errenkada, int zutabea) {
 		if (errenkada >= 0 && errenkada < 11 && zutabea >= 0 && zutabea < 17) {
 			Gelaxka gel = gelaxkak[errenkada][zutabea];
 			if (gel.getBlokea() instanceof Biguna) {

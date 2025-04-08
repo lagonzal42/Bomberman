@@ -1,15 +1,29 @@
 package eredua;
 
 public class BonbaNormala implements BonbaPortaera{
-	private int estaldura =1;
 	
 	public BonbaNormala() {
         //this.estaldura = estaldura;
     }
 	
 	@Override
-	public int getBonbaEstaldura() {
-		return this.estaldura;
+	public void bonbaApurtu(int x, int y) {
+		EreduMapa mapa = Matrizea.getMatrizea().getEreduMapa();
+		//eskumata
+		for (int kont=0; kont<=1; kont ++) {
+				if (!mapa.apurtuBlokea(x,y+kont)) break;
+		}
+		//ezkerreta
+		for (int kont=0; kont<=1; kont ++) {
+			if (!mapa.apurtuBlokea(x,y-kont)) break;
+		}
+		//gora
+		for (int kont=0; kont<=1; kont ++) {
+			if (!mapa.apurtuBlokea(x+kont,y)) break;
+		}
+		//behera
+		for (int kont=0; kont<=1; kont ++) {
+			if(!mapa.apurtuBlokea(x-kont,y)) break;
+		}
 	}
-
 }

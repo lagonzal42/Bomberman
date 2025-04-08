@@ -7,6 +7,21 @@ public class Zuria extends Jokalaria{
 		super();
 		this.bonbaKop = 10;
 		this.color = "white";
-		this.bonPortaera = new BonbaNormala();
 	}
+	
+	public BonbaPortaera getBonba()
+	{
+		BonbaPortaera berria = null;
+		
+		if (this.bonbaKop > 0)
+		{
+			this.bonbaKop--;
+			berria = new BonbaNormala();
+
+			if (this.bonbaKop ==0) {
+				bonbaBarik();
+			}
+		}
+		return (berria);
+	}	
 }
