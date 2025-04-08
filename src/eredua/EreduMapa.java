@@ -54,7 +54,6 @@ public abstract class EreduMapa {
 					blokeBigunakApurtu(y,x);
 					//timerra2
 					this.suaJarri(y, x);
-					//jok.setBonba(null);
 					
 				});
 				errementa.setRepeats(false);
@@ -64,7 +63,7 @@ public abstract class EreduMapa {
 	}
 	
 	public void blokeBigunakApurtu(int x, int y) {
-		int estaldura = jok.bonbaEstaldura;
+		int estaldura = jok.bonbaEstaldura();
 		//eskumata
 		for (int kont=0; kont<=estaldura; kont ++) {
 			if (!apurtuBlokea(x,y+kont)) break;

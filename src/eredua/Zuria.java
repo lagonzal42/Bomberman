@@ -6,7 +6,7 @@ public class Zuria extends Jokalaria{
 	{
 		super();
 		this.bonbaKop = 10;
-		this.bonbaEstaldura = 1;
 		this.color = "white";
+		this.bonPortaera = new BonbaNormala();
 	}
 }
