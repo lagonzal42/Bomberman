@@ -44,7 +44,7 @@ public abstract class EreduMapa {
 			Bonba bon = jok.getBonba();
 			if (bon != null) {
 				gel.setBonba(bon);
-				gel.eguneratuGelaxka();
+			//	gel.eguneratuGelaxka();
 				System.out.println("Bonba jarri du ("+y+","+x+")");
 			
 				//timerra
@@ -63,7 +63,7 @@ public abstract class EreduMapa {
 	}
 	
 	public void blokeBigunakApurtu(int x, int y) {
-		int estaldura = jok.bonbaEstaldura();
+		int estaldura = jok.getBonbaEstaldura();
 		//eskumata
 		for (int kont=0; kont<=estaldura; kont ++) {
 			if (!apurtuBlokea(x,y+kont)) break;

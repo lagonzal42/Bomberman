@@ -8,7 +8,7 @@ public abstract class Jokalaria{
 	private int yPos;
 	private boolean hil;
 	private Mugimendu azkenMugi;
-	private Bonba bonba;
+//	private Bonba bonba;
 	protected int bonbaKop;
 	protected String color;
 	protected BonbaPortaera bonPortaera;
@@ -146,7 +146,7 @@ public abstract class Jokalaria{
 		this.bonbaKop ++;
 	}
 	
-	public int bonbaEstaldura() {
+	public int getBonbaEstaldura() {
 		return bonPortaera.getBonbaEstaldura();
 	}
 	
@@ -157,10 +157,8 @@ public abstract class Jokalaria{
 		if (this.bonbaKop > 0)
 		{
 			this.bonbaKop--;
-			berria = new Bonba(bonbaEstaldura());
-			//berria = new Bonba(bonbaEstaldura());
+			berria = new Bonba(getBonbaEstaldura());
 
-			
 			if (this.bonbaKop ==0) {
 				bonbaBarik();
 			}
@@ -168,10 +166,10 @@ public abstract class Jokalaria{
 		return (berria);
 	}	
 	
-	public void setBonba(Bonba pBonba)
-	{
-		bonba = pBonba;
-	}
+//	public void setBonba(Bonba pBonba)
+//	{
+//		bonba = pBonba;
+//	}
 	
 	public void bonbaBarik() {
 		System.out.println("Ez daukazu bonbarik, itxaron 3 segundo");
@@ -183,6 +181,7 @@ public abstract class Jokalaria{
 		itxaron.setRepeats(false);
 		itxaron.start();
 	}
+	
 	public String getColor() {
 		return color;
 	}
