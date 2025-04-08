@@ -50,6 +50,7 @@ public class JokoBista extends JFrame{
 	private static JokoBista jb = null;
 	private Mapa mapa;
 	private int unekoPanela = -1;
+	private PanelEgoera panelEgoera;
 	
 	//Jokoa
 	private PanelJokoa panelJokoa = new PanelJokoa();
@@ -73,6 +74,7 @@ public class JokoBista extends JFrame{
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		setLocationRelativeTo(null);
 		
+		panelEgoera = panelHasiera;
 		cardLayout = new CardLayout();
 		mainPanel = new JPanel(cardLayout);
 		
@@ -102,7 +104,6 @@ public class JokoBista extends JFrame{
 		return (jb);
 	}
 	
-	
 	public Mapa getMapa()
 	{
 		return (mapa);
@@ -115,6 +116,22 @@ public class JokoBista extends JFrame{
 		cardLayout.show(mainPanel, "Amaiera");
 		unekoPanela = 2;
 	}
+	
+	public void aldatuPanela(String panela) {
+		cardLayout.show(mainPanel, panela);
+		switch(panela) {
+		case("Hasiera"):
+			panelEgoera = panelHasiera;
+			break;
+		case("Jokoa"):
+			panelEgoera = panelJokoa;
+			panelJokoa.getMapa().jarriListenerrak();
+			Matrizea.getMatrizea().hasieratuBista();
+			break;
+		case("Amaiera"):
+			panelEgoera = panelAmaiera;
+		}
+	}
 	//Kontroladorea
 	private Controler getControler() {
 		if(controler == null) {
@@ -124,99 +141,25 @@ public class JokoBista extends JFrame{
 	}
 	
 	private class Controler implements KeyListener{
-
-		@Override
-		public void keyTyped(KeyEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void keyPressed(KeyEvent e) {
-			if(unekoPanela == 0) {
-				switch(e.getKeyCode()) {
-					case KeyEvent.VK_LEFT:
-						//TODO: aukeratu hurrengo pertsonaia
-						if(aukeratutakoPertsonaia -1 == 1) {
-							aukeratutakoPertsonaia --;
-							panelHasiera.setAukeratutakoPertsonaia(aukeratutakoPertsonaia);
-						}
-						break;
-					case KeyEvent.VK_RIGHT:
-						if(aukeratutakoPertsonaia + 1 == 2) {
-							aukeratutakoPertsonaia ++;
-							panelHasiera.setAukeratutakoPertsonaia(aukeratutakoPertsonaia);
-						}
-						break;
-					case KeyEvent.VK_M:
-						Bozgorailua musika = Bozgorailua.getBozgorailua();
-						if (musikaOn) {
-							musika.getMusika().pausatu();
-							musikaOn = false;
-						}
-						else {
-							musika.getMusika().hasi();
-							musikaOn = true;
-						}
-						break;
-					case KeyEvent.VK_O:
-						//TODO:errekorrak?
-						break;
-					case KeyEvent.VK_ESCAPE:
-						System.exit(0);;
-						break;
-					case KeyEvent.VK_SPACE:
-						int aukeratutakoMapa = panelHasiera.getAukeratutakoMapa();
-						System.out.println(aukeratutakoMapa + " " + aukeratutakoPertsonaia);
-						Matrizea.getMatrizea().mapaSortu(aukeratutakoMapa, aukeratutakoPertsonaia);
-						panelJokoa.getMapa().jarriListenerrak();
-						Matrizea.getMatrizea().hasieratuBista();
-						cardLayout.show(mainPanel, "Jokoa");
-						unekoPanela = 1;
-						break;
-				}
-			}
-			else if(unekoPanela == 1) {
-				//int[] pos = Matrizea.getMatrizea().getJokalariPos();
-				Matrizea mat = Matrizea.getMatrizea();
-				
-				switch(e.getKeyCode()) {
-				case KeyEvent.VK_UP:
-					mat.mugituJokalaria(Mugimendu.GORA);
-					break;
-				case KeyEvent.VK_DOWN:
-					mat.mugituJokalaria(Mugimendu.BEHERA);
-					break;
-				case KeyEvent.VK_LEFT:
-					mat.mugituJokalaria(Mugimendu.EZKER);
-					break;
-				case KeyEvent.VK_RIGHT:
-					mat.mugituJokalaria(Mugimendu.ESKUIN);
-					break;
-				case KeyEvent.VK_B:
-					mat.bonbaJarri();	
-					break;	
-				case KeyEvent.VK_ESCAPE:
-					System.exit(0);
-				}
-			}
-			else if(unekoPanela == 2) {
-				switch(e.getKeyCode()) {
-				case KeyEvent.VK_ESCAPE:
-					System.exit(0);
-				}
-			}
-			
-		}
 		
-
+		
 		@Override
 		public void keyReleased(KeyEvent e) {
 			// TODO Auto-generated method stub
 			
 		}
-
 		
+		@Override
+		public void keyTyped(KeyEvent e) {
+			
+		}
+		
+		@Override
+		public void keyPressed(KeyEvent e) {
+			System.out.println(e.getKeyCode());
+			panelEgoera.teklaSakatuta(e);
+		}
+
 	}
 	
 }

@@ -1,6 +1,9 @@
 package eredua;
 
 import common.Mugimendu;
+
+import java.util.ArrayList;
+
 import javax.swing.Timer;
 
 public class Etsaia {
@@ -25,29 +28,33 @@ public class Etsaia {
 	}
 	
 	private void mugitu() {
-		boolean ahal = false;
-		int zenb = Dadoa.getNireDadoa().zenbakiaAukeratu(1, 4);
-		if (zenb == 1) {
-			ahal = mugituAhal(this.yPos-1,this.xPos);
-			if (ahal == true) {
-				mugituGora();
-			}
-		} else if (zenb == 2) {
-			ahal = mugituAhal(this.yPos+1,this.xPos);
-			if (ahal == true) {
-				mugituBehera();
-			}
-		} else if (zenb == 3) {
-			ahal = mugituAhal(this.yPos,this.xPos-1);
-			if (ahal == true) {
-				mugituEzkerra();	
-			}
-		} else {
-			ahal = mugituAhal(this.yPos,this.yPos+1);
-			if (ahal == true) {
-				mugituEskuma();
-			}
+		
+		ArrayList<Integer> mugimenduPosibleak = new ArrayList();
+		if (mugituAhal(this.yPos-1,this.xPos)) {
+			mugimenduPosibleak.add(1);
+		} 
+		if (mugituAhal(this.yPos+1,this.xPos)) {
+			mugimenduPosibleak.add(2);
 		}
+		if (mugituAhal(this.yPos,this.xPos-1)) {
+			mugimenduPosibleak.add(3);
+		} 
+		if (mugituAhal(this.yPos,this.xPos+1)) {
+			mugimenduPosibleak.add(4);
+		}
+		mugimenduPosibleak.add(5);
+		int zenbRandom = Dadoa.getNireDadoa().zenbakiaAukeratu(1,mugimenduPosibleak.size()+1);
+		int zenb = mugimenduPosibleak.get(zenbRandom-1);
+		if (zenb == 1) {
+			mugituGora();
+		} else if (zenb == 2) {
+			mugituBehera();
+		} else if (zenb == 3) {
+			mugituEzkerra();
+		} else if (zenb == 4) {
+			mugituEskuma();
+		}
+		
 //		while (ahal == false) {
 //		}
 	}
@@ -127,7 +134,7 @@ public class Etsaia {
 	private boolean mugituAhal(int y, int x) {
 		boolean ema = false;
 		Gelaxka gel = Matrizea.getMatrizea().getGelaxka(y, x);
-		if (gel != null && gel.hutsikDago() && gel.getBonba()==null && gel.getSua()==false && gel.getEtsaia()==null) {
+		if (!(x < 0 || y< 0 || x > 10 || y > 16) && gel != null && gel.hutsikDago() && gel.getBonba()==null && gel.getSua()==false && gel.getEtsaia()==null) {
 			ema = true;
 		}
 		return ema;
