@@ -52,7 +52,8 @@ public abstract class EreduMapa {
 				javax.swing.Timer errementa = new javax.swing.Timer(3000, e ->{
 					System.out.println("Bonba apurtu da (" +y+","+x+")");
 					gel.bonbaApurtu();
-					blokeBigunakApurtu(y,x);
+			//		blokeBigunakApurtu(y,x);
+					bon.bonbaApurtu(y,x);
 					//timerra2
 					this.suaJarri(y, x);
 					
@@ -63,9 +64,9 @@ public abstract class EreduMapa {
 		}
 	}
 	
-	public void blokeBigunakApurtu(int x, int y) {
-		jok.getBonba().bonbaApurtu(x,y);
-	}
+//	public void blokeBigunakApurtu(int x, int y) {
+//		jok.getBonba().bonbaApurtu(x,y);
+//	}
 	
 	public boolean apurtuBlokea(int errenkada, int zutabea) {
 		if (errenkada >= 0 && errenkada < 11 && zutabea >= 0 && zutabea < 17) {

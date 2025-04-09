@@ -144,6 +144,9 @@ public abstract class Jokalaria{
 	
 	public void bonbaKendu() {
 		this.bonbaKop= this.bonbaKop-1;
+		if (this.bonbaKop == 0) {
+			bonbaBarik();
+		}
 	}
 	
 	public void bonbaGehitu() {
@@ -153,12 +156,9 @@ public abstract class Jokalaria{
 	public BonbaPortaera getBonba() { 
 		BonbaPortaera berria = null;
 		if (this.getBonbaKop()>0) {
+			System.out.println(this.bonbaKop + " garren bonba jarri duzu");
 			berria = this.bonPortaera;
-			if (this.bonbaKop ==0) {
-				bonbaBarik();
-			}
 		}
-		System.out.println(this.bonbaKop + " Bonba kopuru daukazu eskuragarri");
 		return berria;
 	}	
 	
@@ -171,8 +171,8 @@ public abstract class Jokalaria{
 		System.out.println("Ez daukazu bonbarik, itxaron 3 segundo");
 		//bonba itxaron timerra
 		javax.swing.Timer itxaron = new javax.swing.Timer(3000, e->{
+			this.bonbaGehitu();
 			System.out.println("Bonba bakarra daukazu eskuragarri");
-			bonbaGehitu();
 		});
 		itxaron.setRepeats(false);
 		itxaron.start();
