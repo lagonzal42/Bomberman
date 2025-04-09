@@ -64,12 +64,12 @@ public class Gelaxka extends Observable{
 		if(this.jok!=null) {
 			jok.setAzkenMugi(Mugimendu.HILDA);
 			jok.setHilda();
-			Matrizea.getEreduMapa().etsaiakGelditu();
+			Matrizea.getMatrizea().getEreduMapa().etsaiakGelditu();
 		}
 		if(this.etsaia!=null) {
 			this.etsaia.geldituEtsaia();
 	        this.etsaia = null;
-	        Matrizea.getEreduMapa().etsaiakMurriztu();
+	        Matrizea.getMatrizea().getEreduMapa().etsaiakMurriztu();
 		}
 		this.sua=true;
 		this.eguneratuGelaxka();
@@ -159,7 +159,7 @@ public class Gelaxka extends Observable{
 		{
 			gM = GelaxkaMota.GOGORRA;
 		}
-		if(Matrizea.getEreduMapa().partidaBukatu()) {
+		if(Matrizea.getMatrizea().getEreduMapa().partidaBukatu()) {
 			gM = GelaxkaMota.IRABAZI;
 		}
 		

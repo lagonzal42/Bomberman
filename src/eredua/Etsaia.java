@@ -67,6 +67,7 @@ public class Etsaia {
 		if (Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria() != null) {
 			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria().setHilda();
 			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria().setAzkenMugi(Mugimendu.HILDA);
+			Matrizea.getMatrizea().getEreduMapa().etsaiakGelditu();
 		}
 		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
 	}
@@ -79,6 +80,7 @@ public class Etsaia {
 		if (Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria() != null) {
 			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria().setHilda();
 			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria().setAzkenMugi(Mugimendu.HILDA);
+			Matrizea.getMatrizea().getEreduMapa().etsaiakGelditu();
 		}
 		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
 	}
@@ -92,6 +94,7 @@ public class Etsaia {
 		if (Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria() != null) {
 			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria().setHilda();
 			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria().setAzkenMugi(Mugimendu.HILDA);
+			Matrizea.getMatrizea().getEreduMapa().etsaiakGelditu();
 		}
 		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
 	}
@@ -105,6 +108,7 @@ public class Etsaia {
 		if (Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria() != null) {
 			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria().setHilda();
 			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria().setAzkenMugi(Mugimendu.HILDA);
+			Matrizea.getMatrizea().getEreduMapa().etsaiakGelditu();
 		}
 		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
 	}

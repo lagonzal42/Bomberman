@@ -7,7 +7,7 @@ import soinua.Bozgorailua;
 public class Matrizea{
 	
 	private static Matrizea nMatrizea = null;
-	private static EreduMapa eMapa;
+	private EreduMapa eMapa;
 	
 	private Matrizea() {
 		
@@ -21,7 +21,7 @@ public class Matrizea{
 		return nMatrizea;
 	}
 	
-	public static EreduMapa getEreduMapa() {
+	public EreduMapa getEreduMapa() {
 		return eMapa;
 	}
 	
