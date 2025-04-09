@@ -98,8 +98,10 @@ public abstract class EreduMapa {
 		for(int i = 0; i < lerroak; i++)
 		{
 			for(int j = 0; j < zutabeak; j++)
-				if(gelaxkak[i][j].getEtsaia() != null)
+				if(gelaxkak[i][j].getEtsaia() != null) {
 					gelaxkak[i][j].getEtsaia().geldituEtsaia();
+					gelaxkak[i][j].setEtsaia(null);
+				}
 		}
 	}
 	
