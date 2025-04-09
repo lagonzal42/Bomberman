@@ -98,10 +98,15 @@ public class Gelaxka extends Observable{
 		GelaxkaMota gM = null;
 		if (jok != null){
 			if(bonba != null) {
-				if (sua == true)
+				if (sua == true) {
 					gM = GelaxkaMota.JOKALARIASUAREKIN;
-				else
-					gM = GelaxkaMota.JOKALARIBONBAREKIN;
+				}else {
+					if (bonba instanceof BonbaNormala) {
+						gM = GelaxkaMota.JOKALARIBONBAREKIN;
+					}else {
+						gM = GelaxkaMota.JOKALARIAULTRABONBAREKIN;
+					}
+				}	
 			}
 			else{
 				switch (jok.getAzkenMugi())
@@ -133,7 +138,12 @@ public class Gelaxka extends Observable{
 			}
 		}
 		else if (bonba !=null) {
-			gM =GelaxkaMota.BONBA;
+			if (bonba instanceof BonbaNormala) {
+				gM =GelaxkaMota.BONBA;
+			}else{
+				gM = GelaxkaMota.ULTRABONBA;
+			}
+			
 		} 
 		else if (sua==true) {
 			gM=GelaxkaMota.SUA;				

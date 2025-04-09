@@ -122,6 +122,12 @@ public class GelaxkaBista extends JLabel implements Observer{
 			        });
 			        animazioa.start();
 			        break;
+				case ULTRABONBA:
+					this.setIrudia("/bista/Sprites/bomb2.png");
+					break;
+				case JOKALARIAULTRABONBAREKIN:
+					this.setIrudia("/bista/Sprites/blackwithbomb2.png");
+					break;
 				default:
 					this.setIrudia("/bista/Sprites/"+color+"down1.png");
 					//path = "/bista/Sprites/whitedown1.png";
