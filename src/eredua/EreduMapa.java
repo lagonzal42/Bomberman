@@ -45,6 +45,7 @@ public abstract class EreduMapa {
 			if (bon != null) {
 				gel.setBonba(bon);
 			//	gel.eguneratuGelaxka();
+				jok.bonbaKendu();
 				System.out.println("Bonba jarri du ("+y+","+x+")");
 			
 				//timerra

@@ -147,13 +147,21 @@ public abstract class Jokalaria{
 	}
 	
 	public BonbaPortaera getBonba() { 
-		return this.bonPortaera;
+		BonbaPortaera berria = null;
+		if (this.getBonbaKop()>0) {
+			berria = this.bonPortaera;
+			if (this.bonbaKop ==0) {
+				bonbaBarik();
+			}
+		}
+		System.out.println(this.bonbaKop + " Bonba kopuru daukazu eskuragarri");
+		return berria;
 	}	
 	
-//	public void setBonba(Bonba pBonba)
-//	{
-//		bonba = pBonba;
-//	}
+	public void setBonba(BonbaPortaera pBonba)
+	{
+		bonPortaera = pBonba;
+	}
 	
 	public void bonbaBarik() {
 		System.out.println("Ez daukazu bonbarik, itxaron 3 segundo");
