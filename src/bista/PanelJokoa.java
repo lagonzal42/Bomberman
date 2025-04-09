@@ -41,25 +41,28 @@ public class PanelJokoa extends JPanel implements PanelEgoera{
 	public void teklaSakatuta(KeyEvent e) {
 		Matrizea mat = Matrizea.getMatrizea();
 		
-		switch(e.getKeyCode()) {
-		case KeyEvent.VK_UP:
-			mat.getEreduMapa().mugituJokalaria(Mugimendu.GORA);
-			break;
-		case KeyEvent.VK_DOWN:
-			mat.getEreduMapa().mugituJokalaria(Mugimendu.BEHERA);
-			break;
-		case KeyEvent.VK_LEFT:
-			mat.getEreduMapa().mugituJokalaria(Mugimendu.EZKER);
-			break;
-		case KeyEvent.VK_RIGHT:
-			mat.getEreduMapa().mugituJokalaria(Mugimendu.ESKUIN);
-			break;
-		case KeyEvent.VK_B:
-			mat.getEreduMapa().bonbaJarri();	
-			break;	
-		case KeyEvent.VK_ESCAPE:
-			System.exit(0);
+		if(!mat.getEreduMapa().partidaBukatu() && !mat.getEreduMapa().getJokalaria().getHilda()) {
+			switch(e.getKeyCode()) {
+			case KeyEvent.VK_UP:
+				mat.getEreduMapa().mugituJokalaria(Mugimendu.GORA);
+				break;
+			case KeyEvent.VK_DOWN:
+				mat.getEreduMapa().mugituJokalaria(Mugimendu.BEHERA);
+				break;
+			case KeyEvent.VK_LEFT:
+				mat.getEreduMapa().mugituJokalaria(Mugimendu.EZKER);
+				break;
+			case KeyEvent.VK_RIGHT:
+				mat.getEreduMapa().mugituJokalaria(Mugimendu.ESKUIN);
+				break;
+			case KeyEvent.VK_B:
+				mat.getEreduMapa().bonbaJarri();	
+				break;	
+			case KeyEvent.VK_ESCAPE:
+				System.exit(0);
+			}
 		}
+		
 		
 	}
 
