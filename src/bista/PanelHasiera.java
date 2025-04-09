@@ -193,7 +193,7 @@ public class PanelHasiera extends JPanel implements PanelEgoera{
 			}
 			break;
 		case KeyEvent.VK_O:
-			//TODO:errekorrak?
+			JokoBista.getJokoBista().aldatuPanela("Options");
 			break;
 		case KeyEvent.VK_ESCAPE:
 			System.exit(0);

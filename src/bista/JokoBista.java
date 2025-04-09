@@ -59,6 +59,9 @@ public class JokoBista extends JFrame{
 	
 	//amaiera
 	private PanelAmaiera panelAmaiera = new PanelAmaiera();
+	
+	//opzioen panela
+	private PanelOptions panelOptions = new PanelOptions();
 
 	/**
 	 * Create the frame.
@@ -82,6 +85,7 @@ public class JokoBista extends JFrame{
 		mainPanel.add(panelHasiera, "Hasiera");
 		mainPanel.add(panelJokoa, "Jokoa");
 		mainPanel.add(panelAmaiera, "Amaiera");
+		mainPanel.add(panelOptions, "Options");
 		
 		getContentPane().add(mainPanel);
 		setVisible(true);
@@ -117,6 +121,9 @@ public class JokoBista extends JFrame{
 		case("Hasiera"):
 			Matrizea.getMatrizea().mapaErreseteatu();
 			panelEgoera = panelHasiera;
+			break;
+		case("Options"):
+			panelEgoera = panelOptions;
 			break;
 		case("Jokoa"):
 			panelEgoera = panelJokoa;
