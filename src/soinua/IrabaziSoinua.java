@@ -8,10 +8,10 @@ public class IrabaziSoinua extends Soinua {
 
 	@Override
 	public void hasi() {
-		if (clip.isRunning()) {
-            clip.stop();
-        }
-        clip.setFramePosition(0);
+//		if (clip.isRunning()) {
+//            clip.stop();
+//        }
+//        clip.setFramePosition(0);
         clip.start();
 	}
 

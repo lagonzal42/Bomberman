@@ -51,7 +51,7 @@ public class GelaxkaBista extends JLabel implements Observer{
 		Timer animazioa;
 		
 		System.out.println("gelaxka orain " + arg);
-		String color = Matrizea.getEreduMapa().getJokalaria().getColor();
+		String color = Matrizea.getMatrizea().getEreduMapa().getJokalaria().getColor();
 		
 		if (gelMota == null)
 			this.setIrudia(null);

@@ -38,6 +38,7 @@ public abstract class Jokalaria{
 					Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos,xPos).getEtsaia() != null) {
 				this.hil = true;
 				this.setAzkenMugi(Mugimendu.HILDA);
+				Matrizea.getMatrizea().getEreduMapa().etsaiakGelditu();
 			}
 			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
 		}
@@ -56,6 +57,7 @@ public abstract class Jokalaria{
 					Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos,xPos).getEtsaia() != null) {
 				this.hil = true;
 				this.setAzkenMugi(Mugimendu.HILDA);
+				Matrizea.getMatrizea().getEreduMapa().etsaiakGelditu();
 			}
 			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
 		}
@@ -76,6 +78,7 @@ public abstract class Jokalaria{
 					Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos,xPos).getEtsaia() != null) {
 				this.hil = true;
 				this.setAzkenMugi(Mugimendu.HILDA);
+				Matrizea.getMatrizea().getEreduMapa().etsaiakGelditu();
 			}
 			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
 		}
@@ -96,6 +99,7 @@ public abstract class Jokalaria{
 					Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos,xPos).getEtsaia() != null) {
 				this.hil = true;
 				this.setAzkenMugi(Mugimendu.HILDA);
+				Matrizea.getMatrizea().getEreduMapa().etsaiakGelditu();
 			}
 			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
 		}
