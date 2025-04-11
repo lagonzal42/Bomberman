@@ -46,13 +46,13 @@ public class PanelHasiera extends JPanel implements PanelEgoera{
 	}
 	
 	 @Override
-	    protected void paintComponent(Graphics g) {
-	        super.paintComponent(g);
-	        if(backHasiera != null) {
-	            g.drawImage(backHasiera, 0, 0, getWidth(), getHeight(), this);
-	        }
-	    }
-	
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        if(backHasiera != null) {
+            g.drawImage(backHasiera, 0, 0, getWidth(), getHeight(), this);
+        }
+    }
+	 
 	private void gehituOsagaiak() {
 		setLayout(new BorderLayout());
 		
@@ -201,6 +201,7 @@ public class PanelHasiera extends JPanel implements PanelEgoera{
 		case KeyEvent.VK_SPACE:
 			System.out.println("2");
 			int aukeratutakoMapa = this.getAukeratutakoMapa();
+			JokoBista.getJokoBista().setPanelJokoaFondoa(aukeratutakoMapa);
 			System.out.println(aukeratutakoMapa + " " + aukeratutakoPertsonaia);
 			Matrizea.getMatrizea().mapaSortu(aukeratutakoMapa, aukeratutakoPertsonaia);
 			JokoBista.getJokoBista().aldatuPanela("Jokoa");

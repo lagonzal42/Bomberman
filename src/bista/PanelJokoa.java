@@ -16,6 +16,7 @@ public class PanelJokoa extends JPanel implements PanelEgoera{
 
 	private static final long serialVersionUID = 1L;
 	private Mapa mapa;
+	private int fondoa = 1;
 
 	/**
 	 * Create the panel.
@@ -29,9 +30,14 @@ public class PanelJokoa extends JPanel implements PanelEgoera{
 	@Override
 	protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Image back = new ImageIcon(this.getClass().getResource("/bista/Sprites/stageBack1.png")).getImage();
+        Image back = new ImageIcon(this.getClass().getResource("/bista/Sprites/stageBack"+ fondoa +".png")).getImage();
         g.drawImage(back, 0, 0, getWidth(), getHeight(), this);
     }
+	
+	public void fondoaAldatu(int pFondoa) {
+		fondoa = pFondoa;
+		this.paintComponent(getGraphics());
+	}
 	
 	public Mapa getMapa() {
 		return mapa;

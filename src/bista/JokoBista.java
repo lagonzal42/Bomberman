@@ -108,6 +108,10 @@ public class JokoBista extends JFrame{
 		return (mapa);
 	}
 	
+	public void setPanelJokoaFondoa(int pFondoa) {
+		this.panelJokoa.fondoaAldatu(pFondoa);
+	}
+	
 	//TODO:Aldatu cardLayout-ekin
 	public void itxi(boolean pGaldu)
 	{
@@ -149,7 +153,6 @@ public class JokoBista extends JFrame{
 		
 		@Override
 		public void keyReleased(KeyEvent e) {
-			// TODO Auto-generated method stub
 			
 		}
 		
