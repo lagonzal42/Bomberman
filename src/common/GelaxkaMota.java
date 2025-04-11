@@ -9,6 +9,7 @@ public enum GelaxkaMota {
 	JOKALARIASUAREKIN,
 	BONBA,
 	SUA,
+	SUBERDEA,
 	BIGUNA,
 	GOGORRA,
 	BONBAESTANDA,
