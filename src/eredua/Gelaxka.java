@@ -146,12 +146,7 @@ public class Gelaxka extends Observable{
 			
 		} 
 		else if (sua==true) {
-			if(bonba instanceof BonbaNormala) {
-				gM=GelaxkaMota.SUA;				
-			}
-			else {
-				gM=GelaxkaMota.SUBERDEA;
-			}
+			gM=GelaxkaMota.SUA;
 		}	
 		else if (this.blokea instanceof Hutsik)
 		{
