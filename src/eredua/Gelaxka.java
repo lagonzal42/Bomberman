@@ -116,7 +116,7 @@ public class Gelaxka extends Observable{
 						gM = GelaxkaMota.JOKALARIASUAREKIN;
 					}
 					else {
-						gM = GelaxkaMota.JOKALARIASUAREKIN;
+						gM = GelaxkaMota.JOKALARIAHARRAPATUTA;
 					}
 					break;
 				case GORA:

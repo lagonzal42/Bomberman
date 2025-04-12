@@ -62,6 +62,10 @@ public class Bozgorailua implements Observer{
 					BozgorailuFactory.getBF().getMusika().pausatu();
 					BozgorailuFactory.getBF().getGaldu().hasi();
 					break;
+				case JOKALARIAHARRAPATUTA:
+					BozgorailuFactory.getBF().getMusika().pausatu();
+					BozgorailuFactory.getBF().getGaldu().hasi();
+					break;
 				case IRABAZI:
 					BozgorailuFactory.getBF().getMusika().pausatu();
 					BozgorailuFactory.getBF().getIrabazi().hasi();
