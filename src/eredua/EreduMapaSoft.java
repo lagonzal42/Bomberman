@@ -4,10 +4,10 @@ public class EreduMapaSoft extends EreduMapa{
 	public EreduMapaSoft(int jokalariMota) {
 		super();
 		jok = JokalariFactory.getJokFactory().sortuJokalaria(jokalariMota);
-		gelaxkak = matrizeaSortu(jokalariMota);
+		gelaxkak = matrizeaSortu();
 	}
 	
-	private Gelaxka[][] matrizeaSortu(int jokalariMota) {
+	private Gelaxka[][] matrizeaSortu() {
 		Dadoa dado = Dadoa.getNireDadoa();
 		Gelaxka[][] zerrenda = new Gelaxka[lerroak][zutabeak];
 		for(int i = 0; i < lerroak; i++) {

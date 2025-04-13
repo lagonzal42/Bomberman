@@ -7,10 +7,10 @@ public class EreduMapaClassic extends EreduMapa {
 	public EreduMapaClassic(int pJokalariMota) {
 		super();
 		jok = JokalariFactory.getJokFactory().sortuJokalaria(pJokalariMota);
-		gelaxkak = matrizeaSortu(pJokalariMota);
+		gelaxkak = matrizeaSortu();
 	}
 	
-	private Gelaxka[][] matrizeaSortu(int jokalariMota) {
+	private Gelaxka[][] matrizeaSortu() {
 		Dadoa dado = Dadoa.getNireDadoa();
 		Gelaxka[][] zerrenda = new Gelaxka[lerroak][zutabeak];
 		for(int i = 0; i < lerroak; i++) {
