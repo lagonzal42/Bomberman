@@ -4,7 +4,7 @@ import bista.JokoBista;
 import common.Mugimendu;
 
 public abstract class EreduMapa {
-	Gelaxka[][] gelaxkak;
+	protected Gelaxka[][] gelaxkak;
 	protected int lerroak = 11;
 	protected int zutabeak = 17;
 	protected int blokeKop;
