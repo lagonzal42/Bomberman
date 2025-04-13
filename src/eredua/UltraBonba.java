@@ -4,7 +4,7 @@ public class UltraBonba implements BonbaPortaera{
 	
 	@Override
 	public void bonbaApurtu(int x, int y) {
-		EreduMapa mapa = Matrizea.getMatrizea().getEreduMapa();
+		EreduMapa mapa = JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa();
 		//eskumata
 		for (int kont=0; kont<=20; kont ++) {
 				if (!mapa.apurtuBlokea(x,y+kont)) break;

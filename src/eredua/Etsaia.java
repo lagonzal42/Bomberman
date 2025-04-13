@@ -60,57 +60,57 @@ public class Etsaia {
 	}
 	
 	private void mugituGora() {
-		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).setEtsaia(null);
-		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
-		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos -1, xPos).setEtsaia(this);
+		JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).setEtsaia(null);
+		JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
+		JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos -1, xPos).setEtsaia(this);
 		this.yPos = this.yPos -1;
-		if (Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria() != null) {
-			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria().setHilda();
-			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria().setAzkenMugi(Mugimendu.HILDA);
-			Matrizea.getMatrizea().getEreduMapa().etsaiakGelditu();
+		if (JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria() != null) {
+			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria().setHilda();
+			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria().setAzkenMugi(Mugimendu.HILDA);
+			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().etsaiakGelditu();
 		}
-		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
+		JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
 	}
 	
 	private void mugituBehera() {
-		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).setEtsaia(null);
-		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
-		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos +1, xPos).setEtsaia(this);
+		JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).setEtsaia(null);
+		JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
+		JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos +1, xPos).setEtsaia(this);
 		this.yPos = this.yPos +1;
-		if (Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria() != null) {
-			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria().setHilda();
-			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria().setAzkenMugi(Mugimendu.HILDA);
-			Matrizea.getMatrizea().getEreduMapa().etsaiakGelditu();
+		if (JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria() != null) {
+			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria().setHilda();
+			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria().setAzkenMugi(Mugimendu.HILDA);
+			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().etsaiakGelditu();
 		}
-		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
+		JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
 	}
 	
 	private void mugituEzkerra() {
 		this.setAzkenMugi(Mugimendu.EZKER);
-		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).setEtsaia(null);
-		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
-		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos -1).setEtsaia(this);
+		JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).setEtsaia(null);
+		JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
+		JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos -1).setEtsaia(this);
 		this.xPos = this.xPos -1;
-		if (Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria() != null) {
-			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria().setHilda();
-			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria().setAzkenMugi(Mugimendu.HILDA);
-			Matrizea.getMatrizea().getEreduMapa().etsaiakGelditu();
+		if (JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria() != null) {
+			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria().setHilda();
+			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria().setAzkenMugi(Mugimendu.HILDA);
+			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().etsaiakGelditu();
 		}
-		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
+		JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
 	}
 	
 	private void mugituEskuma() {
 		this.setAzkenMugi(Mugimendu.ESKUIN);
-		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).setEtsaia(null);
-		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
-		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos +1).setEtsaia(this);
+		JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).setEtsaia(null);
+		JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
+		JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos +1).setEtsaia(this);
 		this.xPos = this.xPos +1;
-		if (Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria() != null) {
-			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria().setHilda();
-			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria().setAzkenMugi(Mugimendu.HILDA);
-			Matrizea.getMatrizea().getEreduMapa().etsaiakGelditu();
+		if (JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria() != null) {
+			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria().setHilda();
+			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).getJokalaria().setAzkenMugi(Mugimendu.HILDA);
+			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().etsaiakGelditu();
 		}
-		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
+		JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
 	}
 	
 	private void setAzkenMugi(Mugimendu m) {
@@ -137,7 +137,7 @@ public class Etsaia {
 	}
 	private boolean mugituAhal(int y, int x) {
 		boolean ema = false;
-		Gelaxka gel = Matrizea.getMatrizea().getEreduMapa().getGelaxka(y, x);
+		Gelaxka gel = JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(y, x);
 		if (!(y < 0 || x< 0 || y > 10 || x > 16) && gel != null && gel.hutsikDago() && gel.getBonba()==null && gel.getSua()==false && gel.getEtsaia()==null) {
 			ema = true;
 		}

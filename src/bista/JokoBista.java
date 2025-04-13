@@ -34,7 +34,7 @@ import eredua.Dadoa;
 import eredua.Gelaxka;
 import eredua.Gogorra;
 import eredua.Jokalaria;
-import eredua.Matrizea;
+import eredua.JokoKudeatzailea;
 import soinua.Bozgorailua;
 
 import java.awt.GridBagLayout;
@@ -123,7 +123,7 @@ public class JokoBista extends JFrame{
 		cardLayout.show(mainPanel, panela);
 		switch(panela) {
 		case("Hasiera"):
-			Matrizea.getMatrizea().mapaErreseteatu();
+			JokoKudeatzailea.getJokoKudeatzaileaa().mapaErreseteatu();
 			panelEgoera = panelHasiera;
 			break;
 		case("Options"):
@@ -133,7 +133,7 @@ public class JokoBista extends JFrame{
 			panelEgoera = panelJokoa;
 			panelJokoa.getMapa().jarriListenerrak();
 			Bozgorailua.getBozgorailua().jarriListenerrak();
-			Matrizea.getMatrizea().getEreduMapa().hasieratuBista();
+			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().hasieratuBista();
 			break;
 		case("Amaiera"):
 			panelEgoera = panelAmaiera;

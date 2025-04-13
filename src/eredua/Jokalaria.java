@@ -25,83 +25,83 @@ public abstract class Jokalaria{
 	
 	public void mugituGora(){
 		this.setAzkenMugi(Mugimendu.GORA);
-		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
-		Gelaxka gel = Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos-1, xPos);
+		JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
+		Gelaxka gel = JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos-1, xPos);
 		//this.setIrudia("whiteup1.png");
 		if (gel!=null && gel.hutsikDago()&& gel.getBonba()== null){
 			//Matrizea.getMatrizea().getEreduMapa().aldatuPos(xPos, yPos, xPos, yPos-1);
-			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).setJokalaria(null);
-			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
-			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos - 1, xPos).setJokalaria(this);
+			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).setJokalaria(null);
+			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
+			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos - 1, xPos).setJokalaria(this);
 			this.yPos = this.yPos -1;
-			if (Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getSua() == true || 
-					Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos,xPos).getEtsaia() != null) {
+			if (JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).getSua() == true || 
+					JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos,xPos).getEtsaia() != null) {
 				this.hil = true;
 				this.setAzkenMugi(Mugimendu.HILDA);
-				Matrizea.getMatrizea().getEreduMapa().etsaiakGelditu();
+				JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().etsaiakGelditu();
 			}
-			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
+			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
 		}
 	}
 	
 	public void mugituBehera(){
 		this.setAzkenMugi(Mugimendu.BEHERA);
-		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
-		Gelaxka gel = Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos+1, xPos);
+		JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
+		Gelaxka gel = JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos+1, xPos);
 		if (gel!=null && gel.hutsikDago() && gel.getBonba()== null){
-			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).setJokalaria(null);
-			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
-			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos + 1, xPos).setJokalaria(this);
+			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).setJokalaria(null);
+			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
+			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos + 1, xPos).setJokalaria(this);
 			this.yPos = this.yPos +1;
-			if (Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getSua() == true || 
-					Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos,xPos).getEtsaia() != null) {
+			if (JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).getSua() == true || 
+					JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos,xPos).getEtsaia() != null) {
 				this.hil = true;
 				this.setAzkenMugi(Mugimendu.HILDA);
-				Matrizea.getMatrizea().getEreduMapa().etsaiakGelditu();
+				JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().etsaiakGelditu();
 			}
-			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
+			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
 		}
 	}
 	
 	public void mugituEzkerra(){
 		this.setAzkenMugi(Mugimendu.EZKER);
-		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
-		Gelaxka gel = Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos-1);
+		JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
+		Gelaxka gel = JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos-1);
 		//this.setIrudia("whiteleft1.png");
 		if (gel!= null && gel.hutsikDago() && gel.getBonba()== null){
 			//Matrizea.getMatrizea().getEreduMapa().aldatuPos(xPos, yPos, xPos-1, yPos);
-			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).setJokalaria(null);
-			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
-			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos - 1).setJokalaria(this);
+			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).setJokalaria(null);
+			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
+			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos - 1).setJokalaria(this);
 			this.xPos = this.xPos -1;
-			if (Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getSua() == true || 
-					Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos,xPos).getEtsaia() != null) {
+			if (JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).getSua() == true || 
+					JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos,xPos).getEtsaia() != null) {
 				this.hil = true;
 				this.setAzkenMugi(Mugimendu.HILDA);
-				Matrizea.getMatrizea().getEreduMapa().etsaiakGelditu();
+				JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().etsaiakGelditu();
 			}
-			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
+			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
 		}
 	}
 	
 	public void mugituEskuma() {
 		this.setAzkenMugi(Mugimendu.ESKUIN);
-		Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
-		Gelaxka gel = Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos+1);
+		JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
+		Gelaxka gel = JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos+1);
 		//this.setIrudia("whiteright1.png");
 		if (gel != null && gel.hutsikDago() && gel.getBonba()== null){
-			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).setJokalaria(null);
-			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
-			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos + 1).setJokalaria(this);
+			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).setJokalaria(null);
+			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
+			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos + 1).setJokalaria(this);
 			//Matrizea.getMatrizea().getEreduMapa().aldatuPos(xPos, yPos, xPos+1, yPos);
 			this.xPos = this.xPos +1;
-			if (Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).getSua() == true || 
-					Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos,xPos).getEtsaia() != null) {
+			if (JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).getSua() == true || 
+					JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos,xPos).getEtsaia() != null) {
 				this.hil = true;
 				this.setAzkenMugi(Mugimendu.HILDA);
-				Matrizea.getMatrizea().getEreduMapa().etsaiakGelditu();
+				JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().etsaiakGelditu();
 			}
-			Matrizea.getMatrizea().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
+			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
 		}
 	}
 	

@@ -7,7 +7,7 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
 
-import eredua.Matrizea;
+import eredua.JokoKudeatzailea;
 
 public abstract class Soinua{
 	

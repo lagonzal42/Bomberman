@@ -16,7 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 
-import eredua.Matrizea;
+import eredua.JokoKudeatzailea;
 import soinua.Bozgorailua;
 
 public class PanelHasiera extends JPanel implements PanelEgoera{
@@ -203,7 +203,7 @@ public class PanelHasiera extends JPanel implements PanelEgoera{
 			int aukeratutakoMapa = this.getAukeratutakoMapa();
 			JokoBista.getJokoBista().setPanelJokoaFondoa(aukeratutakoMapa);
 			System.out.println(aukeratutakoMapa + " " + aukeratutakoPertsonaia);
-			Matrizea.getMatrizea().mapaSortu(aukeratutakoMapa, aukeratutakoPertsonaia);
+			JokoKudeatzailea.getJokoKudeatzaileaa().mapaSortu(aukeratutakoMapa, aukeratutakoPertsonaia);
 			JokoBista.getJokoBista().aldatuPanela("Jokoa");
 			break;
 		}

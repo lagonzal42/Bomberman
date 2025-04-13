@@ -1,7 +1,7 @@
 package eredua;
 
 import bista.JokoBista;
-import eredua.Matrizea;
+import eredua.JokoKudeatzailea;
 
 public class EreduMapaClassic extends EreduMapa {
 	public EreduMapaClassic(int pJokalariMota) {

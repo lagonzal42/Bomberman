@@ -10,7 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import common.Mugimendu;
-import eredua.Matrizea;
+import eredua.JokoKudeatzailea;
 
 public class PanelJokoa extends JPanel implements PanelEgoera{
 
@@ -45,7 +45,7 @@ public class PanelJokoa extends JPanel implements PanelEgoera{
 
 	@Override
 	public void teklaSakatuta(KeyEvent e) {
-		Matrizea mat = Matrizea.getMatrizea();
+		JokoKudeatzailea mat = JokoKudeatzailea.getJokoKudeatzaileaa();
 		
 		if(!mat.getEreduMapa().partidaBukatu() && !mat.getEreduMapa().getJokalaria().getHilda()) {
 			switch(e.getKeyCode()) {

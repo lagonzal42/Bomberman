@@ -1,5 +1,5 @@
 import bista.JokoBista;
-import eredua.Matrizea;
+import eredua.JokoKudeatzailea;
 import soinua.Bozgorailua;
 
 public class Main {

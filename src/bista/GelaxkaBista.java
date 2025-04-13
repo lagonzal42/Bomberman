@@ -14,7 +14,7 @@ import eredua.Biguna;
 import eredua.Dadoa;
 import eredua.Gelaxka;
 import eredua.Gogorra;
-import eredua.Matrizea;
+import eredua.JokoKudeatzailea;
 import common.GelaxkaMota;
 
 public class GelaxkaBista extends JLabel implements Observer{
@@ -51,7 +51,7 @@ public class GelaxkaBista extends JLabel implements Observer{
 		Timer animazioa;
 		
 		System.out.println("gelaxka orain " + arg);
-		String color = Matrizea.getMatrizea().getEreduMapa().getJokalaria().getColor();
+		String color = JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getJokalaria().getColor();
 		
 		if (gelMota == null)
 			this.setIrudia(null);

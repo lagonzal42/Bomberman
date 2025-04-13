@@ -12,7 +12,7 @@ import eredua.Dadoa;
 import eredua.Gelaxka;
 import eredua.Gogorra;
 import eredua.Jokalaria;
-import eredua.Matrizea;
+import eredua.JokoKudeatzailea;
 import common.Mugimendu;
 
 public class Mapa{
@@ -40,7 +40,7 @@ public class Mapa{
 	
 	public void jarriListenerrak()
 	{
-		Matrizea m = Matrizea.getMatrizea();
+		JokoKudeatzailea m = JokoKudeatzailea.getJokoKudeatzaileaa();
 		for (int y = 0; y < 11; y++)
 		{
 			for (int x = 0; x < 17; x++)

@@ -4,21 +4,21 @@ import bista.JokoBista;
 import common.Mugimendu;
 import soinua.Bozgorailua;
 
-public class Matrizea{
+public class JokoKudeatzailea{
 	
-	private static Matrizea nMatrizea = null;
+	private static JokoKudeatzailea nJK = null;
 	private EreduMapa eMapa;
 	
-	private Matrizea() {
+	private JokoKudeatzailea() {
 		
 	}
 	
-	public static Matrizea getMatrizea()
+	public static JokoKudeatzailea getJokoKudeatzaileaa()
 	{
-		if(nMatrizea == null) {
-			nMatrizea = new Matrizea();
+		if(nJK == null) {
+			nJK = new JokoKudeatzailea();
 		}
-		return nMatrizea;
+		return nJK;
 	}
 	
 	public EreduMapa getEreduMapa() {

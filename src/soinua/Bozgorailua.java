@@ -10,7 +10,7 @@ import javax.sound.sampled.FloatControl;
 
 import common.GelaxkaMota;
 import eredua.Gelaxka;
-import eredua.Matrizea;
+import eredua.JokoKudeatzailea;
 
 public class Bozgorailua implements Observer{
 	
@@ -79,7 +79,7 @@ public class Bozgorailua implements Observer{
 	
 	public void jarriListenerrak()
 	{
-		Matrizea m = Matrizea.getMatrizea();
+		JokoKudeatzailea m = JokoKudeatzailea.getJokoKudeatzaileaa();
 		for (int y = 0; y < 11; y++)
 		{
 			for (int x = 0; x < 17; x++)
