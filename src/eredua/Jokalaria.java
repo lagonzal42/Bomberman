@@ -37,7 +37,7 @@ public abstract class Jokalaria{
 			if (JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).getSua() == true || 
 					JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos,xPos).getEtsaia() != null) {
 				this.hil = true;
-				this.setAzkenMugi(Mugimendu.HILDA);
+				this.setAzkenMugi(Mugimendu.HILDAS);
 				JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().etsaiakGelditu();
 			}
 			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
@@ -56,7 +56,7 @@ public abstract class Jokalaria{
 			if (JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).getSua() == true || 
 					JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos,xPos).getEtsaia() != null) {
 				this.hil = true;
-				this.setAzkenMugi(Mugimendu.HILDA);
+				this.setAzkenMugi(Mugimendu.HILDAS);
 				JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().etsaiakGelditu();
 			}
 			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
@@ -77,7 +77,7 @@ public abstract class Jokalaria{
 			if (JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).getSua() == true || 
 					JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos,xPos).getEtsaia() != null) {
 				this.hil = true;
-				this.setAzkenMugi(Mugimendu.HILDA);
+				this.setAzkenMugi(Mugimendu.HILDAS);
 				JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().etsaiakGelditu();
 			}
 			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
@@ -98,7 +98,7 @@ public abstract class Jokalaria{
 			if (JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).getSua() == true || 
 					JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos,xPos).getEtsaia() != null) {
 				this.hil = true;
-				this.setAzkenMugi(Mugimendu.HILDA);
+				this.setAzkenMugi(Mugimendu.HILDAS);
 				JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().etsaiakGelditu();
 			}
 			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();

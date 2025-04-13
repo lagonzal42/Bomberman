@@ -49,7 +49,7 @@ public class Gelaxka extends Observable{
 			this.bonba=null;
 			if(this.jok!=null) {
 				jok.setBonba(null);
-				jok.setAzkenMugi(Mugimendu.HILDA);
+				jok.setAzkenMugi(Mugimendu.HILDAS);
 				jok.setHilda();
 			}
 			this.eguneratuGelaxka();
@@ -62,7 +62,7 @@ public class Gelaxka extends Observable{
 			suaTimerra.stop();
 		}
 		if(this.jok!=null) {
-			jok.setAzkenMugi(Mugimendu.HILDA);
+			jok.setAzkenMugi(Mugimendu.HILDAS);
 			jok.setHilda();
 			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().etsaiakGelditu();
 		}
@@ -111,13 +111,11 @@ public class Gelaxka extends Observable{
 			else{
 				switch (jok.getAzkenMugi())
 				{
-				case HILDA:
-					if (this.sua == true) {
-						gM = GelaxkaMota.JOKALARIASUAREKIN;
-					}
-					else {
-						gM = GelaxkaMota.JOKALARIAHARRAPATUTA;
-					}
+				case HILDAE:
+					gM = GelaxkaMota.JOKALARIAHARRAPATUTA;
+					break;
+				case HILDAS:
+					gM = GelaxkaMota.JOKALARIASUAREKIN;
 					break;
 				case GORA:
 					gM = GelaxkaMota.JOKALARIAGORA;
