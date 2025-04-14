@@ -62,7 +62,7 @@ public class GelaxkaBista extends JLabel implements Observer{
 			switch (gelMota)
 			{
 				case BIGUNA:
-					this.setIrudia("/bista/Sprites/soft4" + dadoa.zenbakiaAukeratu(1, 4) +".png");
+					this.setIrudia("/bista/Sprites/soft4" + dadoa.zenbakiaAukeratu(1, 4) +"Berria.png");
 					//path = "/bista/Sprites/whiteup1.png";
 					break;
 				case GOGORRA:
