@@ -124,6 +124,7 @@ public class JokoBista extends JFrame{
 		switch(panela) {
 		case("Hasiera"):
 			JokoKudeatzailea.getJokoKudeatzaileaa().mapaErreseteatu();
+			Bozgorailua.getBozgorailua().musikaReset();
 			panelEgoera = panelHasiera;
 			break;
 		case("Options"):

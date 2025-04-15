@@ -31,6 +31,11 @@ public class Bozgorailua implements Observer{
 		return (AtzekoMusika) BozgorailuFactory.getBF().getMusika();
 	}
 	
+	public void musikaReset() {
+		BozgorailuFactory.getBF().getGaldu().pausatu();
+		BozgorailuFactory.getBF().getIrabazi().pausatu();
+	}
+	
 
 	@Override
 	public void update(Observable o, Object arg) {
