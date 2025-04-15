@@ -18,33 +18,38 @@ public class EreduMapaClassic extends EreduMapa {
 				zerrenda[i][j] = new Gelaxka();
 				if(j == 0 && i == 0) {
 					//jokalaria
-					zerrenda[i][j].setBlokea(new Hutsik());
+					zerrenda[i][j].setBlokea(BlokeFactory.getBF().createBloke(1));
 					zerrenda[i][j].setJokalaria(jok);
 					
 				}
 				else if((j == 0 && i == 1) || (j == 1 && i == 0)) {
 					//hutsik
-					zerrenda[i][j].setBlokea(new Hutsik()); 
+					zerrenda[i][j].setBlokea(BlokeFactory.getBF().createBloke(1));
+					//zerrenda[i][j].setBlokea(new Hutsik()); 
 				}
 				else if((j % 2 != 0 && i % 2 != 0)) {
 					//bloke gogorra
-					zerrenda[i][j].setBlokea(new Gogorra()); 
+					zerrenda[i][j].setBlokea(BlokeFactory.getBF().createBloke(3));
+					//zerrenda[i][j].setBlokea(new Gogorra()); 
 				}
 				else if(dado.gainditzenDu(0.4)){
 					//bloke biguna
-					zerrenda[i][j].setBlokea(new Biguna());
+					zerrenda[i][j].setBlokea(BlokeFactory.getBF().createBloke(2));
+					//zerrenda[i][j].setBlokea(new Biguna());
 					blokeKop++;
 				}
 				//proba kutre
 				else if(dado.gainditzenDu(0.9) && etsaiKop < 7) {
-					zerrenda[i][j].setBlokea(new Hutsik());
+					zerrenda[i][j].setBlokea(BlokeFactory.getBF().createBloke(1));
+					//zerrenda[i][j].setBlokea(new Hutsik());
 					zerrenda[i][j].setEtsaia(new Etsaia(j,i));
 					zerrenda[i][j].getEtsaia().hasieratuEtsaia();
 					etsaiKop ++;
 				}
 				else {
 					//hutsik
-					zerrenda[i][j].setBlokea(new Hutsik());
+					zerrenda[i][j].setBlokea(BlokeFactory.getBF().createBloke(1));
+					//zerrenda[i][j].setBlokea(new Hutsik());
 				}
 			}
 		}
