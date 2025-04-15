@@ -15,9 +15,16 @@ import eredua.JokoKudeatzailea;
 public class Bozgorailua implements Observer{
 	
 	private static Bozgorailua boz=null;
+	private AtzekoMusika musika;
+	private GalduSoinua galdu;
+	private IrabaziSoinua irabazi;
+	private BonbaSoinua bonba;
 	
 	private Bozgorailua() {
-		//this.jarriListenerrak();
+		musika = new AtzekoMusika("backMusic");
+		galdu = new GalduSoinua("galdu");
+		irabazi = new IrabaziSoinua("irabazi");
+		bonba = new BonbaSoinua("bomba");
 	}
 	
 	public static Bozgorailua getBozgorailua() {
@@ -28,12 +35,17 @@ public class Bozgorailua implements Observer{
 	}
 	
 	public AtzekoMusika getMusika() {
-		return (AtzekoMusika) BozgorailuFactory.getBF().getMusika();
+		return this.musika;
 	}
 	
 	public void musikaReset() {
-		BozgorailuFactory.getBF().getGaldu().pausatu();
-		BozgorailuFactory.getBF().getIrabazi().pausatu();
+		this.galdu.pausatu();
+		this.irabazi.pausatu();
+	}
+	
+	public void musikaAldatu(String abes) {
+		musika.pausatu();
+		musika = BozgorailuFactory.getBF().getMusika(abes);
 	}
 	
 
@@ -61,19 +73,19 @@ public class Bozgorailua implements Observer{
 				case BONBAESTANDA:
 					break;
 				case SUA:
-					BozgorailuFactory.getBF().getBonba().hasi();;
+					bonba.hasi();;
 					break;
 				case JOKALARIASUAREKIN:
-					BozgorailuFactory.getBF().getMusika().pausatu();
-					BozgorailuFactory.getBF().getGaldu().hasi();
+					musika.pausatu();
+					galdu.hasi();
 					break;
 				case JOKALARIAHARRAPATUTA:
-					BozgorailuFactory.getBF().getMusika().pausatu();
-					BozgorailuFactory.getBF().getGaldu().hasi();
+					musika.pausatu();
+					galdu.hasi();
 					break;
 				case IRABAZI:
-					BozgorailuFactory.getBF().getMusika().pausatu();
-					BozgorailuFactory.getBF().getIrabazi().hasi();
+					musika.pausatu();
+					irabazi.hasi();
 					break;
 				default:
 					break;

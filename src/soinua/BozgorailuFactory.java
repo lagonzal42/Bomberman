@@ -19,32 +19,24 @@ public class BozgorailuFactory {
 		return bF;
 	}
 	
-	public static Soinua getMusika() {
-        if (backMusic == null) {
-            backMusic = new AtzekoMusika("backMusic");
-        }
-        return backMusic;
-    }
-
-    public static Soinua getBonba() {
-        if (bonba == null) {
-            bonba = new BonbaSoinua("bomba");
-        }
-        return bonba;
-    }
-    
-    public static Soinua getGaldu() {
-        if (galdu == null) {
-            galdu = new GalduSoinua("galdu");
-        }
-        return galdu;
-    }
-    
-    public static Soinua getIrabazi() {
-        if (irabazi == null) {
-            irabazi = new IrabaziSoinua("irabazi");
-        }
-        return irabazi;
-    }
+	public AtzekoMusika getMusika(String abes) {
+		AtzekoMusika musika = null;
+		
+		switch(abes) {
+		case("pop"):
+			musika = new AtzekoMusika("pop");
+			break;
+		case("heavy"):
+			musika = new AtzekoMusika("heavy");
+			break;
+		case("classic"):
+			musika = new AtzekoMusika("classic");
+			break;
+		default:
+			musika = new AtzekoMusika("backMusic");
+			break;
+		}
+		return musika;
+	}
 
 }
