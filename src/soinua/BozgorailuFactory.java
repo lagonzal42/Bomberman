@@ -24,13 +24,13 @@ public class BozgorailuFactory {
 		
 		switch(abes) {
 		case("pop"):
-			musika = new AtzekoMusika("pop");
+			musika = new AtzekoMusika("backMusic");
 			break;
-		case("heavy"):
-			musika = new AtzekoMusika("heavy");
-			break;
+//		case("heavy"):
+//			musika = new AtzekoMusika("heavy");
+//			break;
 		case("classic"):
-			musika = new AtzekoMusika("classic");
+			musika = new AtzekoMusika("mozartNacht");
 			break;
 		default:
 			musika = new AtzekoMusika("backMusic");
