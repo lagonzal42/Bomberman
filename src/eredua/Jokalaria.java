@@ -12,6 +12,7 @@ public abstract class Jokalaria{
 	protected int bonbaKop;
 	protected String color;
 	protected BonbaPortaera bonPortaera;
+	private Puntuazioa puntuazioa;
 		
 	public Jokalaria() {
 		//super(pIrudia);
@@ -20,6 +21,7 @@ public abstract class Jokalaria{
 		yPos = 0;
 		hil = false;
 		azkenMugi = Mugimendu.BEHERA;
+		puntuazioa = new Puntuazioa();
 		//this.bonPortaera = new BonbaNormala();
 	}
 	
@@ -38,11 +40,13 @@ public abstract class Jokalaria{
 				this.hil = true;
 				this.setAzkenMugi(Mugimendu.HILDAS);
 				JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().etsaiakGelditu();				
+				this.puntuazioa.galdu();
 			}
 			else if(JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos,xPos).getEtsaia() != null) {
 				this.hil = true;
 				this.setAzkenMugi(Mugimendu.HILDAE);
 				JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().etsaiakGelditu();
+				this.puntuazioa.galdu();
 			}
 			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
 		}
@@ -61,11 +65,13 @@ public abstract class Jokalaria{
 				this.hil = true;
 				this.setAzkenMugi(Mugimendu.HILDAS);
 				JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().etsaiakGelditu();				
+				this.puntuazioa.galdu();
 			}
 			else if(JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos,xPos).getEtsaia() != null) {
 				this.hil = true;
 				this.setAzkenMugi(Mugimendu.HILDAE);
 				JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().etsaiakGelditu();
+				this.puntuazioa.galdu();
 			}
 			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
 		}
@@ -86,11 +92,13 @@ public abstract class Jokalaria{
 				this.hil = true;
 				this.setAzkenMugi(Mugimendu.HILDAS);
 				JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().etsaiakGelditu();				
+				this.puntuazioa.galdu();
 			}
 			else if(JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos,xPos).getEtsaia() != null) {
 				this.hil = true;
 				this.setAzkenMugi(Mugimendu.HILDAE);
 				JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().etsaiakGelditu();
+				this.puntuazioa.galdu();
 			}
 			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
 		}
@@ -110,12 +118,14 @@ public abstract class Jokalaria{
 			if (JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).getSua() == true) {
 				this.hil = true;
 				this.setAzkenMugi(Mugimendu.HILDAS);
-				JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().etsaiakGelditu();				
+				JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().etsaiakGelditu();
+				this.puntuazioa.galdu();
 			}
 			else if(JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos,xPos).getEtsaia() != null) {
 				this.hil = true;
 				this.setAzkenMugi(Mugimendu.HILDAE);
 				JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().etsaiakGelditu();
+				this.puntuazioa.galdu();
 			}
 			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
 		}
@@ -196,6 +206,10 @@ public abstract class Jokalaria{
 	
 	public String getColor() {
 		return color;
+	}
+	
+	public Puntuazioa getPuntuazioa() {
+		return this.puntuazioa;
 	}
 
 }

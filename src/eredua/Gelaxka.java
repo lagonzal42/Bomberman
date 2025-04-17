@@ -50,6 +50,7 @@ public class Gelaxka extends Observable{
 			if(this.jok!=null) {
 				jok.setBonba(null);
 				jok.setAzkenMugi(Mugimendu.HILDAS);
+				JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getJokalaria().getPuntuazioa().galdu();
 				jok.setHilda();
 			}
 			this.eguneratuGelaxka();
@@ -65,11 +66,13 @@ public class Gelaxka extends Observable{
 			jok.setAzkenMugi(Mugimendu.HILDAS);
 			jok.setHilda();
 			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().etsaiakGelditu();
+			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getJokalaria().getPuntuazioa().galdu();
 		}
 		if(this.etsaia!=null) {
 			this.etsaia.geldituEtsaia();
 	        this.etsaia = null;
 	        JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().etsaiakMurriztu();
+	        JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getJokalaria().getPuntuazioa().etsaiaHil();
 		}
 		this.sua=true;
 		this.eguneratuGelaxka();

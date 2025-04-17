@@ -12,6 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import eredua.JokoKudeatzailea;
+
 public class PanelAmaiera extends JPanel implements PanelEgoera{
 
 	private static final long serialVersionUID = 1L;
@@ -25,18 +27,22 @@ public class PanelAmaiera extends JPanel implements PanelEgoera{
 	
 	public void itxi(boolean pGaldu) {
 		this.removeAll();
-		JPanel guztia = new JPanel(new GridLayout(2,1,0,0));
+		JPanel guztia = new JPanel(new BorderLayout());
 		guztia.setOpaque(false);
 		JLabel label = new JLabel();
 		label.setFont(new Font("Trebuchet MS", Font.BOLD, 35));
 		label.setHorizontalAlignment(SwingConstants.CENTER);
-		guztia.add(label);
+		JLabel puntuazioa = new JLabel("Puntuazioa: " + JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getJokalaria().getPuntuazioa().getPuntuak());
+		puntuazioa.setFont(new Font("Trebuchet MS", Font.BOLD, 35));
+		puntuazioa.setHorizontalAlignment(SwingConstants.CENTER);
+		guztia.add(label, BorderLayout.NORTH);
+		guztia.add(puntuazioa, BorderLayout.SOUTH);
 		if(pGaldu) {
 			label.setText("BESTE BATEAN IZANGO DA.");
 			ImageIcon iconTxarra = new ImageIcon(getClass().getResource("/bista/Sprites/amaieraitsusia.png"));
 			JLabel irudiaTxarra = new JLabel(iconTxarra);
 			irudiaTxarra.setHorizontalAlignment(SwingConstants.CENTER);
-			guztia.add(irudiaTxarra);
+			guztia.add(irudiaTxarra, BorderLayout.CENTER);
 			irudiaTxarra.setOpaque(false);
 		}
 		else {
@@ -44,7 +50,7 @@ public class PanelAmaiera extends JPanel implements PanelEgoera{
 			ImageIcon iconOna = new ImageIcon(getClass().getResource("/bista/Sprites/amaierapolita.png"));
 			JLabel irudiaOna = new JLabel(iconOna);
 			irudiaOna.setHorizontalAlignment(SwingConstants.CENTER);
-			guztia.add(irudiaOna);
+			guztia.add(irudiaOna, BorderLayout.CENTER);
 			irudiaOna.setOpaque(false);
 		}
 		add(guztia, BorderLayout.CENTER);

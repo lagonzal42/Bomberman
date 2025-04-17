@@ -75,6 +75,7 @@ public abstract class EreduMapa {
 				gel.setBlokea(new Hutsik());
 				this.suaJarri(errenkada, zutabea);
 				System.out.println("blokea apurtu da:"+ errenkada +","+ zutabea);
+				jok.getPuntuazioa().blokeaApurtu();
 				blokeKop--;
 			}
 			else if (gel.hutsikDago() || gel.getSua()) {
@@ -131,6 +132,7 @@ public abstract class EreduMapa {
 	{
 		if(etsaiKop == 0) {
 			this.etsaiakGelditu();
+			jok.getPuntuazioa().irabazi();
 		}
 		return etsaiKop == 0;
 	}
