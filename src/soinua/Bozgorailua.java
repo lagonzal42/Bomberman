@@ -91,14 +91,17 @@ public class Bozgorailua implements Observer{
 					break;
 				case JOKALARIASUAREKIN:
 					musika.pausatu();
+					musikaOn = false;
 					galdu.hasi();
 					break;
 				case JOKALARIAHARRAPATUTA:
 					musika.pausatu();
+					musikaOn = false;
 					galdu.hasi();
 					break;
 				case IRABAZI:
 					musika.pausatu();
+					musikaOn = false;
 					irabazi.hasi();
 					break;
 				default:

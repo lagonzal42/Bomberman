@@ -3,6 +3,7 @@ package bista;
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -21,6 +22,7 @@ public class PanelOptions extends JPanel implements PanelEgoera{
 	private Controler controler;
 	private JButton b1;
 	private JButton b2;
+	private JButton b3;
 
 	/**
 	 * Create the panel.
@@ -39,40 +41,49 @@ public class PanelOptions extends JPanel implements PanelEgoera{
 		
 		JPanel erdikoPanela = new JPanel();
 		erdikoPanela.setLayout(new GridLayout(3,3));
+		b1 = this.botoiaSortu("Klasikoa");
+		b2 = this.botoiaSortu("POP");
+		b3 = this.botoiaSortu("HEAVY");
 		JLabel e1 = new JLabel("");
-		b1 = new JButton("Klasikoa");
 		JLabel e2 = new JLabel("");
 		JLabel e3 = new JLabel("");
-		b2 = new JButton("Pop");
 		JLabel e4 = new JLabel("");
 		JLabel e5 = new JLabel("");
 		JLabel e6 = new JLabel("");
 		JLabel e7 = new JLabel("");
 		
-		b1.addActionListener(getControler());
-		b1.setFocusPainted(false);
-		b1.setFocusable(false);
-		b1.setBorderPainted(true);
-		
-		b2.addActionListener(getControler());
-		b2.setFocusPainted(false);
-		b2.setFocusable(false);
-		b2.setBorderPainted(true);
-		
 		erdikoPanela.add(e1);
-		erdikoPanela.add(b1);
 		erdikoPanela.add(e2);
+		erdikoPanela.add(e3);
+		erdikoPanela.add(b1);
+		erdikoPanela.add(b2);
+		erdikoPanela.add(b3);
 		erdikoPanela.add(e5);
 		erdikoPanela.add(e6);
 		erdikoPanela.add(e7);
-		erdikoPanela.add(e3);
-		erdikoPanela.add(b2);
-		erdikoPanela.add(e4);
 		add(erdikoPanela, BorderLayout.CENTER);
 		JLabel atera = new JLabel("pantailatik ateratzeko spc sakatu.");
 		atera.setHorizontalAlignment(SwingConstants.CENTER);
 		add(atera,BorderLayout.SOUTH);
 		
+	}
+	
+	private JButton botoiaSortu(String pBotoia) {
+		JButton botoia = new JButton();
+		botoia.addActionListener(getControler());
+		botoia.setOpaque(false);
+		botoia.setText(pBotoia);
+		botoia.setHorizontalTextPosition(SwingConstants.CENTER);
+		botoia.setVerticalTextPosition(SwingConstants.BOTTOM);
+		botoia.setContentAreaFilled(false);
+		botoia.setBorderPainted(false);
+		ImageIcon icon = new ImageIcon(getClass().getResource("/bista/Sprites/"+pBotoia +".png"));
+		Image scaledImage = icon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+		ImageIcon resizedIcon = new ImageIcon(scaledImage);
+		botoia.setIcon(resizedIcon);
+		botoia.setFocusPainted(false);
+		botoia.setFocusable(false);
+		return botoia;
 	}
 
 	private ActionListener getControler() {
@@ -91,6 +102,9 @@ public class PanelOptions extends JPanel implements PanelEgoera{
 			}
 			else if (e.getSource().equals(b2)){
 				Bozgorailua.getBozgorailua().musikaAldatu("pop");				
+			}
+			else if(e.getSource().equals(b3)) {
+				Bozgorailua.getBozgorailua().musikaAldatu("heavy");
 			}
 			
 		}
