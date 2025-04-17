@@ -33,7 +33,6 @@ public class PanelHasiera extends JPanel implements PanelEgoera{
 	private JRadioButton empty;
 	private ButtonGroup buttonGroup = new ButtonGroup();
 	private int aukeratutakoPertsonaia = 1;
-	private boolean musikaOn = false;
 
 	/**
 	 * Create the panel.
@@ -183,14 +182,7 @@ public class PanelHasiera extends JPanel implements PanelEgoera{
 			break;
 		case KeyEvent.VK_M:
 			Bozgorailua musika = Bozgorailua.getBozgorailua();
-			if (musikaOn) {
-				musika.getMusika().pausatu();
-				musikaOn = false;
-			}
-			else {
-				musika.getMusika().hasi();
-				musikaOn = true;
-			}
+			Bozgorailua.getBozgorailua().musikaPausatuHasi();
 			break;
 		case KeyEvent.VK_O:
 			JokoBista.getJokoBista().aldatuPanela("Options");

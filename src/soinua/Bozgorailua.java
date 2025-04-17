@@ -19,6 +19,7 @@ public class Bozgorailua implements Observer{
 	private GalduSoinua galdu;
 	private IrabaziSoinua irabazi;
 	private BonbaSoinua bonba;
+	private boolean musikaOn = false;
 	
 	private Bozgorailua() {
 		musika = new AtzekoMusika("backMusic");
@@ -46,8 +47,21 @@ public class Bozgorailua implements Observer{
 	public void musikaAldatu(String abes) {
 		musika.pausatu();
 		musika = BozgorailuFactory.getBF().getMusika(abes);
+		musika.hasi();
+		musikaOn = true;
 	}
 	
+	public void musikaPausatuHasi() {
+		if(!musikaOn) {
+			musika.hasi();
+			musikaOn = true;
+		}
+		else {
+			musika.pausatu();
+			musikaOn = false;
+		}
+		
+	}
 
 	@Override
 	public void update(Observable o, Object arg) {
@@ -104,5 +118,6 @@ public class Bozgorailua implements Observer{
 		}
 		
 	}
+
 	
 }
