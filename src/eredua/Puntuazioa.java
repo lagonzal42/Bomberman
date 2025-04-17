@@ -6,6 +6,7 @@ public class Puntuazioa {
 	private int punt;
 	private Timer timer;
 	private int denbora;
+	public boolean amaitu;
 	
 	public Puntuazioa() {
 		timer = new javax.swing.Timer(1000, e ->{
@@ -14,6 +15,7 @@ public class Puntuazioa {
 		timer.start();
 		punt = 0;
 		denbora = 0;
+		amaitu = false;
 	}
 
 	private void updateKont() {
@@ -37,15 +39,21 @@ public class Puntuazioa {
 		}
 	}
 	public void irabazi() {
-		punt += 1000-(10*denbora);
+		if(amaitu == false) {
+			punt = (punt+1000-denbora);
+			amaitu = true;			
+		}
 	}
 	
 	public void galdu() {
-		if(punt >= 200) {
-			punt -= 200;			
-		}
-		else {
-			punt = 0;
+		if(amaitu == false) {
+			if(punt >= 200) {
+				punt -= 200;			
+			}
+			else {
+				punt = 0;
+			}
+			amaitu = true;			
 		}
 	}
 	
