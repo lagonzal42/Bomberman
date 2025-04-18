@@ -111,22 +111,36 @@ public class Puntuazioa {
 			scan.close();
 		}
 		Date data = Calendar.getInstance().getTime();
-
-		puntuazioak.add(punt + "::"+ data);
 		
-		List<String> top10 = puntuazioak.stream().sorted((a, b) -> {
-			        int puntuB = Integer.parseInt(b.split("::")[0]);
-			        int puntuA = Integer.parseInt(a.split("::")[0]);
-			        return Integer.compare(puntuB, puntuA);
-			    })
-			    .limit(10)
-			    .collect(Collectors.toList());
-		
-		PrintWriter writer = new PrintWriter("src/common/errekorrak.txt", "UTF-8");
-		for(String lerroa : top10) {
-			writer.println(lerroa);
+		if(!datuakDitu(puntuazioak,data, punt)) {
+			puntuazioak.add(punt + "::"+ data);			
+			List<String> top10 = puntuazioak.stream().sorted((a, b) -> {
+				int puntuB = Integer.parseInt(b.split("::")[0]);
+				int puntuA = Integer.parseInt(a.split("::")[0]);
+				return Integer.compare(puntuB, puntuA);
+			})
+					.limit(10)
+					.collect(Collectors.toList());
+			
+			PrintWriter writer = new PrintWriter("src/common/errekorrak.txt", "UTF-8");
+			for(String lerroa : top10) {
+				writer.println(lerroa);
+			}
+			writer.close();
 		}
-		writer.close();
 	}
+
+	private boolean datuakDitu(ArrayList<String> datuak, Date data, int punt2) {
+		
+		String pData = data.toString();
+		for(String d:datuak) {
+			String[] s = d.split("::");
+			if(Integer.parseInt(s[0]) == punt2 && s[1].equals(pData)) {
+				return true;
+			}
+		}
+		return false;
+	}
+		
 
 }

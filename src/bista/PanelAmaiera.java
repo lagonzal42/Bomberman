@@ -47,6 +47,16 @@ public class PanelAmaiera extends JPanel implements PanelEgoera{
 		puntuazioa.setFont(new Font("Trebuchet MS", Font.BOLD, 35));
 		puntuazioa.setHorizontalAlignment(SwingConstants.CENTER);
 		puntuazioa.setOpaque(false);
+		if(JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getJokalaria().getPuntuazioa().errekorraDa()) {
+			//new record irudia jarri?
+			try {
+				JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getJokalaria().getPuntuazioa().fitxategiaEguneratu();
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+		}
 		guztia.add(label, BorderLayout.NORTH);
 		guztia.add(puntuazioa, BorderLayout.SOUTH);
 		if(pGaldu) {
@@ -80,13 +90,6 @@ public class PanelAmaiera extends JPanel implements PanelEgoera{
 		switch(e.getKeyCode()) {
 		case KeyEvent.VK_ESCAPE:
 			System.exit(0);
-			break;
-		case KeyEvent.VK_ENTER:
-			try {
-				JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getJokalaria().getPuntuazioa().fitxategiaEguneratu();
-			} catch (FileNotFoundException | UnsupportedEncodingException e1) {
-				e1.printStackTrace();
-			}
 			break;
 		case KeyEvent.VK_SPACE:
 			JokoBista.getJokoBista().aldatuPanela("Hasiera");
