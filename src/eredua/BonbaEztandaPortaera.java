@@ -1,7 +1,6 @@
 package eredua;
 
-public interface BonbaPortaera {
+public interface BonbaEztandaPortaera {
 	
 	public void bonbaApurtu(int x, int y);
-
 }
