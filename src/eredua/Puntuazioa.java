@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
@@ -81,7 +83,6 @@ public class Puntuazioa {
 				lerroa = scan.nextLine();
 				String[] parteak = lerroa.split("::");
 				int pPunt = Integer.parseInt(parteak[0]);
-				String jok = parteak[1];
 				if(pPunt < punt) {
 					return true;
 				}
@@ -98,7 +99,7 @@ public class Puntuazioa {
 		}
 	}
 	
-	public void fitxategiaEguneratu(String pIzena) throws FileNotFoundException, UnsupportedEncodingException {
+	public void fitxategiaEguneratu() throws FileNotFoundException, UnsupportedEncodingException {
 		ArrayList<String> puntuazioak = new ArrayList<>();
 		
 		File fitxategia = new File("src/common/errekorrak.txt");
@@ -109,10 +110,17 @@ public class Puntuazioa {
 			}
 			scan.close();
 		}
+		Date data = Calendar.getInstance().getTime();
+
+		puntuazioak.add(punt + "::"+ data);
 		
-		puntuazioak.add(punt + "::"+ pIzena);
-		
-		List<String> top10 = puntuazioak.stream().sorted().limit(10).collect(Collectors.toList());
+		List<String> top10 = puntuazioak.stream().sorted((a, b) -> {
+			        int puntuB = Integer.parseInt(b.split("::")[0]);
+			        int puntuA = Integer.parseInt(a.split("::")[0]);
+			        return Integer.compare(puntuB, puntuA);
+			    })
+			    .limit(10)
+			    .collect(Collectors.toList());
 		
 		PrintWriter writer = new PrintWriter("src/common/errekorrak.txt", "UTF-8");
 		for(String lerroa : top10) {

@@ -5,11 +5,20 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import eredua.JokoKudeatzailea;
@@ -29,6 +38,8 @@ public class PanelAmaiera extends JPanel implements PanelEgoera{
 		this.removeAll();
 		JPanel guztia = new JPanel(new BorderLayout());
 		guztia.setOpaque(false);
+		JPanel south = new JPanel(new GridLayout(2,1,0,0));
+		south.setOpaque(false);
 		JLabel label = new JLabel();
 		label.setFont(new Font("Trebuchet MS", Font.BOLD, 35));
 		label.setHorizontalAlignment(SwingConstants.CENTER);
@@ -69,6 +80,13 @@ public class PanelAmaiera extends JPanel implements PanelEgoera{
 		switch(e.getKeyCode()) {
 		case KeyEvent.VK_ESCAPE:
 			System.exit(0);
+			break;
+		case KeyEvent.VK_ENTER:
+			try {
+				JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getJokalaria().getPuntuazioa().fitxategiaEguneratu();
+			} catch (FileNotFoundException | UnsupportedEncodingException e1) {
+				e1.printStackTrace();
+			}
 			break;
 		case KeyEvent.VK_SPACE:
 			JokoBista.getJokoBista().aldatuPanela("Hasiera");

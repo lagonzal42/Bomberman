@@ -18,6 +18,8 @@ import java.awt.event.ComponentEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.WindowEvent;
+import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -62,6 +64,8 @@ public class JokoBista extends JFrame{
 	
 	//opzioen panela
 	private PanelOptions panelOptions = new PanelOptions();
+	
+	private PanelRecords panelRecords = new PanelRecords();
 
 	/**
 	 * Create the frame.
@@ -86,6 +90,7 @@ public class JokoBista extends JFrame{
 		mainPanel.add(panelJokoa, "Jokoa");
 		mainPanel.add(panelAmaiera, "Amaiera");
 		mainPanel.add(panelOptions, "Options");
+		mainPanel.add(panelRecords, "Records");
 		
 		getContentPane().add(mainPanel);
 		setVisible(true);
@@ -129,6 +134,14 @@ public class JokoBista extends JFrame{
 			break;
 		case("Options"):
 			panelEgoera = panelOptions;
+			break;
+		case("Records"):
+			try {
+				panelRecords.hasieratu();
+			} catch (FileNotFoundException | UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+			panelEgoera = panelRecords;
 			break;
 		case("Jokoa"):
 			panelEgoera = panelJokoa;
