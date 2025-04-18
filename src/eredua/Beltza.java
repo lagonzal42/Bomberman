@@ -7,6 +7,6 @@ public class Beltza extends Jokalaria {
 		super();
 		this.bonbaKop = 1;
 		this.color = "black";
-		this.bonPortaera = new UltraBonba();
+		this.bonba = new UltraBonba();
 	}
 }

@@ -41,7 +41,7 @@ public abstract class EreduMapa {
 		if (gelaxkak[y][x].hutsikDago()) {
 			Gelaxka gel = gelaxkak [y][x];
 			//bonba jarri
-			BonbaPortaera bon = jok.getBonba();
+			Bonba bon = jok.getBonba();
 			if (bon != null) {
 				gel.setBonba(bon);
 			//	gel.eguneratuGelaxka();
