@@ -1,5 +1,7 @@
 package eredua;
 
+import java.util.ArrayList;
+
 import common.Mugimendu;
 
 public abstract class Jokalaria{
@@ -8,11 +10,12 @@ public abstract class Jokalaria{
 	private int yPos;
 	private boolean hil;
 	private Mugimendu azkenMugi;
-	protected Bonba bonba;
-	protected int bonbaKop;
+//	protected Bonba bonba;
+//	protected int bonbaKop;
 	protected String color;
 	private Puntuazioa puntuazioa;
-		
+	private ArrayList<Bonba> bonbaZer;
+	
 	public Jokalaria() {
 		//super(pIrudia);
 		// TODO Auto-generated constructor stub
@@ -21,6 +24,7 @@ public abstract class Jokalaria{
 		hil = false;
 		azkenMugi = Mugimendu.BEHERA;
 		puntuazioa = new Puntuazioa();
+		bonbaZer = new ArrayList<Bonba>();
 	}
 	
 	public void mugituGora(){
@@ -163,44 +167,45 @@ public abstract class Jokalaria{
 	}
 	
 	public int getBonbaKop() {
-		return (this.bonbaKop);
+		return (this.bonbaZer.size());
 	}
 	
 	public void bonbaKendu() {
-		this.bonbaKop= this.bonbaKop-1;
-		if (this.bonbaKop == 0) {
+		this.bonbaZer.remove(bonbaZer.size()-1);
+		if (this.bonbaZer.isEmpty()) {
 			bonbaBarik();
 		}
 	}
 	
-	public void bonbaGehitu() {
-		this.bonbaKop ++;
+	public void bonbaGehitu(Bonba pBonba) {
+		this.bonbaZer.add(pBonba);
 	}
 	
 	public Bonba getBonba() { 
-		Bonba berria = null;
-		if (this.getBonbaKop()>0) {
-			System.out.println(this.bonbaKop + " garren bonba jarri duzu");
-			berria = this.bonba;
+		if (!bonbaZer.isEmpty()) {
+			System.out.println(this.bonbaZer.size()-1 + " bonba geratzen zaizkizu");
+			return this.bonbaZer.get(bonbaZer.size()-1);
 		}
-		return berria;
+		return null;
 	}	
 	
 	public void setBonba(Bonba pBonba)
 	{
-		bonba = pBonba;
+		this.bonbaZer.add(pBonba);
 	}
 	
 	public void bonbaBarik() {
 		System.out.println("Ez daukazu bonbarik, itxaron 3 segundo");
 		//bonba itxaron timerra
 		javax.swing.Timer itxaron = new javax.swing.Timer(3000, e->{
-			this.bonbaGehitu();
+			bonbaGehitu(this.batGehitu());
 			System.out.println("Bonba bakarra daukazu eskuragarri");
 		});
 		itxaron.setRepeats(false);
 		itxaron.start();
 	}
+	
+	protected abstract Bonba batGehitu();
 	
 	public String getColor() {
 		return color;
