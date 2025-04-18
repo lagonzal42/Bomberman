@@ -35,6 +35,7 @@ public class PanelAmaiera extends JPanel implements PanelEgoera{
 		JLabel puntuazioa = new JLabel("Puntuazioa: " + JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getJokalaria().getPuntuazioa().getPuntuak());
 		puntuazioa.setFont(new Font("Trebuchet MS", Font.BOLD, 35));
 		puntuazioa.setHorizontalAlignment(SwingConstants.CENTER);
+		puntuazioa.setOpaque(false);
 		guztia.add(label, BorderLayout.NORTH);
 		guztia.add(puntuazioa, BorderLayout.SOUTH);
 		if(pGaldu) {
@@ -73,7 +74,7 @@ public class PanelAmaiera extends JPanel implements PanelEgoera{
 			JokoBista.getJokoBista().aldatuPanela("Hasiera");
 			break;
 		}
-			
+		
 	}
-
+	
 }
