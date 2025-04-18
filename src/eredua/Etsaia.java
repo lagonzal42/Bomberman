@@ -32,10 +32,11 @@ public class Etsaia {
 	
 	private void mugitu() {
 		int bidea = this.biderikMotzena();
+		System.out.println("Bidea:"+bidea);
 		
 		if(bidea != -1) {
-			int x = bidea%10;
-			int y = bidea/10;
+			int x = bidea%100;
+			int y = bidea/100;
 			
 			if(x == this.xPos-1 && this.mugituAhal(y, x)) {
 				this.mugituEzkerra();
@@ -82,8 +83,8 @@ public class Etsaia {
 	
 	//smart
 	private int biderikMotzena() {
-		int etsaiPos = yPos*10+xPos;
-		int jokPos = JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getJokalaria().getY()*10 + JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getJokalaria().getX();
+		int etsaiPos = yPos*100+xPos;
+		int jokPos = JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getJokalaria().getY()*100 + JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getJokalaria().getX();
 		int pos = -1;
 		
 		Queue<Integer> aztertuGabeak = new LinkedList<Integer>();
@@ -96,29 +97,29 @@ public class Etsaia {
 		
 		while(!aztertuGabeak.isEmpty() && !aurkitua) {
 			Integer unekoa = aztertuGabeak.peek();
-			int y = unekoa /10;
-			int x = unekoa %10;
-			if(JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(y, x).getJokalaria()!=null) {
+			int y = unekoa /100;
+			int x = unekoa %100;
+			if(JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(y, x)!= null && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(y, x).getJokalaria()!=null) {
 				aurkitua = true;
 			}
 			else {
-				int auk1 = (y-1)*10+x;
-				int auk2 = (y+1)*10+x;
-				int auk3 = y*10+x-1;
-				int auk4 = y*10+x+1;
-				if(!backPointers.containsKey(auk1) && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk1/10, auk1%10)!=null && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk1/10, auk1%10).hutsikDago() && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk1/10, auk1%10).getBonba()==null) {
+				int auk1 = (y-1)*100+x;
+				int auk2 = (y+1)*100+x;
+				int auk3 = y*100+x-1;
+				int auk4 = y*100+x+1;
+				if(!backPointers.containsKey(auk1) && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk1/100, auk1%100)!=null && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk1/100, auk1%100).hutsikDago() && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk1/100, auk1%100).getBonba()==null) {
 					backPointers.put(auk1, unekoa);
 					aztertuGabeak.add(auk1);
 				}
-				if(!backPointers.containsKey(auk2) && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk2/10, auk2%10)!=null && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk2/10, auk2%10).hutsikDago() && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk2/10, auk2%10).getBonba()==null) {
+				if(!backPointers.containsKey(auk2) && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk2/100, auk2%100)!=null && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk2/100, auk2%100).hutsikDago() && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk2/100, auk2%100).getBonba()==null) {
 					backPointers.put(auk2, unekoa);
 					aztertuGabeak.add(auk2);
 				}
-				if(!backPointers.containsKey(auk3) && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk3/10, auk3%10)!=null && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk3/10, auk3%10).hutsikDago() && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk3/10, auk3%10).getBonba()==null) {
+				if(!backPointers.containsKey(auk3) && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk3/100, auk3%100)!=null && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk3/100, auk3%100).hutsikDago() && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk3/100, auk3%100).getBonba()==null) {
 					backPointers.put(auk3, unekoa);
 					aztertuGabeak.add(auk3);
 				}
-				if(!backPointers.containsKey(auk4) && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk4/10, auk4%10)!=null && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk4/10, auk4%10).hutsikDago() && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk4/10, auk4%10).getBonba()==null) {
+				if(!backPointers.containsKey(auk4) && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk4/100, auk4%100)!=null && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk4/100, auk4%100).hutsikDago() && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk4/100, auk4%100).getBonba()==null) {
 					backPointers.put(auk4, unekoa);
 					aztertuGabeak.add(auk4);
 				}
