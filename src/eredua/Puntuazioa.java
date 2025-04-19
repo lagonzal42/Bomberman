@@ -111,6 +111,7 @@ public class Puntuazioa {
 			scan.close();
 		}
 		Date data = Calendar.getInstance().getTime();
+		data.setSeconds(0);
 		
 		if(!datuakDitu(puntuazioak,data, punt)) {
 			puntuazioak.add(punt + "::"+ data);			

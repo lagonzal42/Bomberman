@@ -20,12 +20,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.Timer;
 
 import eredua.JokoKudeatzailea;
 
 public class PanelAmaiera extends JPanel implements PanelEgoera{
 
 	private static final long serialVersionUID = 1L;
+	private Timer timer;
+	private int kont;
 
 	/**
 	 * Create the panel.
@@ -35,6 +38,10 @@ public class PanelAmaiera extends JPanel implements PanelEgoera{
 	}
 	
 	public void itxi(boolean pGaldu) {
+		timer = new javax.swing.Timer(1000, e ->{
+			this.updateKont();
+		});
+		timer.start();
 		this.removeAll();
 		JPanel guztia = new JPanel(new BorderLayout());
 		guztia.setOpaque(false);
@@ -78,6 +85,10 @@ public class PanelAmaiera extends JPanel implements PanelEgoera{
 		add(guztia, BorderLayout.CENTER);
 	}
 	
+	private void updateKont() {
+		kont ++;
+	}
+
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -90,10 +101,12 @@ public class PanelAmaiera extends JPanel implements PanelEgoera{
 		switch(e.getKeyCode()) {
 		case KeyEvent.VK_ESCAPE:
 			System.exit(0);
-			break;
+			break;				
 		case KeyEvent.VK_SPACE:
-			JokoBista.getJokoBista().aldatuPanela("Hasiera");
-			break;
+			if(kont > 1) {
+				JokoBista.getJokoBista().aldatuPanela("Hasiera");
+				break;
+			}
 		}
 		
 	}
