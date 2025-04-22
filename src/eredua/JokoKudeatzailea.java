@@ -8,6 +8,7 @@ public class JokoKudeatzailea{
 	
 	private static JokoKudeatzailea nJK = null;
 	private EreduMapa eMapa;
+	private boolean irabazi = false;
 	
 	private JokoKudeatzailea() {
 		
@@ -34,5 +35,14 @@ public class JokoKudeatzailea{
 	
 	public void mapaErreseteatu() {
 		eMapa = null;
+		irabazi = false;
+	}
+	
+	public void setIrabazi() {
+		irabazi = true;
+	}
+	
+	public boolean getIrabazi() {
+		return irabazi;
 	}
 }

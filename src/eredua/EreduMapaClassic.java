@@ -27,6 +27,9 @@ public class EreduMapaClassic extends EreduMapa {
 					zerrenda[i][j].setBlokea(BlokeFactory.getBF().createBloke(1));
 					//zerrenda[i][j].setBlokea(new Hutsik()); 
 				}
+				else if(i == 10 && j == 16) {
+					zerrenda[i][j].setBlokea(BlokeFactory.getBF().createBloke(4));
+				}
 				else if((j % 2 != 0 && i % 2 != 0)) {
 					//bloke gogorra
 					zerrenda[i][j].setBlokea(BlokeFactory.getBF().createBloke(3));

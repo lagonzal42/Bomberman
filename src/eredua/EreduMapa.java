@@ -1,5 +1,8 @@
 package eredua;
 
+import java.awt.Point;
+import java.util.ArrayList;
+
 import bista.JokoBista;
 import common.Mugimendu;
 
@@ -95,8 +98,32 @@ public abstract class EreduMapa {
 	
 	public void etsaiakMurriztu() {
 		etsaiKop --;
+		if(etsaiKop == 0) {
+			this.giltzaJarri();
+		}
 	}
 	
+	private void giltzaJarri() {
+		ArrayList<Point> hutsik = new ArrayList<>();
+		
+		for(int i = 0; i < lerroak; i++) {
+			for(int j = 0; j < zutabeak; j++) {
+				Gelaxka gel = gelaxkak[i][j];
+				if(gel.hutsikDago()) {
+					hutsik.add(new Point(i,j));
+				}
+			}
+		}
+		
+		if(!hutsik.isEmpty()) {
+			Dadoa dado = Dadoa.getNireDadoa();
+			Point pos = hutsik.get(dado.zenbakiaAukeratu(0, hutsik.size()));
+			
+			gelaxkak[pos.x][pos.y].setGiltza(true);
+		}
+		
+	}
+
 	public void etsaiakGelditu() {
 		for(int i = 0; i < lerroak; i++)
 		{
@@ -127,14 +154,4 @@ public abstract class EreduMapa {
 		}
 		jok.printPosizio();
 	}
-	
-	public boolean partidaBukatu()
-	{
-		if(etsaiKop == 0) {
-			this.etsaiakGelditu();
-			jok.getPuntuazioa().irabazi();
-		}
-		return etsaiKop == 0;
-	}
-	
 }

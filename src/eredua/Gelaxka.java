@@ -14,6 +14,7 @@ public class Gelaxka extends Observable{
 	private boolean 	sua;
 	private Bloke		blokea;
 	private Etsaia		etsaia;
+	private boolean giltza;
 	
 	public Gelaxka() {
 		
@@ -149,7 +150,10 @@ public class Gelaxka extends Observable{
 		} 
 		else if (sua==true) {
 			gM=GelaxkaMota.SUA;
-		}	
+		}
+		else if(giltza == true) {
+			gM = GelaxkaMota.GILTZA;
+		}
 		else if (this.blokea instanceof Hutsik)
 		{
 			if(etsaia!= null) {
@@ -171,7 +175,11 @@ public class Gelaxka extends Observable{
 		{
 			gM = GelaxkaMota.GOGORRA;
 		}
-		if(JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().partidaBukatu()) {
+		else if (this.blokea instanceof Irteera) {
+			gM = GelaxkaMota.IRTEERA;
+		}
+		if(JokoKudeatzailea.getJokoKudeatzaileaa().getIrabazi()) {
+			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getJokalaria().getPuntuazioa().irabazi();
 			gM = GelaxkaMota.IRABAZI;
 		}
 		
@@ -195,5 +203,18 @@ public class Gelaxka extends Observable{
 	
 	public Etsaia getEtsaia() {
 		return this.etsaia;
+	}
+
+	public boolean irteeraDa() {
+		return this.blokea instanceof Irteera;
+	}
+
+	public void setGiltza(boolean b) {
+		giltza = b;
+		this.eguneratuGelaxka();
+	}
+
+	public boolean getGiltza() {
+		return this.giltza;
 	}
 }

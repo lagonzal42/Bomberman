@@ -24,6 +24,9 @@ public class EreduMapaSoft extends EreduMapa{
 					zerrenda[i][j].setBlokea(BlokeFactory.getBF().createBloke(1));
 					//zerrenda[i][j].setBlokea(new Hutsik()); 
 				}
+				else if(i == 10 && j == 16) {
+					zerrenda[i][j].setBlokea(BlokeFactory.getBF().createBloke(4));
+				}
 				//ez daude bloke gogorrik
 				else if(dado.gainditzenDu(0.4)){
 					//bloke biguna

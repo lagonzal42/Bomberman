@@ -15,7 +15,7 @@ public abstract class Jokalaria{
 	protected String color;
 	private Puntuazioa puntuazioa;
 	private ArrayList<Bonba> bonbaZer;
-	private Boolean giltzaDu;
+	private boolean giltzaDu = false;
 	
 	public Jokalaria() {
 		//super(pIrudia);
@@ -59,6 +59,10 @@ public abstract class Jokalaria{
 			//Matrizea.getMatrizea().getEreduMapa().aldatuPos(xPos, yPos, xPos+1, yPos);
 			this.xPos = xPos1;
 			this.yPos = yPos1;
+			if(JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).getGiltza()) {
+				JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).setGiltza(false);
+				this.giltzaDu = true;
+			}
 			if (JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).getSua() == true) {
 				this.hil = true;
 				this.setAzkenMugi(Mugimendu.HILDAS);
@@ -73,8 +77,16 @@ public abstract class Jokalaria{
 			}
 			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
 		}
+		else if(gel != null && gel.irteeraDa()) {
+			if(this.giltzaDu == true) {
+				JokoKudeatzailea.getJokoKudeatzaileaa().setIrabazi();
+				JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).setJokalaria(null);
+				JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
+				JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos1, xPos1).setJokalaria(this);
+			}
+		}
 	}
-	
+
 	public Mugimendu getAzkenMugi()
 	{
 		return (this.azkenMugi);

@@ -26,6 +26,9 @@ public class BlokeFactory {
 		else if(type == 3) {
 			blok = new Gogorra();
 		}
+		else if(type == 4) {
+			blok = new Irteera();
+		}
 		return blok;
 	}
 }

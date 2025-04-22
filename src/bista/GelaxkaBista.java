@@ -69,6 +69,9 @@ public class GelaxkaBista extends JLabel implements Observer{
 					this.setIrudia("/bista/Sprites/hard1.png");
 					//path = "/bista/Sprites/whiteleft1.png";
 					break;
+				case IRTEERA:
+					this.setIrudia("/bista/Sprites/irteera.png");
+					break;
 				case JOKALARIAGORA:
 					this.setIrudia("/bista/Sprites/"+color+"up1.png");
 					//path = "/bista/Sprites/whiteright1.png";
@@ -95,6 +98,9 @@ public class GelaxkaBista extends JLabel implements Observer{
 				//	this.setIrudia("/bista/Sprites/kaBomb5.png");
 					this.setIrudia("/bista/Sprites/miniBlast1.gif");
 					//path = "/bista/Sprites/whiteright1.png";
+					break;
+				case GILTZA:
+					this.setIrudia("/bista/Sprites/giltza.png");
 					break;
 				case SUBERDEA:
 					this.setIrudia("/bista/Sprites/miniBlast2.gif");
@@ -124,7 +130,7 @@ public class GelaxkaBista extends JLabel implements Observer{
 					break;
 					//path = "/bista/Sprites/baloon2.png";
 				case IRABAZI:
-					this.setIrudia("/bista/Sprites/miniBlast1.gif");
+					//this.setIrudia("/bista/Sprites/miniBlast1.gif");
 					animazioa = new Timer(2000, e -> {
 						((Timer) e.getSource()).stop();
 						JokoBista.getJokoBista().itxi(false);

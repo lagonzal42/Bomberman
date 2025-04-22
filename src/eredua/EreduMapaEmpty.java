@@ -20,10 +20,8 @@ public class EreduMapaEmpty extends EreduMapa{
 					zerrenda[i][j].setJokalaria(jok);
 					
 				}
-				else if((j == 0 && i == 1) || (j == 1 && i == 0)) {
-					//hutsik
-					zerrenda[i][j].setBlokea(BlokeFactory.getBF().createBloke(1));
-					//zerrenda[i][j].setBlokea(new Hutsik()); 
+				else if(i == 10 && j == 16) {
+					zerrenda[i][j].setBlokea(BlokeFactory.getBF().createBloke(4));
 				}
 				//ez daude blokerik
 				//proba kutre

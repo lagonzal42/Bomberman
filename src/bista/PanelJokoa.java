@@ -47,7 +47,7 @@ public class PanelJokoa extends JPanel implements PanelEgoera{
 	public void teklaSakatuta(KeyEvent e) {
 		JokoKudeatzailea mat = JokoKudeatzailea.getJokoKudeatzaileaa();
 		
-		if(!mat.getEreduMapa().partidaBukatu() && !mat.getEreduMapa().getJokalaria().getHilda()) {
+		if(!mat.getIrabazi() && !mat.getEreduMapa().getJokalaria().getHilda()) {
 			switch(e.getKeyCode()) {
 			case KeyEvent.VK_UP:
 				mat.getEreduMapa().mugituJokalaria(Mugimendu.GORA);
