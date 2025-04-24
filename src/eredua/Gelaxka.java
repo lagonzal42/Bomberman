@@ -8,10 +8,10 @@ import common.Mugimendu;
 public class Gelaxka extends Observable{
 	
 	private Jokalaria	jok;
-//	private BonbaPortaera		bonba;
 	private Bonba bonba;
 	private javax.swing.Timer suaTimerra = null;
 	private boolean 	sua;
+	private boolean 	suMorea;
 	private Bloke		blokea;
 	private Etsaia		etsaia;
 	private boolean giltza;
