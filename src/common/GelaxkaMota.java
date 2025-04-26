@@ -11,6 +11,7 @@ public enum GelaxkaMota {
 	BONBA,
 	SUA,
 	SUBERDEA,
+	SUMOREA,
 	GILTZA,
 	BIGUNA,
 	GOGORRA,

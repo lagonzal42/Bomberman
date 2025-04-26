@@ -10,10 +10,10 @@ public class Gelaxka extends Observable{
 	private Jokalaria	jok;
 	private Bonba bonba;
 	private javax.swing.Timer suaTimerra = null;
-	private boolean 	sua;
-	private boolean 	suMorea;
-	private Bloke		blokea;
-	private Etsaia		etsaia;
+	private boolean sua;
+	private String suaKolorea;
+	private Bloke blokea;
+	private Etsaia etsaia;
 	private boolean giltza;
 	
 	public Gelaxka() {
@@ -48,7 +48,7 @@ public class Gelaxka extends Observable{
 	
 	public void bonbaApurtu(){
 		if (bonba!=null) {
-			this.bonba=null;
+	//		this.bonba=null;
 			if(this.jok!=null) {
 				jok.setBonba(null);
 				jok.setAzkenMugi(Mugimendu.HILDAS);
@@ -76,8 +76,18 @@ public class Gelaxka extends Observable{
 	        JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().etsaiakMurriztu();
 	        JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getJokalaria().getPuntuazioa().etsaiaHil();
 		}
+		
+		if (bonba!=null) {
+			if (bonba.getEztandaPortaera() instanceof EztandaBat) {
+				suaKolorea="horia";
+			}else {
+				suaKolorea="morea";
+			}
+		}
+		
 		this.sua=true;
 		this.eguneratuGelaxka();
+		
 		
 		//sua errementa
 		suaTimerra =new javax.swing.Timer(2000, o-> {
@@ -96,6 +106,10 @@ public class Gelaxka extends Observable{
 	public void deleteSua() {
 		this.sua=false;
 		this.eguneratuGelaxka();
+	}
+	
+	public void setSuaKolorea(String pKolorea) {
+		this.suaKolorea=pKolorea;
 	}
 	
 	public void eguneratuGelaxka()
@@ -149,7 +163,11 @@ public class Gelaxka extends Observable{
 			
 		} 
 		else if (sua==true) {
-			gM=GelaxkaMota.SUA;
+			if (suaKolorea=="horia") {
+				gM =GelaxkaMota.SUA;
+			}else{
+				gM = GelaxkaMota.SUMOREA;
+			}
 		}
 		else if(giltza == true) {
 			gM = GelaxkaMota.GILTZA;

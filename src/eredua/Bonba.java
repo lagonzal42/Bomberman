@@ -14,4 +14,12 @@ public abstract class Bonba {
 	public void eztandaAldatu(BonbaEztandaPortaera pBonbPort) {
 		this.bonbPort= pBonbPort;
 	}
+	
+//	public String getSuarenKolorea() {
+//		return this.bonbPort.getSuarenKolorea();
+//	}
+	
+	public BonbaEztandaPortaera getEztandaPortaera() {
+		return this.bonbPort;
+	}
 }

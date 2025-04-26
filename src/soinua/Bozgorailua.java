@@ -89,6 +89,9 @@ public class Bozgorailua implements Observer{
 				case SUA:
 					bonba.hasi();;
 					break;
+				case SUMOREA:
+					bonba.hasi();
+					break;
 				case JOKALARIASUAREKIN:
 					musika.pausatu();
 					musikaOn = false;

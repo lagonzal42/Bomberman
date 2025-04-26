@@ -47,7 +47,6 @@ public abstract class EreduMapa {
 			Bonba bon = jok.getBonba();
 			if (bon != null) {
 				gel.setBonba(bon);
-			//	gel.eguneratuGelaxka();
 				jok.bonbaKendu();
 				System.out.println("Bonba jarri du ("+y+","+x+")");
 			
@@ -63,18 +62,18 @@ public abstract class EreduMapa {
 	}
 
 	
-	public boolean apurtuBlokea(int errenkada, int zutabea) {
+	public boolean apurtuBlokea(int errenkada, int zutabea, String kolorea) {
 		if (errenkada >= 0 && errenkada < 11 && zutabea >= 0 && zutabea < 17) {
 			Gelaxka gel = gelaxkak[errenkada][zutabea];
 			if (gel.getBlokea() instanceof Biguna) {
 				gel.setBlokea(new Hutsik());
-				this.suaJarri(errenkada, zutabea);
+				this.suaJarri(errenkada, zutabea, kolorea);
 				System.out.println("blokea apurtu da:"+ errenkada +","+ zutabea);
 				jok.getPuntuazioa().blokeaApurtu();
 				blokeKop--;
 			}
 			else if (gel.hutsikDago() || gel.getSua()) {
-				this.suaJarri(errenkada, zutabea);
+				this.suaJarri(errenkada, zutabea, kolorea);
 			}
 			else if (gel.getBlokea() instanceof Gogorra) {
 				return false;
@@ -83,9 +82,11 @@ public abstract class EreduMapa {
 		return true;
 	}
 	
-	private void suaJarri(int errenkada, int zutabea) {
+	private void suaJarri(int errenkada, int zutabea, String kolorea) {
 		Gelaxka gel = gelaxkak[errenkada][zutabea];
+		gel.setSuaKolorea(kolorea);
 		gel.setSua();
+		gel.setBonba(null);
 	}
 	
 	public void etsaiakMurriztu() {
