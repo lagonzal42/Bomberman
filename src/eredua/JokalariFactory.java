@@ -19,8 +19,10 @@ public class JokalariFactory {
 		
 		if (pJokMota == 1)
 			jokBerria = new Zuria();
-		else
+		else if (pJokMota == 2)
 			jokBerria = new Beltza();
+		else
+			jokBerria = new Urdina();
 		return (jokBerria);
 	}
 }

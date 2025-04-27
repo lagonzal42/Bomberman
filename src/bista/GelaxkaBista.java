@@ -90,6 +90,9 @@ public class GelaxkaBista extends JLabel implements Observer{
 					this.setIrudia("/bista/Sprites/"+color+"withbomb1.png");
 					//path = "/bista/Sprites/whiteright1.png";
 					break;
+				case JOKALARIAULTRABONBAREKIN:
+					this.setIrudia("/bista/Sprites/"+ color +"withbomb2.png");
+					break;
 				case BONBAESTANDA:
 					this.setIrudia("/bista/Sprites/kabomb1.png");
 					//path = "/bista/Sprites/whiteright1.png";
@@ -142,9 +145,6 @@ public class GelaxkaBista extends JLabel implements Observer{
 			        break;
 				case ULTRABONBA:
 					this.setIrudia("/bista/Sprites/bomb2.png");
-					break;
-				case JOKALARIAULTRABONBAREKIN:
-					this.setIrudia("/bista/Sprites/blackwithbomb2.png");
 					break;
 				default:
 					this.setIrudia("/bista/Sprites/"+color+"down1.png");

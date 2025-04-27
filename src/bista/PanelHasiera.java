@@ -74,7 +74,7 @@ public class PanelHasiera extends JPanel implements PanelEgoera{
 		erdikoPanela.add(erabaki, BorderLayout.NORTH);
 		
 		//Jokalarien irudiak erakutzi
-		pertsonaienPanela = new JPanel(new GridLayout(1,2,0,0));
+		pertsonaienPanela = new JPanel(new GridLayout(1,3,0,0));
 		pertsonaienPanela.setOpaque(false);
 		updatePertsonaienPanela();
 		erdikoPanela.add(pertsonaienPanela, BorderLayout.CENTER);
@@ -124,7 +124,7 @@ public class PanelHasiera extends JPanel implements PanelEgoera{
 		ImageIcon icon;
 		for(int i = 1; i < pertsonaiak.length; i++) {
 			if(i == aukeratutakoPertsonaia) {
-				icon = new  ImageIcon(getClass().getResource("/bista/Sprites/bomber"+i+"selectedhandia.png"));
+				icon = new  ImageIcon(getClass().getResource("/bista/Sprites/bomber"+i+"handia.png"));
 			}
 			else {
 				icon = new ImageIcon(pertsonaiak[i]);	
@@ -139,9 +139,9 @@ public class PanelHasiera extends JPanel implements PanelEgoera{
 	private void irudiakKargatu() {
 		backHasiera = new ImageIcon(getClass().getResource("/bista/Sprites/back.png")).getImage();
 		titulua = new ImageIcon(getClass().getResource("/bista/Sprites/title.png")).getImage();
-		pertsonaiak = new Image[3];
+		pertsonaiak = new Image[4];
 		for (int i = 1; i < pertsonaiak.length; i++) {
-			pertsonaiak[i] = new ImageIcon(getClass().getResource("/bista/Sprites/bomber"+i+"handia.png")).getImage();
+			pertsonaiak[i] = new ImageIcon(getClass().getResource("/bista/Sprites/bomber"+i+"zb.png")).getImage();
 		}	
 	}
 	
@@ -169,13 +169,13 @@ public class PanelHasiera extends JPanel implements PanelEgoera{
 		case KeyEvent.VK_LEFT:
 			System.out.println("2");
 			//TODO: aukeratu hurrengo pertsonaia
-			if(aukeratutakoPertsonaia -1 == 1) {
+			if(aukeratutakoPertsonaia -1 >= 1) {
 				aukeratutakoPertsonaia --;
 				this.setAukeratutakoPertsonaia(aukeratutakoPertsonaia);
 			}
 			break;
 		case KeyEvent.VK_RIGHT:
-			if(aukeratutakoPertsonaia + 1 == 2) {
+			if(aukeratutakoPertsonaia + 1 <= 3) {
 				aukeratutakoPertsonaia ++;
 				this.setAukeratutakoPertsonaia(aukeratutakoPertsonaia);
 			}

@@ -12,7 +12,7 @@ public class EreduMapaClassic extends EreduMapa {
 	
 	private Gelaxka[][] matrizeaSortu() {
 		Dadoa dado = Dadoa.getNireDadoa();
-		Gelaxka[][] zerrenda = new Gelaxka[lerroak][zutabeak];
+		Gelaxka[][] zerrenda = new Gelaxka[lerroak][zutabeak];	
 		for(int i = 0; i < lerroak; i++) {
 			for(int j = 0; j < zutabeak; j++) {
 				zerrenda[i][j] = new Gelaxka();
@@ -59,5 +59,5 @@ public class EreduMapaClassic extends EreduMapa {
 		return zerrenda;
 	}
 	
-
+	
 }
