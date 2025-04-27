@@ -2,6 +2,7 @@ package eredua;
 
 import java.awt.Point;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import bista.JokoBista;
 import common.Mugimendu;
@@ -22,11 +23,7 @@ public abstract class EreduMapa {
 	
 	public void hasieratuBista()
 	{
-		for(int i = 0; i < lerroak; i++)
-		{
-			for(int j = 0; j < zutabeak; j++)
-				gelaxkak[i][j].eguneratuGelaxka();
-		}
+		Arrays.stream(gelaxkak).forEach(lerroa -> Arrays.stream(lerroa).forEach(gelaxka -> gelaxka.eguneratuGelaxka()));
 	}
 	
 	public Gelaxka getGelaxka(int i, int j){
@@ -118,14 +115,13 @@ public abstract class EreduMapa {
 	}
 
 	public void etsaiakGelditu() {
-		for(int i = 0; i < lerroak; i++)
-		{
-			for(int j = 0; j < zutabeak; j++)
-				if(gelaxkak[i][j].getEtsaia() != null) {
-					gelaxkak[i][j].getEtsaia().geldituEtsaia();
-					gelaxkak[i][j].setEtsaia(null);
-				}
-		}
+		
+		Arrays.stream(gelaxkak).forEach(lerroa -> Arrays.stream(lerroa).forEach(gelaxka -> {
+			if(gelaxka.getEtsaia() != null) {
+				gelaxka.getEtsaia().geldituEtsaia();
+				gelaxka.setEtsaia(null);
+			}
+		}));
 	}
 	
 	public void mugituJokalaria(Mugimendu mugimendu)
