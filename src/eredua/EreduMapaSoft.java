@@ -38,7 +38,7 @@ public class EreduMapaSoft extends EreduMapa{
 				else if(dado.gainditzenDu(0.9) && etsaiKop < 9) {
 					zerrenda[i][j].setBlokea(BlokeFactory.getBF().createBloke(1));
 					//zerrenda[i][j].setBlokea(new Hutsik());
-					zerrenda[i][j].setEtsaia(new Etsaia(j,i));
+					zerrenda[i][j].setEtsaia(EtsaiaFactory.getEtsFactory().etsaiaSortu(Dadoa.getNireDadoa().zenbakiaAukeratu(0,2), j, i));
 					zerrenda[i][j].getEtsaia().hasieratuEtsaia();
 					etsaiKop ++;
 				}

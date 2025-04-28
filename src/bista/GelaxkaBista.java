@@ -135,6 +135,12 @@ public class GelaxkaBista extends JLabel implements Observer{
 					this.setIrudia("/bista/Sprites/baloon2.png");
 					break;
 					//path = "/bista/Sprites/baloon2.png";
+				case ETSAIAIESKUMA:
+					this.setIrudia("/bista/Sprites/doria1.png");
+					break;
+				case ETSAIAIEZKERRA:
+					this.setIrudia("/bista/Sprites/doria2.png");
+					break;
 				case IRABAZI:
 					//this.setIrudia("/bista/Sprites/miniBlast1.gif");
 					animazioa = new Timer(2000, e -> {

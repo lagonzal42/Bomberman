@@ -55,7 +55,12 @@ public class PanelRecords extends JPanel implements PanelEgoera{
 		switch(e.getKeyCode()) {
 		case KeyEvent.VK_SPACE:
 			JokoBista.getJokoBista().aldatuPanela("Hasiera");
+			break;
+		case KeyEvent.VK_ESCAPE:
+			System.exit(0);
+			break;
 		}
+			
 		
 	}
 

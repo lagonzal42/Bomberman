@@ -9,12 +9,12 @@ import java.util.Queue;
 
 import javax.swing.Timer;
 
-public class Etsaia {
+public abstract class Etsaia {
 	
-	private int xPos;
-	private int yPos;
-	private Mugimendu azkenMugi;
-	private Timer denbora;
+	protected int xPos;
+	protected int yPos;
+	protected Mugimendu azkenMugi;
+	protected Timer denbora;
 	
 	public Etsaia(int x, int y) {
 		xPos = x;
@@ -30,137 +30,27 @@ public class Etsaia {
 		denbora.start();
 	}
 	
-	private void mugitu() {
-		int bidea = this.biderikMotzena();
-		System.out.println("Bidea:"+bidea);
-		
-		if(bidea != -1) {
-			int x = bidea%100;
-			int y = bidea/100;
-			
-			if(x == this.xPos-1 && this.mugituAhal(y, x)) {
-				this.mugituEzkerra();
-			}
-			else if(x == this.xPos+1 && this.mugituAhal(y, x)) {
-				this.mugituEskuma();
-			}
-			else if(y == this.yPos-1 && this.mugituAhal(y, x)) {
-				this.mugituGora();
-			}
-			else if(y == this.yPos+1 && this.mugituAhal(y, x)) {
-				this.mugituBehera();
-			}
-		}
-		else {
-			ArrayList<Integer> mugimenduPosibleak = new ArrayList();
-			if (mugituAhal(this.yPos-1,this.xPos)) {
-				mugimenduPosibleak.add(1);
-			} 
-			if (mugituAhal(this.yPos+1,this.xPos)) {
-				mugimenduPosibleak.add(2);
-			}
-			if (mugituAhal(this.yPos,this.xPos-1)) {
-				mugimenduPosibleak.add(3);
-			} 
-			if (mugituAhal(this.yPos,this.xPos+1)) {
-				mugimenduPosibleak.add(4);
-			}
-			mugimenduPosibleak.add(5);
-			int zenbRandom = Dadoa.getNireDadoa().zenbakiaAukeratu(1,mugimenduPosibleak.size()+1);
-			int zenb = mugimenduPosibleak.get(zenbRandom-1);
-			if (zenb == 1) {
-				mugituGora();
-			} else if (zenb == 2) {
-				mugituBehera();
-			} else if (zenb == 3) {
-				mugituEzkerra();
-			} else if (zenb == 4) {
-				mugituEskuma();
-			}	
-		}
-		
-	}
+	protected abstract void mugitu();
 	
-	//smart
-	private int biderikMotzena() {
-		int etsaiPos = yPos*100+xPos;
-		int jokPos = JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getJokalaria().getY()*100 + JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getJokalaria().getX();
-		int pos = -1;
-		
-		Queue<Integer> aztertuGabeak = new LinkedList<Integer>();
-		HashMap<Integer, Integer> backPointers = new HashMap<Integer,Integer>();
-		ArrayList<Integer> bidea = new ArrayList<Integer>();
-		
-		boolean aurkitua = false;
-		aztertuGabeak.add(etsaiPos);
-		backPointers.put(etsaiPos, null);
-		
-		while(!aztertuGabeak.isEmpty() && !aurkitua) {
-			Integer unekoa = aztertuGabeak.peek();
-			int y = unekoa /100;
-			int x = unekoa %100;
-			if(JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(y, x)!= null && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(y, x).getJokalaria()!=null) {
-				aurkitua = true;
-			}
-			else {
-				int auk1 = (y-1)*100+x;
-				int auk2 = (y+1)*100+x;
-				int auk3 = y*100+x-1;
-				int auk4 = y*100+x+1;
-				if(!backPointers.containsKey(auk1) && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk1/100, auk1%100)!=null && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk1/100, auk1%100).hutsikDago() && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk1/100, auk1%100).getBonba()==null) {
-					backPointers.put(auk1, unekoa);
-					aztertuGabeak.add(auk1);
-				}
-				if(!backPointers.containsKey(auk2) && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk2/100, auk2%100)!=null && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk2/100, auk2%100).hutsikDago() && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk2/100, auk2%100).getBonba()==null) {
-					backPointers.put(auk2, unekoa);
-					aztertuGabeak.add(auk2);
-				}
-				if(!backPointers.containsKey(auk3) && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk3/100, auk3%100)!=null && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk3/100, auk3%100).hutsikDago() && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk3/100, auk3%100).getBonba()==null) {
-					backPointers.put(auk3, unekoa);
-					aztertuGabeak.add(auk3);
-				}
-				if(!backPointers.containsKey(auk4) && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk4/100, auk4%100)!=null && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk4/100, auk4%100).hutsikDago() && JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(auk4/100, auk4%100).getBonba()==null) {
-					backPointers.put(auk4, unekoa);
-					aztertuGabeak.add(auk4);
-				}
-				aztertuGabeak.remove();
-			}
-		}
-		if(aurkitua) {
-			int unekoa = aztertuGabeak.poll();
-			while(backPointers.get(unekoa) != null) {
-				bidea.add(0,unekoa);
-				unekoa = backPointers.get(unekoa);
-			}
-			//interesatzen zaigun pozizioa
-			if(!bidea.isEmpty()) {
-				pos = bidea.get(0);				
-			}
-		}
-		return pos;
-		
-	}
-	//smart
-	
-	private void mugituGora() {
+	protected void mugituGora() {
 		this.mugitu(yPos-1, xPos);
 	}
 	
-	private void mugituBehera() {
+	protected void mugituBehera() {
 		this.mugitu(yPos+1, xPos);
 	}
 	
-	private void mugituEzkerra() {
+	protected void mugituEzkerra() {
 		this.setAzkenMugi(Mugimendu.EZKER);
 		this.mugitu(yPos, xPos-1);
 	}
 	
-	private void mugituEskuma() {
+	protected void mugituEskuma() {
 		this.setAzkenMugi(Mugimendu.ESKUIN);
 		this.mugitu(yPos, xPos + 1);
 	}
 	
-	private void mugitu(int yPos1, int xPos1) {
+	protected void mugitu(int yPos1, int xPos1) {
 		JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).setEtsaia(null);
 		JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
 		JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos1, xPos1).setEtsaia(this);
@@ -176,7 +66,7 @@ public class Etsaia {
 		
 	}
 	
-	private void setAzkenMugi(Mugimendu m) {
+	protected void setAzkenMugi(Mugimendu m) {
 		this.azkenMugi = m;
 	}
 	
@@ -198,7 +88,7 @@ public class Etsaia {
 		}
 		
 	}
-	private boolean mugituAhal(int y, int x) {
+	protected boolean mugituAhal(int y, int x) {
 		boolean ema = false;
 		Gelaxka gel = JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(y, x);
 		if (!(y < 0 || x< 0 || y > 10 || x > 16) && gel != null && gel.hutsikDago() && gel.getBonba()==null && gel.getSua()==false && gel.getEtsaia()==null) {

@@ -175,10 +175,19 @@ public class Gelaxka extends Observable{
 		else if (this.blokea instanceof Hutsik)
 		{
 			if(etsaia!= null) {
-				if (etsaia.getAzkenMugi() == Mugimendu.ESKUIN) {
-					gM = GelaxkaMota.ETSAIAESKUMA;
-				} else {
-					gM = GelaxkaMota.ETSAIAEZKERRA;
+				if(etsaia instanceof EtsaiNormala) {
+					if (etsaia.getAzkenMugi() == Mugimendu.ESKUIN) {
+						gM = GelaxkaMota.ETSAIAESKUMA;
+					} else {
+						gM = GelaxkaMota.ETSAIAEZKERRA;
+					}
+				}
+				else {
+					if (etsaia.getAzkenMugi() == Mugimendu.ESKUIN) {
+						gM = GelaxkaMota.ETSAIAIESKUMA;
+					} else {
+						gM = GelaxkaMota.ETSAIAIEZKERRA;
+					}
 				}
 			}
 			else {
