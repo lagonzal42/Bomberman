@@ -13,7 +13,7 @@ public class EztandaIngurua  implements BonbaEztandaPortaera {
 		if (x<19) posAmaX=x+1;
 		if (y>0) posHasY=y-1;
 		if (y<16) posAmaY=y+1;
-		
+		//bestelaik
 		for (int i=posHasX; i<=posAmaX;i++) {
 			for (int j=posHasY;j<=posAmaY;j++) {
 				if (!(i == x && j == y)) {
