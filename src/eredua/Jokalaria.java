@@ -10,12 +10,12 @@ public abstract class Jokalaria{
 	private int yPos;
 	private boolean hil;
 	private Mugimendu azkenMugi;
-//	protected Bonba bonba;
-//	protected int bonbaKop;
 	protected String color;
 	private Puntuazioa puntuazioa;
 	private ArrayList<Bonba> bonbaZer;
+	private Bonba burbuila = new BonbaBurbuila();
 	private boolean giltzaDu = false;
+	private int kontBurb =1;
 	
 	public Jokalaria() {
 		//super(pIrudia);

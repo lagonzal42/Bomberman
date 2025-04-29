@@ -79,6 +79,20 @@ public abstract class EreduMapa {
 		return true;
 	}
 	
+	public void babestuBlokea(int errenkada, int zutabea, String kolorea) {
+		if (errenkada >= 0 && errenkada < 11 && zutabea >= 0 && zutabea < 17) {
+			Gelaxka gel = gelaxkak[errenkada][zutabea];
+			gel.setBlokea(new Hutsik());
+			this.suaJarri(errenkada, zutabea, kolorea);
+			System.out.println("blokea hutsik jarri da:"+ errenkada +","+ zutabea);
+			jok.getPuntuazioa().blokeaApurtu();
+			if (gel.getBlokea() instanceof Biguna ) {
+				blokeKop--;
+			}
+			this.suaJarri(errenkada, zutabea, kolorea);
+		}
+	}
+	
 	private void suaJarri(int errenkada, int zutabea, String kolorea) {
 		Gelaxka gel = gelaxkak[errenkada][zutabea];
 		gel.setSuaKolorea(kolorea);

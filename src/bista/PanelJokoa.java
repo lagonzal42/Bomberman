@@ -66,6 +66,9 @@ public class PanelJokoa extends JPanel implements PanelEgoera{
 				break;	
 			case KeyEvent.VK_ESCAPE:
 				System.exit(0);
+			case KeyEvent.VK_P:
+				mat.getEreduMapa().bonbaJarri();
+				break;
 			}
 		}
 		

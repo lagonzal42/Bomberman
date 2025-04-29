@@ -152,6 +152,12 @@ public class GelaxkaBista extends JLabel implements Observer{
 				case ULTRABONBA:
 					this.setIrudia("/bista/Sprites/bomb2.png");
 					break;
+				case JOKALARIABURBUILA:
+					this.setIrudia("/bista/Sprites/"+color+"Burbuila.png");
+					break;
+				case BURBUILASUA:
+					this.setIrudia("/bista/Sprites/miniBlast4.gif");
+					break;
 				default:
 					this.setIrudia("/bista/Sprites/"+color+"down1.png");
 					//path = "/bista/Sprites/whitedown1.png";
