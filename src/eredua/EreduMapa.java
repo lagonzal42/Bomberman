@@ -79,6 +79,22 @@ public abstract class EreduMapa {
 		return true;
 	}
 	
+	public void bonbaBabestu()
+	{
+		int y = jok.getY();
+		int x = jok.getX();
+		
+		if (gelaxkak[y][x].hutsikDago()) {
+			Gelaxka gel = gelaxkak [y][x];
+			//bonba jarri
+			Bonba bon = jok.getProtect();
+			if (bon != null) {
+				gel.setProtect(bon);
+				System.out.println("Protect jarri du ("+y+","+x+")");
+			}
+		}
+	}
+	
 	public void babestuBlokea(int errenkada, int zutabea, String kolorea) {
 		if (errenkada >= 0 && errenkada < 11 && zutabea >= 0 && zutabea < 17) {
 			Gelaxka gel = gelaxkak[errenkada][zutabea];

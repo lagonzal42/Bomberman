@@ -15,7 +15,6 @@ public abstract class Jokalaria{
 	private ArrayList<Bonba> bonbaZer;
 	private Bonba burbuila = new BonbaBurbuila();
 	private boolean giltzaDu = false;
-	private int kontBurb =1;
 	
 	public Jokalaria() {
 		//super(pIrudia);
@@ -167,6 +166,12 @@ public abstract class Jokalaria{
 	
 	public Puntuazioa getPuntuazioa() {
 		return this.puntuazioa;
+	}
+	
+	public Bonba getProtect() {
+		if (this.burbuila != null) {
+			return this.burbuila;
+		}
 	}
 
 }
