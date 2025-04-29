@@ -89,8 +89,10 @@ public abstract class EreduMapa {
 			//bonba jarri
 			Bonba bon = jok.getProtect();
 			if (bon != null) {
-				gel.setProtect(bon);
+			//	gel.setProtect(bon);
+				gel.setBonba(bon);
 				System.out.println("Protect jarri du ("+y+","+x+")");
+				bon.bonbaApurtu(x, y);
 			}
 		}
 	}

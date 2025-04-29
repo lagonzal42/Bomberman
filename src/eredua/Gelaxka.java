@@ -59,6 +59,11 @@ public class Gelaxka extends Observable{
 		}
 	}
 	
+	public void setProtect(Bonba bon) {
+		bonba = bon;
+		this.eguneratuGelaxka();
+	}
+	
 	public void setSua() {
 		//sua badago aurreko kontagailura gehitu
 		if (suaTimerra !=null) {
@@ -157,16 +162,20 @@ public class Gelaxka extends Observable{
 		else if (bonba !=null) {
 			if (bonba instanceof BonbaNormala) {
 				gM =GelaxkaMota.BONBA;
-			}else{
+			}else if (bonba instanceof UltraBonba){
 				gM = GelaxkaMota.ULTRABONBA;
+			}else {
+				gM= GelaxkaMota.JOKALARIABURBUILA;
 			}
 			
 		} 
 		else if (sua==true) {
 			if (suaKolorea=="horia") {
 				gM =GelaxkaMota.SUA;
-			}else{
+			}else if (suaKolorea=="morea"){
 				gM = GelaxkaMota.SUMOREA;
+			}else {
+				gM=GelaxkaMota.BURBUILASUA;
 			}
 		}
 		else if(giltza == true) {

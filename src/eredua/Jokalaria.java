@@ -171,6 +171,8 @@ public abstract class Jokalaria{
 	public Bonba getProtect() {
 		if (this.burbuila != null) {
 			return this.burbuila;
+		}else {
+			return null;
 		}
 	}
 
