@@ -110,7 +110,7 @@ public class PanelHasiera extends JPanel implements PanelEgoera{
 		
 		
 		//Mezua jarri
-		JLabel mezua = new JLabel("<space> to start, <m>usic, <o>ptions, <r>ecords && <esc> to exit");
+		JLabel mezua = new JLabel("<space> to start, <m>usic, <o>ptions, <r>ecords, <i>nstructions && <esc> to exit");
 		mezua.setFont(new Font("Times New Roman", Font.ITALIC, 18));
         mezua.setForeground(Color.BLACK);
         mezua.setHorizontalAlignment(SwingConstants.CENTER);
@@ -200,6 +200,9 @@ public class PanelHasiera extends JPanel implements PanelEgoera{
 			break;
 		case KeyEvent.VK_ESCAPE:
 			System.exit(0);
+			break;
+		case KeyEvent.VK_I:
+			JokoBista.getJokoBista().aldatuPanela("Instrukzioak");
 			break;
 		case KeyEvent.VK_SPACE:
 			System.out.println("2");

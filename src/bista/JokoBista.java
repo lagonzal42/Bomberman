@@ -66,6 +66,7 @@ public class JokoBista extends JFrame{
 	private PanelOptions panelOptions = new PanelOptions();
 	
 	private PanelRecords panelRecords = new PanelRecords();
+	private PanelInstrukzioak panelIns = new PanelInstrukzioak();
 
 	/**
 	 * Create the frame.
@@ -91,6 +92,7 @@ public class JokoBista extends JFrame{
 		mainPanel.add(panelAmaiera, "Amaiera");
 		mainPanel.add(panelOptions, "Options");
 		mainPanel.add(panelRecords, "Records");
+		mainPanel.add(panelIns, "Instrukzioak");
 		
 		getContentPane().add(mainPanel);
 		setVisible(true);
@@ -142,6 +144,9 @@ public class JokoBista extends JFrame{
 				e.printStackTrace();
 			}
 			panelEgoera = panelRecords;
+			break;
+		case("Instrukzioak"):
+			panelEgoera = panelIns;
 			break;
 		case("Jokoa"):
 			panelEgoera = panelJokoa;
