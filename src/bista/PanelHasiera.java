@@ -173,10 +173,18 @@ public class PanelHasiera extends JPanel implements PanelEgoera{
 				aukeratutakoPertsonaia --;
 				this.setAukeratutakoPertsonaia(aukeratutakoPertsonaia);
 			}
+			else {
+				aukeratutakoPertsonaia = 3;
+				this.setAukeratutakoPertsonaia(aukeratutakoPertsonaia);
+			}
 			break;
 		case KeyEvent.VK_RIGHT:
 			if(aukeratutakoPertsonaia + 1 <= 3) {
 				aukeratutakoPertsonaia ++;
+				this.setAukeratutakoPertsonaia(aukeratutakoPertsonaia);
+			}
+			else {
+				aukeratutakoPertsonaia = 1;
 				this.setAukeratutakoPertsonaia(aukeratutakoPertsonaia);
 			}
 			break;
