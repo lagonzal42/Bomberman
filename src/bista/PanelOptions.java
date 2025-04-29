@@ -23,6 +23,7 @@ public class PanelOptions extends JPanel implements PanelEgoera{
 	private JButton b1;
 	private JButton b2;
 	private JButton b3;
+	private JButton b4;
 
 	/**
 	 * Create the panel.
@@ -40,10 +41,11 @@ public class PanelOptions extends JPanel implements PanelEgoera{
 		add(titleLabel, BorderLayout.NORTH);
 		
 		JPanel erdikoPanela = new JPanel();
-		erdikoPanela.setLayout(new GridLayout(3,3));
+		erdikoPanela.setLayout(new GridLayout(3,4));
 		b1 = this.botoiaSortu("Klasikoa");
 		b2 = this.botoiaSortu("POP");
 		b3 = this.botoiaSortu("HEAVY");
+		b4 = this.botoiaSortu("TECH");
 		JLabel e1 = new JLabel("");
 		JLabel e2 = new JLabel("");
 		JLabel e3 = new JLabel("");
@@ -51,16 +53,23 @@ public class PanelOptions extends JPanel implements PanelEgoera{
 		JLabel e5 = new JLabel("");
 		JLabel e6 = new JLabel("");
 		JLabel e7 = new JLabel("");
+		JLabel e8 = new JLabel("");
+		JLabel e9 = new JLabel("");
+		JLabel e10 = new JLabel("");
+		JLabel e11 = new JLabel("");
 		
 		erdikoPanela.add(e1);
 		erdikoPanela.add(e2);
 		erdikoPanela.add(e3);
+		erdikoPanela.add(e4);
 		erdikoPanela.add(b1);
 		erdikoPanela.add(b2);
 		erdikoPanela.add(b3);
+		erdikoPanela.add(b4);
 		erdikoPanela.add(e5);
 		erdikoPanela.add(e6);
 		erdikoPanela.add(e7);
+		erdikoPanela.add(e8);
 		add(erdikoPanela, BorderLayout.CENTER);
 		JLabel atera = new JLabel("pantailatik ateratzeko spc sakatu.");
 		atera.setHorizontalAlignment(SwingConstants.CENTER);
@@ -105,6 +114,9 @@ public class PanelOptions extends JPanel implements PanelEgoera{
 			}
 			else if(e.getSource().equals(b3)) {
 				Bozgorailua.getBozgorailua().musikaAldatu("heavy");
+			}
+			else if(e.getSource().equals(b4)) {
+				Bozgorailua.getBozgorailua().musikaAldatu("techno");
 			}
 			
 		}
