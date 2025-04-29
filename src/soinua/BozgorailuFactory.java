@@ -32,6 +32,9 @@ public class BozgorailuFactory {
 		case("classic"):
 			musika = new AtzekoMusika("mozartNacht");
 			break;
+		case("techno"):
+			musika = new AtzekoMusika("hofe");
+			break;
 		default:
 			musika = new AtzekoMusika("backMusic");
 			break;
