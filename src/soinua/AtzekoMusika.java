@@ -11,7 +11,6 @@ public class AtzekoMusika extends Soinua{
 
 	@Override
 	public void hasi() {
-		clip.setFramePosition(0);
 		clip.loop(Clip.LOOP_CONTINUOUSLY);
 		
 	}
@@ -19,6 +18,11 @@ public class AtzekoMusika extends Soinua{
 	@Override
 	public void pausatu() {
 		clip.stop();
+		
+	}
+
+	public void reset() {
+		clip.setFramePosition(0);
 		
 	}
 

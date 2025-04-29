@@ -40,6 +40,7 @@ public class Bozgorailua implements Observer{
 	}
 	
 	public void musikaReset() {
+		this.musika.reset();
 		this.galdu.pausatu();
 		this.irabazi.pausatu();
 	}
