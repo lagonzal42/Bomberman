@@ -89,10 +89,18 @@ public abstract class EreduMapa {
 			//bonba jarri
 			Bonba bon = jok.getProtect();
 			if (bon != null) {
-			//	gel.setProtect(bon);
 				gel.setBonba(bon);
 				System.out.println("Protect jarri du ("+y+","+x+")");
 				bon.bonbaApurtu(x, y);
+				jok.burbuilaBlokAktibatu();
+				//bertan gelaxkan pertsonaira bueltatu
+				javax.swing.Timer bueltatu = new javax.swing.Timer(2000, e -> {
+	                gel.setBonba(null); 
+	                jok.burbuilaBlokDesaktibatu();
+	                gel.eguneratuGelaxka(); 
+	            });
+	            bueltatu.setRepeats(false);
+	            bueltatu.start();
 			}
 		}
 	}
@@ -100,14 +108,13 @@ public abstract class EreduMapa {
 	public void babestuBlokea(int errenkada, int zutabea, String kolorea) {
 		if (errenkada >= 0 && errenkada < 11 && zutabea >= 0 && zutabea < 17) {
 			Gelaxka gel = gelaxkak[errenkada][zutabea];
+			if (gel.getBlokea() instanceof Biguna ) {
+				blokeKop--;
+			}
 			gel.setBlokea(new Hutsik());
 			this.suaJarri(errenkada, zutabea, kolorea);
 			System.out.println("blokea hutsik jarri da:"+ errenkada +","+ zutabea);
 			jok.getPuntuazioa().blokeaApurtu();
-			if (gel.getBlokea() instanceof Biguna ) {
-				blokeKop--;
-			}
-			this.suaJarri(errenkada, zutabea, kolorea);
 		}
 	}
 	

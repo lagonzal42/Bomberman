@@ -15,6 +15,8 @@ public abstract class Jokalaria{
 	private ArrayList<Bonba> bonbaZer;
 	private Bonba burbuila = new BonbaBurbuila();
 	private boolean giltzaDu = false;
+	private boolean blokeatuta = false;
+	private int burbKont = 1;
 	
 	public Jokalaria() {
 		//super(pIrudia);
@@ -25,26 +27,35 @@ public abstract class Jokalaria{
 		azkenMugi = Mugimendu.BEHERA;
 		puntuazioa = new Puntuazioa();
 		bonbaZer = new ArrayList<Bonba>();
+				
 	}
 	
 	public void mugituGora(){
-		this.setAzkenMugi(Mugimendu.GORA);
-		this.mugitu(yPos-1, xPos);
+		if (!blokeatuta) {
+			this.setAzkenMugi(Mugimendu.GORA);
+			this.mugitu(yPos-1, xPos);
+		}
 	}
 	
 	public void mugituBehera(){
-		this.setAzkenMugi(Mugimendu.BEHERA);
-		this.mugitu(yPos+1, xPos);
+		if (!blokeatuta) {
+			this.setAzkenMugi(Mugimendu.BEHERA);
+			this.mugitu(yPos+1, xPos);
+		}
 	}
 	
 	public void mugituEzkerra(){
-		this.setAzkenMugi(Mugimendu.EZKER);
-		this.mugitu(yPos, xPos-1);
+		if (!blokeatuta) {
+			this.setAzkenMugi(Mugimendu.EZKER);
+			this.mugitu(yPos, xPos-1);
+		}
 	}
 	
 	public void mugituEskuma() {
-		this.setAzkenMugi(Mugimendu.ESKUIN);
-		this.mugitu(yPos, xPos+1);
+		if (!blokeatuta) {
+			this.setAzkenMugi(Mugimendu.ESKUIN);
+			this.mugitu(yPos, xPos+1);
+		}
 	}
 	
 	private void mugitu(int yPos1, int xPos1) {
@@ -169,11 +180,20 @@ public abstract class Jokalaria{
 	}
 	
 	public Bonba getProtect() {
-		if (this.burbuila != null) {
+		if (this.burbKont!=0) {
 			return this.burbuila;
 		}else {
 			return null;
 		}
 	}
-
+	
+	public void burbuilaBlokAktibatu() {
+		this.blokeatuta=true;
+		this.burbKont--;
+	}
+	
+	public void burbuilaBlokDesaktibatu() {
+		this.blokeatuta=false;
+	}
+	
 }

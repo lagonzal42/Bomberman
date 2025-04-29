@@ -59,11 +59,6 @@ public class Gelaxka extends Observable{
 		}
 	}
 	
-	public void setProtect(Bonba bon) {
-		bonba = bon;
-		this.eguneratuGelaxka();
-	}
-	
 	public void setSua() {
 		//sua badago aurreko kontagailura gehitu
 		if (suaTimerra !=null) {
@@ -127,8 +122,10 @@ public class Gelaxka extends Observable{
 				}else {
 					if (bonba instanceof BonbaNormala) {
 						gM = GelaxkaMota.JOKALARIBONBAREKIN;
-					}else {
+					}else if (bonba instanceof UltraBonba){
 						gM = GelaxkaMota.JOKALARIAULTRABONBAREKIN;
+					}else {
+						gM = GelaxkaMota.JOKALARIABURBUILA;
 					}
 				}	
 			}
