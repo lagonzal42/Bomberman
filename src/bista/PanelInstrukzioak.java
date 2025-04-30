@@ -17,6 +17,12 @@ public class PanelInstrukzioak extends JPanel implements PanelEgoera{
 		JPanel panelIns = new JPanel();
 		panelIns.setLayout(new BoxLayout(panelIns, BoxLayout.Y_AXIS));
 		
+		// JOLASA
+		JLabel jolasaLabel = new JLabel("<html><b>NOLA IRABAZI?:</b><br>"
+		        + "Bonbekin blokeak kendu eta etsai guztiak hil ondoren, giltza lortu eta mapatik atera irabazteko.<br>"
+		        + "Etsai bat edo bonbaren sua jokalaria arrapetzen badu, galduko du.</html>");
+		jolasaLabel.setFont(new Font("Arial", Font.PLAIN, 16));
+		
 		// TEKLAK
 		JLabel teklakLabel = new JLabel("<html><b>TEKLAK:</b><br>"
 		        + "B: bonba edo ultrabonda jarri.<br>"
@@ -24,7 +30,7 @@ public class PanelInstrukzioak extends JPanel implements PanelEgoera{
 		        + "Geziak: mugitzeko.</html>");
 		teklakLabel.setFont(new Font("Arial", Font.PLAIN, 16));
         
-		//PERTSONAIAK
+		// PERTSONAIAK
 		JLabel pertsonaiakLabel = new JLabel("<html><b>PERTSONAIAK:</b><br>"
 		        + "Zuria: bonba normalak ditu eta berezi bat.<br>"
 		        + "Beltza: ultrabonba du eta berezi bat.<br>"
@@ -45,13 +51,15 @@ public class PanelInstrukzioak extends JPanel implements PanelEgoera{
 		        + "Empty: Blokerik gabeko mapa.</html>");
 		mapakLabel.setFont(new Font("Arial", Font.PLAIN, 16));
 		
-		// MAPAK
+		// ETSAIAK
 		JLabel etsaiakLabel = new JLabel("<html><b>ETSAIAK:</b><br>"
 		        + "Larrosa: Etsai normalak, errazago hiltzeko.<br>"
 		        + "Urdina: Etsai adimentsuak, jokalaria jarraitzen dute.</html>");
 		etsaiakLabel.setFont(new Font("Arial", Font.PLAIN, 16));
 		
-		//JLabel panelean sartu
+		// JLabel panelean sartu
+		panelIns.add(jolasaLabel);
+		panelIns.add(Box.createVerticalStrut(10));
 		panelIns.add(teklakLabel);
 		panelIns.add(Box.createVerticalStrut(10));
 		panelIns.add(pertsonaiakLabel);
@@ -63,7 +71,9 @@ public class PanelInstrukzioak extends JPanel implements PanelEgoera{
 		panelIns.add(etsaiakLabel);
 		panelIns.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 		
-		add(panelIns, BorderLayout.WEST);
+		// PANTAILATU
+		JScrollPane scrollPane = new JScrollPane(panelIns);
+		add(scrollPane, BorderLayout.WEST);
         
 	}
 
