@@ -74,7 +74,7 @@ public class Gelaxka extends Observable{
 			this.etsaia.geldituEtsaia();
 	        this.etsaia = null;
 	        JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().etsaiakMurriztu();
-	        JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getJokalaria().getPuntuazioa().etsaiaHil();
+	        JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getJokalaria().getPuntuazioa().etsaiaHil(etsaia);
 		}
 		
 		if (bonba!=null) {

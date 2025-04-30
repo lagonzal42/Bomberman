@@ -40,21 +40,54 @@ public class Puntuazioa {
 		punt += 10;
 	}
 	
-	public void etsaiaHil() {
-		if(denbora < 10) {
-			punt += 100;
-		}
-		else if(denbora < 20) {
-			punt += 50;
+	public void etsaiaHil(Etsaia etsaia) {
+		if(etsaia instanceof EtsaiIntelijentea) {
+			if(denbora < 10) {
+				punt += 100;
+			}
+			else if(denbora < 20) {
+				punt += 50;
+			}
+			else {
+				punt += 25;
+			}			
 		}
 		else {
-			punt += 25;
+			if(denbora < 10) {
+				punt += 60;
+			}
+			else if(denbora < 20) {
+				punt += 30;
+			}
+			else {
+				punt += 15;
+			}			
 		}
 	}
 	public void irabazi() {
 		if(amaitu == false) {
-			punt = (punt+1000-denbora);
-			amaitu = true;			
+			if(JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getJokalaria() instanceof Zuria) {
+				punt = (punt+1000-denbora);
+				amaitu = true;
+			}
+			else if(JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getJokalaria() instanceof Beltza) {
+				punt = (punt + 800 - denbora);
+				amaitu = true;
+			}
+			else {
+				punt = (punt + 900 - denbora);
+				amaitu = true;
+			}
+			
+			if(JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa() instanceof EreduMapaClassic) {
+				punt = (punt + 100);
+			}
+			else if(JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa() instanceof EreduMapaSoft) {
+				punt = (punt + 200);
+			}
+			else {
+				punt = (punt + 300);
+			}
 		}
 	}
 	
