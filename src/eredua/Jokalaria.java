@@ -16,7 +16,6 @@ public abstract class Jokalaria{
 	private Bonba burbuila = new BonbaBurbuila();
 	private boolean giltzaDu = false;
 	private boolean blokeatuta = false;
-	private int burbKont = 1;
 	
 	public Jokalaria() {
 		//super(pIrudia);
@@ -180,7 +179,7 @@ public abstract class Jokalaria{
 	}
 	
 	public Bonba getProtect() {
-		if (this.burbKont!=0) {
+		if (this.burbuila!= null) {
 			return this.burbuila;
 		}else {
 			return null;
@@ -189,7 +188,7 @@ public abstract class Jokalaria{
 	
 	public void burbuilaBlokAktibatu() {
 		this.blokeatuta=true;
-		this.burbKont--;
+		this.burbuila = null;
 	}
 	
 	public void burbuilaBlokDesaktibatu() {
