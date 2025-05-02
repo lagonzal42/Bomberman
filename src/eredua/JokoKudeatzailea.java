@@ -1,5 +1,7 @@
 package eredua;
 
+import javax.swing.Timer;
+
 import bista.JokoBista;
 import common.Mugimendu;
 import soinua.Bozgorailua;
@@ -9,6 +11,7 @@ public class JokoKudeatzailea{
 	private static JokoKudeatzailea nJK = null;
 	private EreduMapa eMapa;
 	private boolean irabazi = false;
+	private boolean partidaBukatu;
 	
 	private JokoKudeatzailea() {
 		
@@ -31,6 +34,7 @@ public class JokoKudeatzailea{
 	{
 		eMapa = EreduMapaFactory.getMF().mapaSortu(pMapaMota, pJokalariMota);
 		Bozgorailua.getBozgorailua().jarriListenerrak();
+		partidaBukatu = false;
 	}
 	
 	public void mapaErreseteatu() {
@@ -44,5 +48,18 @@ public class JokoKudeatzailea{
 	
 	public boolean getIrabazi() {
 		return irabazi;
+	}
+	
+	public void partidaBukatu()
+	{
+		if (!partidaBukatu)
+		{
+			partidaBukatu = true;
+			Timer animazioa = new Timer(2000, e -> {
+				((Timer) e.getSource()).stop();
+				JokoBista.getJokoBista().itxi(true);
+	        });
+	        animazioa.start();
+		}
 	}
 }

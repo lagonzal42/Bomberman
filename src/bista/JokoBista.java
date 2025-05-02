@@ -50,7 +50,6 @@ public class JokoBista extends JFrame{
 	private JPanel mainPanel;
 	private Controler controler = null;
 	private static JokoBista jb = null;
-	private Mapa mapa;
 	private PanelEgoera panelEgoera;
 	
 	//Jokoa
@@ -108,11 +107,6 @@ public class JokoBista extends JFrame{
 		if (jb == null)
 			jb = new JokoBista();
 		return (jb);
-	}
-	
-	public Mapa getMapa()
-	{
-		return (mapa);
 	}
 	
 	public void setPanelJokoaFondoa(int pFondoa) {

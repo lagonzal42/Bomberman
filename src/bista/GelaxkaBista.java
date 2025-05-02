@@ -49,9 +49,17 @@ public class GelaxkaBista extends JLabel implements Observer{
 		// TODO Auto-generated method stub
 		GelaxkaMota gelMota = (GelaxkaMota)arg;
 		Timer animazioa;
+		String color = null;
 		
 		System.out.println("gelaxka orain " + arg);
-		String color = JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getJokalaria().getColor();
+		try
+		{
+			color = JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getJokalaria().getColor();
+		}
+		catch(NullPointerException e)
+		{
+			gelMota = null;
+		}
 		
 		if (gelMota == null)
 			this.setIrudia(null);
@@ -113,19 +121,19 @@ public class GelaxkaBista extends JLabel implements Observer{
 					break;
 				case JOKALARIASUAREKIN:
 					this.setIrudia("/bista/Sprites/onFire2.png");
-					animazioa = new Timer(2000, e -> {
+					/*animazioa = new Timer(2000, e -> {
 						((Timer) e.getSource()).stop();
-						JokoBista.getJokoBista().itxi(true);
+						//JokoBista.getJokoBista().itxi(true);
 			        });
-			        animazioa.start();
+			        animazioa.start();*/
 					break;
 				case JOKALARIAHARRAPATUTA:
 					this.setIrudia("/bista/Sprites/harrapatuta.png");
-					animazioa = new Timer(2000, e -> {
+					/*animazioa = new Timer(2000, e -> {
 						((Timer) e.getSource()).stop();
 						JokoBista.getJokoBista().itxi(true);
 					});
-					animazioa.start();
+					animazioa.start();*/
 					break;
 				case ETSAIAESKUMA:
 					this.setIrudia("/bista/Sprites/baloon1.png");
@@ -143,11 +151,11 @@ public class GelaxkaBista extends JLabel implements Observer{
 					break;
 				case IRABAZI:
 					//this.setIrudia("/bista/Sprites/miniBlast1.gif");
-					animazioa = new Timer(2000, e -> {
+					/*animazioa = new Timer(2000, e -> {
 						((Timer) e.getSource()).stop();
-						JokoBista.getJokoBista().itxi(false);
+					//	JokoBista.getJokoBista().itxi(false);
 			        });
-			        animazioa.start();
+			        animazioa.start();*/
 			        break;
 				case ULTRABONBA:
 					this.setIrudia("/bista/Sprites/bomb2.png");

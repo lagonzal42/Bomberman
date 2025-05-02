@@ -92,6 +92,7 @@ public abstract class Jokalaria{
 				JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).setJokalaria(null);
 				JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
 				JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos1, xPos1).setJokalaria(this);
+				JokoKudeatzailea.getJokoKudeatzaileaa().partidaBukatu();
 			}
 		}
 	}
@@ -127,6 +128,7 @@ public abstract class Jokalaria{
 	
 	public void setHilda() {
 		this.hil = true;
+		JokoKudeatzailea.getJokoKudeatzaileaa().partidaBukatu();
 	}
 	
 	public int getBonbaKop() {

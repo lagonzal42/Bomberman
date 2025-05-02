@@ -24,7 +24,7 @@ public class PanelJokoa extends JPanel implements PanelEgoera{
 	public PanelJokoa() {
 		setLayout(new GridLayout(11,17,0,0));
 		setOpaque(false);
-		mapa = new Mapa(this);
+		hasieratuMapa();
 	}
 	
 	@Override
@@ -41,6 +41,11 @@ public class PanelJokoa extends JPanel implements PanelEgoera{
 	
 	public Mapa getMapa() {
 		return mapa;
+	}
+	
+	public void hasieratuMapa()
+	{
+		mapa = new Mapa(this);
 	}
 
 	@Override
