@@ -35,6 +35,7 @@ public class JokoKudeatzailea{
 		eMapa = EreduMapaFactory.getMF().mapaSortu(pMapaMota, pJokalariMota);
 		Bozgorailua.getBozgorailua().jarriListenerrak();
 		partidaBukatu = false;
+		irabazi = false;
 	}
 	
 	public void mapaErreseteatu() {
@@ -50,14 +51,14 @@ public class JokoKudeatzailea{
 		return irabazi;
 	}
 	
-	public void partidaBukatu()
+	public void partidaBukatu(boolean irabazi)
 	{
 		if (!partidaBukatu)
 		{
 			partidaBukatu = true;
 			Timer animazioa = new Timer(2000, e -> {
 				((Timer) e.getSource()).stop();
-				JokoBista.getJokoBista().itxi(true);
+				JokoBista.getJokoBista().itxi(!irabazi);
 	        });
 	        animazioa.start();
 		}
