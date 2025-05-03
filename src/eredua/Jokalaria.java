@@ -73,16 +73,16 @@ public abstract class Jokalaria{
 				this.giltzaDu = true;
 			}
 			if (JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).getSua() == true) {
-				this.hil = true;
 				this.setAzkenMugi(Mugimendu.HILDAS);
 				JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().etsaiakGelditu();
 				this.puntuazioa.galdu();
+				this.setHilda();
 			}
 			else if(JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos,xPos).getEtsaia() != null) {
-				this.hil = true;
 				this.setAzkenMugi(Mugimendu.HILDAE);
 				JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().etsaiakGelditu();
 				this.puntuazioa.galdu();
+				this.setHilda();
 			}
 			JokoKudeatzailea.getJokoKudeatzaileaa().getEreduMapa().getGelaxka(yPos, xPos).eguneratuGelaxka();
 		}
