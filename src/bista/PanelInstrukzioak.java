@@ -20,7 +20,7 @@ public class PanelInstrukzioak extends JPanel implements PanelEgoera{
 		// JOLASA
 		JLabel jolasaLabel = new JLabel("<html><b>NOLA IRABAZI?:</b><br>"
 		        + "Bonbekin blokeak kendu eta etsai guztiak hil ondoren, giltza lortu eta mapatik atera irabazteko.<br>"
-		        + "Etsai bat edo bonbaren sua jokalaria arrapetzen badu, galduko du.</html>");
+		        + "Etsai bat edo bonbaren sua jokalaria harrapetzen badu, galduko du.</html>");
 		jolasaLabel.setFont(new Font("Arial", Font.PLAIN, 16));
 		
 		// TEKLAK
@@ -39,9 +39,9 @@ public class PanelInstrukzioak extends JPanel implements PanelEgoera{
 		
 		// BONBAK
 		JLabel bonbakLabel = new JLabel("<html><b>BONBAK:</b><br>"
-		        + "Bonba normala: bere alboetan estanda egiten du.<br>"
-		        + "Ultrabonba: dagoen fila osoan estanda egiten du.<br>"
-		        + "Bonba berezia: alboan eta diagonaletan estanda egiten du, ez zaitu hiltzen eta bloke gogorrak <br> apurtzen ditu.</html>");
+		        + "Bonba normala: bere alboetan eztanda egiten du.<br>"
+		        + "Ultrabonba: dagoen fila osoan eztanda egiten du.<br>"
+		        + "Bonba berezia: alboan eta diagonaletan eztanda egiten du, ez zaitu hiltzen eta bloke gogorrak <br> apurtzen ditu.</html>");
 		bonbakLabel.setFont(new Font("Arial", Font.PLAIN, 16));
 		
 		// MAPAK
